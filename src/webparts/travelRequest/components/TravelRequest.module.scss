@@ -1,0 +1,405 @@
+@import '~@microsoft/sp-office-ui-fabric-core/dist/sass/SPFabricCore.scss';
+
+.travelRequest {
+  .container {
+    max-width: 700px;
+    margin: 0px auto;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  .row {
+    @include ms-Grid-row;
+    @include ms-fontColor-white;
+    background-color: $ms-color-themeDark;
+    padding: 20px;
+  }
+
+  .column {
+    @include ms-Grid-col;
+    @include ms-lg10;
+    @include ms-xl8;
+    @include ms-xlPush2;
+    @include ms-lgPush1;
+  }
+
+  .title {
+    @include ms-font-xl;
+    @include ms-fontColor-white;
+  }
+
+  .subTitle {
+    @include ms-font-l;
+    @include ms-fontColor-white;
+  }
+
+  .description {
+    @include ms-font-l;
+    @include ms-fontColor-white;
+  }
+
+  .currencyFormatting input {
+    font-size: 12px !important;
+  }
+
+  .button {
+    // Our button
+    text-decoration: none;
+    height: 32px;
+
+    // Primary Button
+    min-width: 80px;
+    background-color: $ms-color-themePrimary;
+    border-color: $ms-color-themePrimary;
+    color: $ms-color-white;
+
+    // Basic Button
+    outline: transparent;
+    position: relative;
+    font-family: "Segoe UI WestEuropean","Segoe UI",-apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-size: $ms-font-size-m;
+    font-weight: $ms-font-weight-regular;
+    border-width: 0;
+    text-align: center;
+    cursor: pointer;
+    display: inline-block;
+    padding: 0 16px;
+
+    .label {
+      font-weight: $ms-font-weight-semibold;
+      font-size: $ms-font-size-m;
+      height: 32px;
+      line-height: 32px;
+      margin: 0 4px;
+      vertical-align: top;
+      display: inline-block;
+    }
+  }
+  .currencyFldWrapper{
+    display: flex;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: rgb(166, 166, 166);
+    width: 100%;
+    min-height: 31px;
+
+    :focus{
+      border-color: #0078d4;
+      border-bottom-style: solid;
+      border-bottom-width: 1px;
+    }
+
+    label{
+      font-family: "Segoe UI", "Segoe UI Web (West European)", "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+      -webkit-font-smoothing: antialiased;
+      font-size: 14px;
+      font-weight: 400;
+      color: rgb(51, 51, 51);
+      box-sizing: border-box;
+      box-shadow: none;
+      margin-top: 0px;
+      margin-right: 8px;
+      margin-bottom: 0px;
+      margin-left: 0px;
+      display: block;
+      padding-top: 5px;
+      padding-right: 0px;
+      padding-bottom: 5px;
+      padding-left: 12px;
+      overflow-wrap: break-word;
+      line-height: 22px;
+      //height: 32px;
+    }
+    input{
+      border-top-style: none;
+      border-right-style: none;
+      border-left-style: none;
+      border-bottom-style: none;
+      outline: 0px;
+      padding-top: 5px;
+      padding-right: 0px;
+      padding-bottom: 5px;
+      padding-left: 12px;
+      text-align: right;
+      width: inherit;
+    }
+    span{
+      padding-top: 5px;
+      padding-right: 0px;
+      padding-bottom: 5px;
+      padding-left: 12px;
+      //min-width: 40px;
+      background-color: #f4f4f4;
+      text-align: right;
+      width: inherit;
+    }
+  }
+  .padTopAndSides{
+    padding-top: 4px;
+    padding-left: 5px;
+    padding-right: 5px;
+    white-space: nowrap;
+  }
+  .hide{
+    display: none;
+  }
+  .columnMinHeight{
+    min-height: 28px;
+  }
+  .subsistenceInputs{
+    input{
+      max-width: 40px;
+    }    
+  }
+  .approvalBox{
+    background-color: #f4f4f4;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: rgb(166, 166, 166);
+    padding: 5px;
+  }
+  .approvalTitle{
+    background: #f4f4f4;
+    padding: 0 5px 2px 5px;
+  }
+
+  .buttonSpacing{    
+    margin-right: 10px;
+  }
+  .actionBtn {
+    font-size: 14px;
+  }
+  .attachText{
+    padding-top: 10px;
+  }
+
+  .DatepickerComboBox{
+    min-width: 120px;
+  }
+  .widthInHorizontalStackFix{
+    min-width: 200px;
+  }
+  .printShow{
+    display: none ;
+  }
+}
+.ChooseFileButton{
+  padding: 10px;
+}
+.underlineText{
+  
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: rgb(166, 166, 166);
+  width: 100%;
+  min-height: 22px !important;
+  box-sizing: border-box;
+  box-shadow: none;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  display: block;
+  padding-top: 5px;
+  padding-right: 0px;
+  padding-bottom: 8px;
+  padding-left: 12px;
+}
+
+.specialApprText{
+  width: 100%;
+  min-height: 22px !important;
+  box-sizing: border-box;
+  box-shadow: none;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  display: block;
+  padding-top: 10px;
+  padding-right: 0px;
+  padding-bottom: 0px;
+  padding-left: 12px;
+}
+
+
+.GreyedOut{
+  input{
+    background-color: #f4f4f4;
+  }
+  
+}
+
+.inputMaskControl{
+  border: none;
+  padding-left: 10px;
+}
+
+.addDollarSign::before{
+  content: "$";
+  padding-top: 0px;
+}
+
+.validationMessage{
+  color: red;
+}
+
+
+@media print{
+/*place print css for controlled classes here (i.e. styles.classname)*/
+
+  //div{ border: 1px solid black; }
+
+  .inputMaskDateOnly{
+    width: 80px;
+  }
+  .inputMaskControl{
+    padding-left: 4px;
+    font-size: 9px;
+  }
+  .printHide{
+    display:none;
+  }
+  .printShow{
+    display: block !important;
+    font-size: 9px;
+  }
+  
+  h5{
+    font-size: 10px;
+  }
+  
+  .disabledCurrency{
+    background-color:#f4f4f4;
+  }
+
+  .underlineText{
+    font-size: 9px;
+    box-sizing: border-box;
+    font-weight: 700;
+    color: rgb(51, 51, 51);
+    box-sizing: border-box;
+    box-shadow: none;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    display: block;
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    padding-left: 12px;
+    overflow-wrap: break-word;
+    line-height: 10px;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    border-bottom-color: black;
+  }
+
+  .specialApprText{
+    width: 100%;
+    font-size: 9px;    
+    box-sizing: border-box;
+    box-shadow: none;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    display: block;
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    padding-left: 12px;
+    font-weight: 700;
+  }
+
+  .currencyFldWrapper{ 
+    display: flex;
+    border-bottom-width: 2px !important;
+    border-bottom-style: solid;
+    width: 100%;
+    min-height: 22px !important;
+    border-bottom-color:black !important;
+
+    label{
+      font-family: "Segoe UI", "Segoe UI Web (West European)", "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+      -webkit-font-smoothing: antialiased;
+      font-size: 9px;
+      font-weight: 700;
+      color: rgb(51, 51, 51);
+      box-sizing: border-box;
+      box-shadow: none;
+      margin-top: 0px;
+      margin-right: 8px;
+      margin-bottom: 0px;
+      margin-left: 0px;
+      display: block;
+      padding-top: 5px;
+      padding-right: 0px;
+      padding-bottom: 5px;
+      padding-left: 12px;
+      overflow-wrap: break-word;
+      line-height: 10px;
+      //height: 32px;
+    }
+    input{
+      font-size: 9px;
+      font-weight: 700;
+      border-top-style: none;
+      border-right-style: none;
+      border-left-style: none;
+      border-bottom-style: none;
+      outline: 0px;
+      padding-top: 2px;
+      padding-right: 0px;
+      padding-bottom: 2px;
+      padding-left: 12px;
+      text-align: right;
+      width: inherit;
+    }
+    span{
+      font-size: 9px;
+      font-weight: 700;
+      padding-top: 2px;
+      padding-right: 0px;
+      padding-bottom: 2px;
+      padding-left: 12px;
+      min-width: 40px;
+      background-color: #f4f4f4;
+      text-align: right;
+      width: inherit;
+    }
+    .DatepickerComboBox{
+      min-width: auto;
+    }
+  }
+
+  .padTopAndSides{
+    font-size: 9px;
+    font-weight: 700;
+  }
+  .smallWhenPrinting{
+    font-size: 9px;
+    font-weight: 700;
+  }
+  .approvalTitle{
+    background: grey;
+    font-size: 10px;
+  }
+  .buttonSpacing{    
+    display: none;
+  }
+  .addDollarSign::before{
+      content: "$";
+      padding-top: 3px;
+      font-size: 10px;
+      //border-bottom-width: 2px !important;
+      border-bottom-style: none;
+      border-bottom:none;
+  }
+  .approvalTitle{
+    font-size: 9px;
+  }
+
+  .bigTextBox{
+    min-height: 30px;
+    height: 30px;
+  }
+  //end of print media
+} 

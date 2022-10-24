@@ -1,0 +1,13 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "travel-request-client-side-solution",
+    "id": "32e5bbf5-09ac-46f0-8ef0-0d7396e69267",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "isDomainIsolated": false
+  },
+  "paths": {
+    "zippedPackage": "solution/travel-request.sppkg"
+  }
+}

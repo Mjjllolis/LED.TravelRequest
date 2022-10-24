@@ -1,0 +1,186 @@
+
+@media print{ */
+    /*place print css for normal classes here */
+    
+    body * {
+        visibility: hidden;
+      }
+    
+      .printarea, .printarea *{
+        visibility: visible;
+      }
+      .printarea{
+        left: 0;
+        top: 0;
+        position: absolute;
+      }
+    
+    
+    .ms-Label{
+        font-size: 9px;
+        height: 18px;
+        padding-top: 0px;
+        font-weight: 700;
+        color:black;
+    }
+    
+    /* .ms-TextField-wrapper .ms-Label {
+        height: 15px;
+    } */
+    .ms-Checkbox-text {
+        font-weight: 700;
+        color:black;
+        line-height: 10px;
+        font-size: 9px !important;
+    }
+    .ms-TextField-wrapper {
+        border-color: #000;
+        border-bottom-width: 2px;
+        color:black;
+        font-weight: 700;
+    }
+
+    .ms-TextField-field{
+        font-size: 9px;
+        padding-top: 0px;
+        height: 10px;
+    }
+    
+    .ms-TextField-fieldGroup{
+        font-size: 9px;
+        height: 10px;
+        /*min-height: 10px;*/
+    }
+    .ms-TextField-description{
+        font-size: 6px;
+    }
+    input{
+        font-weight: 700;
+    }
+    /* .ms-TextField-wrapper .ms-TextField-fieldGroup {
+        height: 15px !important;
+    } */
+    .ms-TextField{
+        border-color:black;
+        font-weight: 700;
+        color: black;
+    }
+    .ms-TextField-description{
+        border-color:black;
+        font-weight: 700;
+        font-size: 8px;
+        color:black;
+    }
+    .ms-Checkbox-label{
+        font-weight: 700;
+    }
+    .msDatePickerDisabled {
+        top: 0px;
+    }
+    .ms-Dropdown-title {
+        height: 22px;
+        line-height: 22px;
+    }
+
+    .ms-Dropdown{
+        font-size: 9px;
+    }
+
+    .caretDownWrapper{
+        line-height: 22px;
+    }
+    .ms-Persona-primaryText{
+        font-size: 9px;
+    }
+
+    .ms-ChoiceFieldLabel{
+        font-size: 9px !important;
+    }
+
+    .ms-ChoiceField {
+        margin-top: 0px;
+        /* min-height: 15px; */
+    }
+
+    .ms-ChoiceField-field:before {
+        width: 9px !important;
+        height: 9px !important;
+        top: 1px;
+      }
+      
+    .ms-ChoiceField-field:after {
+        width: 1px;
+        height: 1px;
+        left: 0px;
+        top: 7px;
+    }
+
+    .ms-Checkbox-checkbox{
+        width: 10px !important;
+        height: 10px !important;
+        margin-top: 0px;
+    }
+
+    .ms-Button{
+        font-size: 9px;
+    }
+
+    .HideElement{
+        display: none;
+    }
+
+    .padTopAndSides_0f29183d{
+        font-size: 9px;
+        height: 22px;
+    }
+    
+    .ms-Stack{
+        height: 10px;
+    }
+    .smallCurrency{
+        height: 24px;
+    }
+    .msDatePickerDisabled{
+        display:none ;
+    }
+    h2{
+        font-size: 10px;
+        margin-block-start: 0px;
+        margin-block-end: 0px;
+    }
+    h3{
+        font-size: 10px;
+        margin-block-start: 0px;
+        margin-block-end: 0px;
+    }
+    h5{
+        font-size: 10px;
+        margin-block-start: 0px;
+        margin-block-end: 0px;
+    }
+    .ms-Button--action{
+        display: none;
+    }
+    .airTravelQuestion{
+        font-size: 9px;
+    }
+    .is-checked div{
+        background-color:darkgrey;
+    }
+    i.ms-Checkbox-checkmark {
+        color: black;
+        font-weight: 900px;
+    }
+    hr {
+        height: 2px;
+        color: #333;
+        background-color: #333;
+        background: black;
+        border:none;
+        margin-block-start: 3px;
+        margin-block-end: 3px;
+    }
+    i.ms-DatePicker-event--with-label {
+        display: none;
+    }
+}
