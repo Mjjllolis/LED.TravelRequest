@@ -1540,10 +1540,13 @@ export default class TravelRequest extends React.Component<
             </div>
           </div>
         </div>
+
         {/* Old */}
+        <br></br>
+        <br></br>
+        <br></br>
         {/* Old */}
-        {/* Old */}
-        {/* Old */}
+
         <div className="form-group">
           <div className="ms-Grid" dir="ltr">
             <div className="ms-Grid-row">
