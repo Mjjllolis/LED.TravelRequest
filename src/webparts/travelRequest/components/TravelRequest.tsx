@@ -1398,17 +1398,18 @@ export default class TravelRequest extends React.Component<
             </div>
           </div>
 
-          {/* Section A Row 1*/}
+          {/* Section A*/}
           <div className="container">
+            {/* Section A Row 1*/}
             <div className="ms-Grid-row">
-              <h2 className="ms-Grid-col">
-                Section A: General Information- Complete All Info
-              </h2>
+              <h2>Section A: General Information- Complete All Info</h2>
             </div>
+
+            {/* Section A Row 2*/}
             <div className="ms-Grid-row">
               <TextField
-                className="ms-Grid-col"
                 underlined
+                className="ms-Grid-col ms-sm4 ms-md4 ms-lg4"
                 label="Name:"
                 name="name"
                 value={reqData.employeeName}
@@ -1424,8 +1425,8 @@ export default class TravelRequest extends React.Component<
                 onChange={this.handlereqDataTextChange.bind(this)}
               />
               <TextField
-                className="ms-Grid-col"
                 underlined
+                className="ms-Grid-col ms-sm4 ms-md4 ms-lg4"
                 label="Destination:"
                 name="Destination"
                 value={reqData.destination}
@@ -1440,7 +1441,7 @@ export default class TravelRequest extends React.Component<
                 disabled={disableControls}
                 onChange={this.handlereqDataTextChange.bind(this)}
               />
-              <Stack horizontal>
+              <Stack horizontal className="ms-Grid-col ms-sm4 ms-md4 ms-lg4">
                 <Label required>Departure:</Label>
                 <MaskedInput
                   mask="11/11/1111"
@@ -1463,12 +1464,12 @@ export default class TravelRequest extends React.Component<
                 />
               </Stack>
             </div>
-          </div>
 
-          {/* Section A Row 2*/}
-          <div className="container">
+            {/* Section A Row 2*/}
+            <br></br>
             <div className="ms-Grid-row">
               <TextField
+                underlined
                 className="ms-Grid-col"
                 label="Agency:"
                 name="Agency"
@@ -1485,6 +1486,7 @@ export default class TravelRequest extends React.Component<
                 onChange={this.handlereqDataTextChange.bind(this)}
               />
               <TextField
+                underlined
                 className="ms-Grid-col"
                 label="Section:"
                 name="Section"
@@ -1501,6 +1503,7 @@ export default class TravelRequest extends React.Component<
                 onChange={this.handlereqDataTextChange.bind(this)}
               />
               <TextField
+                underlined
                 className="ms-Grid-col"
                 label="Mode of Transportation:"
                 name="Mode of Transportation"
@@ -1517,12 +1520,12 @@ export default class TravelRequest extends React.Component<
                 onChange={this.handlereqDataTextChange.bind(this)}
               />
             </div>
-          </div>
 
-          {/* Section A Row 3*/}
-          <div className="container">
-            <div className="ms-Grid-row">
+            {/* Section A Row 3*/}
+            <br></br>
+            <div className="ms-Grid-col ms-sm12 ms-md12 ms-lg12">
               <TextField
+                underlined
                 label="Purpose/Justification For Travel:"
                 name="Purpose/Justification For Travel"
                 value={"Purpose Of Trip"}
@@ -1542,6 +1545,8 @@ export default class TravelRequest extends React.Component<
         </div>
 
         {/* Old */}
+        <br></br>
+        <br></br>
         <br></br>
         <br></br>
         <br></br>
