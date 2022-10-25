@@ -1470,7 +1470,7 @@ export default class TravelRequest extends React.Component<
             <div className="ms-Grid-row">
               <TextField
                 underlined
-                className="ms-Grid-col"
+                className="ms-Grid-col ms-sm4 ms-md4 ms-lg4"
                 label="Agency:"
                 name="Agency"
                 value={reqData.agency}
@@ -1487,24 +1487,24 @@ export default class TravelRequest extends React.Component<
               />
               <TextField
                 underlined
-                className="ms-Grid-col"
-                label="Section:"
-                name="Section"
-                value={"Section"}
+                className="ms-Grid-col ms-sm4 ms-md4 ms-lg4"
+                label="Section/Division:"
+                name="Section/Division"
+                value={"Section/Division"}
                 required={true}
                 validateOnLoad={false}
                 onGetErrorMessage={this.genericValidation.bind(
                   this,
                   name,
-                  stringIsNullOrEmpty("Section"),
-                  "Section Required"
+                  stringIsNullOrEmpty("Section/Division"),
+                  "Section/Division Required"
                 )}
                 disabled={disableControls}
                 onChange={this.handlereqDataTextChange.bind(this)}
               />
               <TextField
                 underlined
-                className="ms-Grid-col"
+                className="ms-Grid-col ms-sm4 ms-md4 ms-lg4"
                 label="Mode of Transportation:"
                 name="Mode of Transportation"
                 value={"Mode Of Transportation"}
@@ -1523,19 +1523,20 @@ export default class TravelRequest extends React.Component<
 
             {/* Section A Row 3*/}
             <br></br>
-            <div className="ms-Grid-col ms-sm12 ms-md12 ms-lg12">
+            <div className="ms-Grid-row">
               <TextField
                 underlined
-                label="Purpose/Justification For Travel:"
-                name="Purpose/Justification For Travel"
-                value={"Purpose Of Trip"}
+                className="ms-Grid-col ms-sm12 ms-md12 ms-lg12"
+                label="Justification for trip:"
+                name="Justification for trip"
+                value={"Justification for trip"}
                 required={true}
                 validateOnLoad={false}
                 onGetErrorMessage={this.genericValidation.bind(
                   this,
                   name,
-                  stringIsNullOrEmpty("Purpose Of Trip"),
-                  "Purpose For Trip Required"
+                  stringIsNullOrEmpty("Justification for trip"),
+                  "Justification for trip"
                 )}
                 disabled={disableControls}
                 onChange={this.handlereqDataTextChange.bind(this)}
