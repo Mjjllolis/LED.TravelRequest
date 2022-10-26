@@ -1381,7 +1381,7 @@ export default class TravelRequest extends React.Component<
         <ToastContainer position="bottom-center" hideProgressBar={true} />
         <div className="form-group">
           {/* Header Text */}
-          <div className="container">
+          <div className="ms-Grid">
             <div className="ms-Grid-row">
               <h2 className="col align-self-center title">
                 Travel Request Form
@@ -1399,7 +1399,7 @@ export default class TravelRequest extends React.Component<
           </div>
 
           {/* Section A*/}
-          <div className="container">
+          <div className="ms-Grid">
             {/* Section A Row 1*/}
             <div className="ms-Grid-row">
               <h2>Section A: General Information- Complete All Info</h2>
@@ -1409,7 +1409,7 @@ export default class TravelRequest extends React.Component<
             <div className="ms-Grid-row">
               <TextField
                 underlined
-                className="ms-Grid-col ms-sm4 ms-md4 ms-lg4"
+                className="ms-Grid-col ms-sm8 ms-md8 ms-lg8"
                 label="Name:"
                 name="name"
                 value={reqData.employeeName}
@@ -1441,31 +1441,55 @@ export default class TravelRequest extends React.Component<
                 disabled={disableControls}
                 onChange={this.handlereqDataTextChange.bind(this)}
               />
-              <Stack horizontal className="ms-Grid-col ms-sm4 ms-md4 ms-lg4">
-                <Label required>Departure:</Label>
-                <MaskedInput
-                  mask="11/11/1111"
-                  name="departureDateStr"
-                  onChange={this.handleMaskedDateWithValidation.bind(this)}
-                  value={reqData.departureDateStr}
-                  className={styles.inputMaskControl}
-                  disabled={disableControls}
-                  required={true}
-                />
-                <Label required>Return:</Label>
-                <MaskedInput
-                  mask="11/11/1111"
-                  name="returnDateStr"
-                  onChange={this.handleMaskedDateWithValidation.bind(this)}
-                  value={reqData.returnDateStr}
-                  className={styles.inputMaskControl}
-                  disabled={disableControls}
-                  required={true}
-                />
-              </Stack>
             </div>
 
             {/* Section A Row 2*/}
+            <br></br>
+            <div className="ms-Grid">
+              <div className="ms-Grid-row">
+                <TextField
+                  underlined
+                  className="ms-Grid-col ms-sm8 ms-md8 ms-lg8"
+                  label="Title:"
+                  name="Title"
+                  value={"Title"}
+                  required={true}
+                  validateOnLoad={false}
+                  onGetErrorMessage={this.genericValidation.bind(
+                    this,
+                    name,
+                    stringIsNullOrEmpty(reqData.employeeName),
+                    "Title Required"
+                  )}
+                  disabled={disableControls}
+                  onChange={this.handlereqDataTextChange.bind(this)}
+                />
+                <Stack horizontal className="ms-Grid-col ms-sm4 ms-md4 ms-lg4">
+                  <Label required>Begin Date:</Label>
+                  <MaskedInput
+                    mask="11/11/1111"
+                    name="departureDateStr"
+                    onChange={this.handleMaskedDateWithValidation.bind(this)}
+                    value={reqData.departureDateStr}
+                    className={styles.inputMaskControl}
+                    disabled={disableControls}
+                    required={true}
+                  />
+                  <Label required>End Date:</Label>
+                  <MaskedInput
+                    mask="11/11/1111"
+                    name="returnDateStr"
+                    onChange={this.handleMaskedDateWithValidation.bind(this)}
+                    value={reqData.returnDateStr}
+                    className={styles.inputMaskControl}
+                    disabled={disableControls}
+                    required={true}
+                  />
+                </Stack>
+              </div>
+            </div>
+
+            {/* Section A Row 3*/}
             <br></br>
             <div className="ms-Grid-row">
               <TextField
@@ -1488,8 +1512,8 @@ export default class TravelRequest extends React.Component<
               <TextField
                 underlined
                 className="ms-Grid-col ms-sm4 ms-md4 ms-lg4"
-                label="Section/Division:"
-                name="Section/Division"
+                label="Division/Section:"
+                name="Division/Section"
                 value={reqData.agency}
                 required={true}
                 validateOnLoad={false}
@@ -1497,7 +1521,7 @@ export default class TravelRequest extends React.Component<
                   this,
                   name,
                   stringIsNullOrEmpty(reqData.agency),
-                  "Section/Division Required"
+                  "Division/Section Required"
                 )}
                 disabled={disableControls}
                 onChange={this.handlereqDataTextChange.bind(this)}
@@ -1521,7 +1545,7 @@ export default class TravelRequest extends React.Component<
               />
             </div>
 
-            {/* Section A Row 3*/}
+            {/* Section A Row 4*/}
             <br></br>
             <div className="ms-Grid-row">
               <TextField
@@ -1546,7 +1570,7 @@ export default class TravelRequest extends React.Component<
 
           {/*Section B/C */}
           <br></br>
-          <div className="container">
+          <div className="ms-Grid">
             <div className="ms-Grid-Row">
               {/* Section B */}
               <div className="ms-Grid-col ms-sm6 ms-md6 ms-lg6 ">
@@ -1558,9 +1582,9 @@ export default class TravelRequest extends React.Component<
                   <div className="ms-Grid-col ms-sm12 ms-md12 ms-lg12 extraPadding">
                     <Stack horizontal>
                       <Checkbox
-                        name="Conference Seminar**"
-                        label="Conference Seminar**"
-                        id="Conference Seminar**"
+                        name="Conference/Seminar**"
+                        label="Conference/Seminar**"
+                        id="Conference/Seminar**"
                         checked={reqData.chbxVehicleRental}
                         //disabled={ !isApprover }
                         onChange={this._onControlledCheckboxChange.bind(this)}
