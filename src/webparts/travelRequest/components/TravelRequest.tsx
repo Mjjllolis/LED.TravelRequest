@@ -1409,7 +1409,7 @@ export default class TravelRequest extends React.Component<
             <div className="ms-Grid-row">
               <TextField
                 underlined
-                className="ms-Grid-col ms-sm8 ms-md8 ms-lg8"
+                className="ms-Grid-col ms-sm8"
                 label="Name:"
                 name="name"
                 value={reqData.employeeName}
@@ -1426,7 +1426,7 @@ export default class TravelRequest extends React.Component<
               />
               <TextField
                 underlined
-                className="ms-Grid-col ms-sm4 ms-md4 ms-lg4"
+                className="ms-Grid-col ms-sm4"
                 label="Destination:"
                 name="Destination"
                 value={reqData.destination}
@@ -1443,58 +1443,56 @@ export default class TravelRequest extends React.Component<
               />
             </div>
 
-            {/* Section A Row 2*/}
-            <br></br>
-            <div className="ms-Grid">
-              <div className="ms-Grid-row">
-                <TextField
-                  underlined
-                  className="ms-Grid-col ms-sm8 ms-md8 ms-lg8"
-                  label="Title:"
-                  name="Title"
-                  value={"Title"}
-                  required={true}
-                  validateOnLoad={false}
-                  onGetErrorMessage={this.genericValidation.bind(
-                    this,
-                    name,
-                    stringIsNullOrEmpty(reqData.employeeName),
-                    "Title Required"
-                  )}
-                  disabled={disableControls}
-                  onChange={this.handlereqDataTextChange.bind(this)}
-                />
-                <Stack horizontal className="ms-Grid-col ms-sm4 ms-md4 ms-lg4">
-                  <Label required>Begin Date:</Label>
-                  <MaskedInput
-                    mask="11/11/1111"
-                    name="departureDateStr"
-                    onChange={this.handleMaskedDateWithValidation.bind(this)}
-                    value={reqData.departureDateStr}
-                    className={styles.inputMaskControl}
-                    disabled={disableControls}
-                    required={true}
-                  />
-                  <Label required>End Date:</Label>
-                  <MaskedInput
-                    mask="11/11/1111"
-                    name="returnDateStr"
-                    onChange={this.handleMaskedDateWithValidation.bind(this)}
-                    value={reqData.returnDateStr}
-                    className={styles.inputMaskControl}
-                    disabled={disableControls}
-                    required={true}
-                  />
-                </Stack>
-              </div>
-            </div>
-
             {/* Section A Row 3*/}
             <br></br>
             <div className="ms-Grid-row">
               <TextField
                 underlined
-                className="ms-Grid-col ms-sm4 ms-md4 ms-lg4"
+                className="ms-Grid-col ms-sm8"
+                label="Title:"
+                name="Title"
+                value={"Title"}
+                required={true}
+                validateOnLoad={false}
+                onGetErrorMessage={this.genericValidation.bind(
+                  this,
+                  name,
+                  stringIsNullOrEmpty(reqData.employeeName),
+                  "Title Required"
+                )}
+                disabled={disableControls}
+                onChange={this.handlereqDataTextChange.bind(this)}
+              />
+              <Stack horizontal className="ms-Grid-col ms-sm4">
+                <Label required>Begin Date:</Label>
+                <MaskedInput
+                  mask="11/11/1111"
+                  name="departureDateStr"
+                  onChange={this.handleMaskedDateWithValidation.bind(this)}
+                  value={reqData.departureDateStr}
+                  className={styles.inputMaskControl}
+                  disabled={disableControls}
+                  required={true}
+                />
+                <Label required>End Date:</Label>
+                <MaskedInput
+                  mask="11/11/1111"
+                  name="returnDateStr"
+                  onChange={this.handleMaskedDateWithValidation.bind(this)}
+                  value={reqData.returnDateStr}
+                  className={styles.inputMaskControl}
+                  disabled={disableControls}
+                  required={true}
+                />
+              </Stack>
+            </div>
+
+            {/* Section A Row 4*/}
+            <br></br>
+            <div className="ms-Grid-row">
+              <TextField
+                underlined
+                className="ms-Grid-col ms-sm4"
                 label="Agency:"
                 name="Agency"
                 value={reqData.agency}
@@ -1511,7 +1509,7 @@ export default class TravelRequest extends React.Component<
               />
               <TextField
                 underlined
-                className="ms-Grid-col ms-sm4 ms-md4 ms-lg4"
+                className="ms-Grid-col ms-sm4"
                 label="Division/Section:"
                 name="Division/Section"
                 value={reqData.agency}
@@ -1528,7 +1526,7 @@ export default class TravelRequest extends React.Component<
               />
               <TextField
                 underlined
-                className="ms-Grid-col ms-sm4 ms-md4 ms-lg4"
+                className="ms-Grid-col ms-sm4"
                 label="Mode of Transportation:"
                 name="Mode of Transportation"
                 value={reqData.agency}
@@ -1545,12 +1543,12 @@ export default class TravelRequest extends React.Component<
               />
             </div>
 
-            {/* Section A Row 4*/}
+            {/* Section A Row 5*/}
             <br></br>
             <div className="ms-Grid-row">
               <TextField
                 underlined
-                className="ms-Grid-col ms-sm12 ms-md12 ms-lg12"
+                className="ms-Grid-col ms-sm12"
                 label="Justification for trip:"
                 name="Justification for trip"
                 value={reqData.agency}
@@ -1573,13 +1571,13 @@ export default class TravelRequest extends React.Component<
           <div className="ms-Grid">
             <div className="ms-Grid-Row">
               {/* Section B */}
-              <div className="ms-Grid-col ms-sm6 ms-md6 ms-lg6 ">
+              <div className="ms-Grid-col ms-sm6">
                 <div className="ms-Grid-row">
                   <h2>Section B: Type of Travel (Select all that apply)</h2>
                 </div>
                 {/*Conference Seminar Checkbox*/}
                 <div className="ms-Grid-row">
-                  <div className="ms-Grid-col ms-sm12 ms-md12 ms-lg12 extraPadding">
+                  <div className="ms-Grid-col ms-sm12 extraPadding">
                     <Stack horizontal>
                       <Checkbox
                         name="Conference/Seminar**"
@@ -1595,7 +1593,7 @@ export default class TravelRequest extends React.Component<
                 </div>
                 {/*Annual Auth. For Routine Travel Checkbox*/}
                 <div className="ms-Grid-row">
-                  <div className="ms-Grid-col ms-sm12 ms-md12 ms-lg12 extraPadding">
+                  <div className="ms-Grid-col ms-sm12 extraPadding">
                     <Stack horizontal>
                       <Checkbox
                         name="Annual Auth. For Routine Travel"
@@ -1611,7 +1609,7 @@ export default class TravelRequest extends React.Component<
                 </div>
                 {/*In-State Travel Checkbox*/}
                 <div className="ms-Grid-row">
-                  <div className="ms-Grid-col ms-sm12 ms-md12 ms-lg12 extraPadding">
+                  <div className="ms-Grid-col ms-sm12 extraPadding">
                     <Stack horizontal>
                       <Checkbox
                         name="In-State Travel"
@@ -1627,7 +1625,7 @@ export default class TravelRequest extends React.Component<
                 </div>
                 {/*Out-Of-State Travel Checkbox*/}
                 <div className="ms-Grid-row">
-                  <div className="ms-Grid-col ms-sm12 ms-md12 ms-lg12 extraPadding">
+                  <div className="ms-Grid-col ms-sm12 extraPadding">
                     <Stack horizontal>
                       <Checkbox
                         name="Out-Of-State Travel"
@@ -1643,7 +1641,7 @@ export default class TravelRequest extends React.Component<
                 </div>
                 {/*Weekend Travel Checkbox*/}
                 <div className="ms-Grid-row">
-                  <div className="ms-Grid-col ms-sm12 ms-md12 ms-lg12 extraPadding">
+                  <div className="ms-Grid-col ms-sm12 extraPadding">
                     <Stack horizontal>
                       <Checkbox
                         name="Weekend Travel"
@@ -1659,7 +1657,7 @@ export default class TravelRequest extends React.Component<
                 </div>
                 {/*Vehicle Rental Checkbox*/}
                 <div className="ms-Grid-row">
-                  <div className="ms-Grid-col ms-sm12 ms-md12 ms-lg12 extraPadding">
+                  <div className="ms-Grid-col ms-sm12 extraPadding">
                     <Stack horizontal>
                       <Checkbox
                         name="Vehicle Rental"
@@ -1675,7 +1673,7 @@ export default class TravelRequest extends React.Component<
                 </div>
                 {/*Use Of Personal Vehicle Checkbox*/}
                 <div className="ms-Grid-row">
-                  <div className="ms-Grid-col ms-sm12 ms-md12 ms-lg12 extraPadding">
+                  <div className="ms-Grid-col ms-sm12 extraPadding">
                     <Stack horizontal>
                       <Checkbox
                         name="Use Of Personal Vehicle"
@@ -1691,7 +1689,7 @@ export default class TravelRequest extends React.Component<
                 </div>
                 {/*Special Marketing Activity Checkbox*/}
                 <div className="ms-Grid-row">
-                  <div className="ms-Grid-col ms-sm12 ms-md12 ms-lg12 extraPadding">
+                  <div className="ms-Grid-col ms-sm12 extraPadding">
                     <Stack horizontal>
                       <Checkbox
                         name="Special Marketing Activity"
@@ -1707,7 +1705,7 @@ export default class TravelRequest extends React.Component<
                 </div>
                 {/*Prospect In The Same Hotel As Employee Checkbox*/}
                 <div className="ms-Grid-row">
-                  <div className="ms-Grid-col ms-sm12 ms-md12 ms-lg12 extraPadding">
+                  <div className="ms-Grid-col ms-sm12 extraPadding">
                     <Stack horizontal>
                       <Checkbox
                         name="Prospect In The Same Hotel As Employee"
@@ -1723,7 +1721,7 @@ export default class TravelRequest extends React.Component<
                 </div>
                 {/*50% Allowance above GSA Loding Rate Checkbox*/}
                 <div className="ms-Grid-row">
-                  <div className="ms-Grid-col ms-sm12 ms-md12 ms-lg12 extraPadding">
+                  <div className="ms-Grid-col ms-sm12 extraPadding">
                     <Stack horizontal>
                       <Checkbox
                         name="50% Allowance above GSA Loding Rate"
@@ -1739,7 +1737,7 @@ export default class TravelRequest extends React.Component<
                 </div>
                 {/*Other (Please Attach Explanation) Checkbox*/}
                 <div className="ms-Grid-row">
-                  <div className="ms-Grid-col ms-sm12 ms-md12 ms-lg12 extraPadding">
+                  <div className="ms-Grid-col ms-sm12 extraPadding">
                     <Stack horizontal>
                       <Checkbox
                         name="Other (Please Attach Explanation)"
@@ -1762,115 +1760,115 @@ export default class TravelRequest extends React.Component<
                 </div>
               </div>
               {/* Section C */}
-              <div className="ms-Grid-col ms-sm6 ms-md6 ms-lg6">
+              <div className="ms-Grid-col ms-sm6">
                 <div className="ms-Grid-row">
                   <h2>Section C: Estimated Expenses Per Traveler</h2>
                 </div>
                 <div className="ms-Grid-row">
-                  <div className="ms-Grid-col ms-sm-8 ms-md8 ms-lg8">
+                  <div className="ms-Grid-col ms-sm-8">
                     <label className={styles.paddingLabel}>
                       Registration Fees:
                     </label>
                   </div>
-                  <div className="ms-Grid-col ms-sm-4 ms-md4 ms-lg4">
+                  <div className="ms-Grid-col ms-sm-4">
                     <label className={styles.paddingLabel}>$_____</label>
                   </div>
                 </div>
                 <div className="ms-Grid-row">
-                  <div className="ms-Grid-col ms-sm-8 ms-md8 ms-lg8">
+                  <div className="ms-Grid-col ms-sm-8">
                     <label className={styles.paddingLabel}>
                       Airfare Costs:
                     </label>
                   </div>
-                  <div className="ms-Grid-col ms-sm-4 ms-md4 ms-lg4">
+                  <div className="ms-Grid-col ms-sm-4">
                     <label className={styles.paddingLabel}>$_____</label>
                   </div>
                 </div>
                 <div className="ms-Grid-row">
-                  <div className="ms-Grid-col ms-sm-8 ms-md8 ms-lg8">
+                  <div className="ms-Grid-col ms-sm-8">
                     <label className={styles.paddingLabel}>
                       Personal Car Mileage:($0.58 x $Miles)
                     </label>
                   </div>
-                  <div className="ms-Grid-col ms-sm-4 ms-md4 ms-lg4">
+                  <div className="ms-Grid-col ms-sm-4">
                     <label className={styles.paddingLabel}>$_____</label>
                   </div>
                 </div>
                 <div className="ms-Grid-row">
-                  <div className="ms-Grid-col ms-sm-8 ms-md8 ms-lg8">
+                  <div className="ms-Grid-col ms-sm-8">
                     <label className={styles.paddingLabel}>
                       Lodging: $Lodging x $Nights
                     </label>
                   </div>
-                  <div className="ms-Grid-col ms-sm-4 ms-md4 ms-lg4">
+                  <div className="ms-Grid-col ms-sm-4">
                     <label className={styles.paddingLabel}>$_____</label>
                   </div>
                 </div>
                 <div className="ms-Grid-row">
-                  <div className="ms-Grid-col ms-sm-8 ms-md8 ms-lg8">
+                  <div className="ms-Grid-col ms-sm-8">
                     <label className={styles.paddingLabel}>
                       Meals: $Meals x $Days
                     </label>
                   </div>
-                  <div className="ms-Grid-col ms-sm-4 ms-md4 ms-lg4">
+                  <div className="ms-Grid-col ms-sm-4">
                     <label className={styles.paddingLabel}>$_____</label>
                   </div>
                 </div>
                 <div className="ms-Grid-row">
-                  <div className="ms-Grid-col ms-sm-8 ms-md8 ms-lg8">
+                  <div className="ms-Grid-col ms-sm-8">
                     <label className={styles.paddingLabel}>
                       Car Rental: (Checkbox)Yes (Checkbox)No
                     </label>
                   </div>
-                  <div className="ms-Grid-col ms-sm-4 ms-md4 ms-lg4">
+                  <div className="ms-Grid-col ms-sm-4">
                     <label className={styles.paddingLabel}>$_____</label>
                   </div>
                 </div>
                 <div className="ms-Grid-row">
-                  <div className="ms-Grid-col ms-sm-8 ms-md8 ms-lg8">
+                  <div className="ms-Grid-col ms-sm-8">
                     <label className={styles.paddingLabel}>
                       Other Transport Costs (Taxi/Shuttle):
                     </label>
                   </div>
-                  <div className="ms-Grid-col ms-sm-4 ms-md4 ms-lg4">
+                  <div className="ms-Grid-col ms-sm-4">
                     <label className={styles.paddingLabel}>$_____</label>
                   </div>
                 </div>
                 <div className="ms-Grid-row">
-                  <div className="ms-Grid-col ms-sm-8 ms-md8 ms-lg8">
+                  <div className="ms-Grid-col ms-sm-8">
                     <label className={styles.paddingLabel}>
                       Cost Per Traveler:
                     </label>
                   </div>
-                  <div className="ms-Grid-col ms-sm-4 ms-md4 ms-lg4">
+                  <div className="ms-Grid-col ms-sm-4">
                     <label className={styles.paddingLabel}>$_____</label>
                   </div>
                 </div>
                 <div className="ms-Grid-row">
-                  <div className="ms-Grid-col ms-sm-8 ms-md8 ms-lg8">
+                  <div className="ms-Grid-col ms-sm-8">
                     <label className={styles.paddingLabel}>
                       Special Marketing Activity:
                     </label>
                   </div>
-                  <div className="ms-Grid-col ms-sm-4 ms-md4 ms-lg4">
+                  <div className="ms-Grid-col ms-sm-4">
                     <label className={styles.paddingLabel}>Activity</label>
                   </div>
                 </div>
                 <div className="ms-Grid-row">
-                  <div className="ms-Grid-col ms-sm-8 ms-md8 ms-lg8">
+                  <div className="ms-Grid-col ms-sm-8">
                     <label className={styles.paddingLabel}>
                       Number of Travelers:
                     </label>
                   </div>
-                  <div className="ms-Grid-col ms-sm-4 ms-md4 ms-lg4">
+                  <div className="ms-Grid-col ms-sm-4">
                     <label className={styles.paddingLabel}>Travelers</label>
                   </div>
                 </div>
                 <div className="ms-Grid-row">
-                  <div className="ms-Grid-col ms-sm-8 ms-md8 ms-lg8">
+                  <div className="ms-Grid-col ms-sm-8">
                     <label className={styles.paddingLabel}>Total:</label>
                   </div>
-                  <div className="ms-Grid-col ms-sm-4 ms-md4 ms-lg4">
+                  <div className="ms-Grid-col ms-sm-4">
                     <label className={styles.paddingLabel}>$Total</label>
                   </div>
                 </div>
