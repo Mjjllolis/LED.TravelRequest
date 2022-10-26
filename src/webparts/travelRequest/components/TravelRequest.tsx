@@ -1495,13 +1495,13 @@ export default class TravelRequest extends React.Component<
                 className="ms-Grid-col ms-sm4"
                 label="Agency:"
                 name="Agency"
-                value={reqData.agency}
+                value={"Agency"}
                 required={true}
                 validateOnLoad={false}
                 onGetErrorMessage={this.genericValidation.bind(
                   this,
                   name,
-                  stringIsNullOrEmpty(reqData.agency),
+                  stringIsNullOrEmpty("Agency"),
                   "Agency Required"
                 )}
                 disabled={disableControls}
@@ -1512,13 +1512,13 @@ export default class TravelRequest extends React.Component<
                 className="ms-Grid-col ms-sm4"
                 label="Division/Section:"
                 name="Division/Section"
-                value={reqData.agency}
+                value={"Division/Section"}
                 required={true}
                 validateOnLoad={false}
                 onGetErrorMessage={this.genericValidation.bind(
                   this,
                   name,
-                  stringIsNullOrEmpty(reqData.agency),
+                  stringIsNullOrEmpty("Division/Section"),
                   "Division/Section Required"
                 )}
                 disabled={disableControls}
@@ -1529,13 +1529,13 @@ export default class TravelRequest extends React.Component<
                 className="ms-Grid-col ms-sm4"
                 label="Mode of Transportation:"
                 name="Mode of Transportation"
-                value={reqData.agency}
+                value={"Mode of Transportation"}
                 required={true}
                 validateOnLoad={false}
                 onGetErrorMessage={this.genericValidation.bind(
                   this,
                   name,
-                  stringIsNullOrEmpty(reqData.agency),
+                  stringIsNullOrEmpty("Mode of Transportation"),
                   "Mode Of Transportation Required"
                 )}
                 disabled={disableControls}
@@ -1551,13 +1551,13 @@ export default class TravelRequest extends React.Component<
                 className="ms-Grid-col ms-sm12"
                 label="Justification for trip:"
                 name="Justification for trip"
-                value={reqData.agency}
+                value={"Justification for trip"}
                 required={true}
                 validateOnLoad={false}
                 onGetErrorMessage={this.genericValidation.bind(
                   this,
                   name,
-                  stringIsNullOrEmpty(reqData.agency),
+                  stringIsNullOrEmpty("Justification for trip"),
                   "Justification for trip"
                 )}
                 disabled={disableControls}
@@ -1759,117 +1759,119 @@ export default class TravelRequest extends React.Component<
                   </p>
                 </div>
               </div>
-              {/* Section C */}
+              {/* Section C*/}
               <div className="ms-Grid-col ms-sm6">
-                <div className="ms-Grid-row">
-                  <h2>Section C: Estimated Expenses Per Traveler</h2>
-                </div>
-                <div className="ms-Grid-row">
-                  <div className="ms-Grid-col ms-sm-8">
-                    <label className={styles.paddingLabel}>
-                      Registration Fees:
-                    </label>
+                <div className="ms-Grid">
+                  <div className="ms-Grid-row">
+                    <h2>Section C: Estimated Expenses Per Traveler</h2>
                   </div>
-                  <div className="ms-Grid-col ms-sm-4">
-                    <label className={styles.paddingLabel}>$_____</label>
+                  <div className="ms-Grid-row">
+                    <div className="ms-Grid-col ms-sm-8">
+                      <label className={styles.paddingLabel}>
+                        Registration Fees:
+                      </label>
+                    </div>
+                    <div className="ms-Grid-col ms-sm-4">
+                      <label className={styles.paddingLabel}>$_____</label>
+                    </div>
                   </div>
-                </div>
-                <div className="ms-Grid-row">
-                  <div className="ms-Grid-col ms-sm-8">
-                    <label className={styles.paddingLabel}>
-                      Airfare Costs:
-                    </label>
+                  <div className="ms-Grid-row">
+                    <div className="ms-Grid-col ms-sm-8">
+                      <label className={styles.paddingLabel}>
+                        Airfare Costs:
+                      </label>
+                    </div>
+                    <div className="ms-Grid-col ms-sm-4">
+                      <label className={styles.paddingLabel}>$_____</label>
+                    </div>
                   </div>
-                  <div className="ms-Grid-col ms-sm-4">
-                    <label className={styles.paddingLabel}>$_____</label>
+                  <div className="ms-Grid-row">
+                    <div className="ms-Grid-col ms-sm-8">
+                      <label className={styles.paddingLabel}>
+                        Personal Car Mileage:($0.58 x $Miles)
+                      </label>
+                    </div>
+                    <div className="ms-Grid-col ms-sm-4">
+                      <label className={styles.paddingLabel}>$_____</label>
+                    </div>
                   </div>
-                </div>
-                <div className="ms-Grid-row">
-                  <div className="ms-Grid-col ms-sm-8">
-                    <label className={styles.paddingLabel}>
-                      Personal Car Mileage:($0.58 x $Miles)
-                    </label>
+                  <div className="ms-Grid-row">
+                    <div className="ms-Grid-col ms-sm-8">
+                      <label className={styles.paddingLabel}>
+                        Lodging: $Lodging x $Nights
+                      </label>
+                    </div>
+                    <div className="ms-Grid-col ms-sm-4">
+                      <label className={styles.paddingLabel}>$_____</label>
+                    </div>
                   </div>
-                  <div className="ms-Grid-col ms-sm-4">
-                    <label className={styles.paddingLabel}>$_____</label>
+                  <div className="ms-Grid-row">
+                    <div className="ms-Grid-col ms-sm-8">
+                      <label className={styles.paddingLabel}>
+                        Meals: $Meals x $Days
+                      </label>
+                    </div>
+                    <div className="ms-Grid-col ms-sm-4">
+                      <label className={styles.paddingLabel}>$_____</label>
+                    </div>
                   </div>
-                </div>
-                <div className="ms-Grid-row">
-                  <div className="ms-Grid-col ms-sm-8">
-                    <label className={styles.paddingLabel}>
-                      Lodging: $Lodging x $Nights
-                    </label>
+                  <div className="ms-Grid-row">
+                    <div className="ms-Grid-col ms-sm-8">
+                      <label className={styles.paddingLabel}>
+                        Car Rental: (Checkbox)Yes (Checkbox)No
+                      </label>
+                    </div>
+                    <div className="ms-Grid-col ms-sm-4">
+                      <label className={styles.paddingLabel}>$_____</label>
+                    </div>
                   </div>
-                  <div className="ms-Grid-col ms-sm-4">
-                    <label className={styles.paddingLabel}>$_____</label>
+                  <div className="ms-Grid-row">
+                    <div className="ms-Grid-col ms-sm-8">
+                      <label className={styles.paddingLabel}>
+                        Other Transport Costs (Taxi/Shuttle):
+                      </label>
+                    </div>
+                    <div className="ms-Grid-col ms-sm-4">
+                      <label className={styles.paddingLabel}>$_____</label>
+                    </div>
                   </div>
-                </div>
-                <div className="ms-Grid-row">
-                  <div className="ms-Grid-col ms-sm-8">
-                    <label className={styles.paddingLabel}>
-                      Meals: $Meals x $Days
-                    </label>
+                  <div className="ms-Grid-row">
+                    <div className="ms-Grid-col ms-sm-8">
+                      <label className={styles.paddingLabel}>
+                        Cost Per Traveler:
+                      </label>
+                    </div>
+                    <div className="ms-Grid-col ms-sm-4">
+                      <label className={styles.paddingLabel}>$_____</label>
+                    </div>
                   </div>
-                  <div className="ms-Grid-col ms-sm-4">
-                    <label className={styles.paddingLabel}>$_____</label>
+                  <div className="ms-Grid-row">
+                    <div className="ms-Grid-col ms-sm-8">
+                      <label className={styles.paddingLabel}>
+                        Special Marketing Activity:
+                      </label>
+                    </div>
+                    <div className="ms-Grid-col ms-sm-4">
+                      <label className={styles.paddingLabel}>Activity</label>
+                    </div>
                   </div>
-                </div>
-                <div className="ms-Grid-row">
-                  <div className="ms-Grid-col ms-sm-8">
-                    <label className={styles.paddingLabel}>
-                      Car Rental: (Checkbox)Yes (Checkbox)No
-                    </label>
+                  <div className="ms-Grid-row">
+                    <div className="ms-Grid-col ms-sm-8">
+                      <label className={styles.paddingLabel}>
+                        Number of Travelers:
+                      </label>
+                    </div>
+                    <div className="ms-Grid-col ms-sm-4">
+                      <label className={styles.paddingLabel}>Travelers</label>
+                    </div>
                   </div>
-                  <div className="ms-Grid-col ms-sm-4">
-                    <label className={styles.paddingLabel}>$_____</label>
-                  </div>
-                </div>
-                <div className="ms-Grid-row">
-                  <div className="ms-Grid-col ms-sm-8">
-                    <label className={styles.paddingLabel}>
-                      Other Transport Costs (Taxi/Shuttle):
-                    </label>
-                  </div>
-                  <div className="ms-Grid-col ms-sm-4">
-                    <label className={styles.paddingLabel}>$_____</label>
-                  </div>
-                </div>
-                <div className="ms-Grid-row">
-                  <div className="ms-Grid-col ms-sm-8">
-                    <label className={styles.paddingLabel}>
-                      Cost Per Traveler:
-                    </label>
-                  </div>
-                  <div className="ms-Grid-col ms-sm-4">
-                    <label className={styles.paddingLabel}>$_____</label>
-                  </div>
-                </div>
-                <div className="ms-Grid-row">
-                  <div className="ms-Grid-col ms-sm-8">
-                    <label className={styles.paddingLabel}>
-                      Special Marketing Activity:
-                    </label>
-                  </div>
-                  <div className="ms-Grid-col ms-sm-4">
-                    <label className={styles.paddingLabel}>Activity</label>
-                  </div>
-                </div>
-                <div className="ms-Grid-row">
-                  <div className="ms-Grid-col ms-sm-8">
-                    <label className={styles.paddingLabel}>
-                      Number of Travelers:
-                    </label>
-                  </div>
-                  <div className="ms-Grid-col ms-sm-4">
-                    <label className={styles.paddingLabel}>Travelers</label>
-                  </div>
-                </div>
-                <div className="ms-Grid-row">
-                  <div className="ms-Grid-col ms-sm-8">
-                    <label className={styles.paddingLabel}>Total:</label>
-                  </div>
-                  <div className="ms-Grid-col ms-sm-4">
-                    <label className={styles.paddingLabel}>$Total</label>
+                  <div className="ms-Grid-row">
+                    <div className="ms-Grid-col ms-sm-8">
+                      <label className={styles.paddingLabel}>Total:</label>
+                    </div>
+                    <div className="ms-Grid-col ms-sm-4">
+                      <label className={styles.paddingLabel}>$Total</label>
+                    </div>
                   </div>
                 </div>
               </div>
