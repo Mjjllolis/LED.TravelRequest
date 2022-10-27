@@ -1566,7 +1566,7 @@ export default class TravelRequest extends React.Component<
             </div>
           </div>
 
-          {/*Section B/C */}
+          {/* Section B/C */}
           <br></br>
           <div className="ms-Grid">
             <div className="ms-Grid-Row">
@@ -1584,7 +1584,7 @@ export default class TravelRequest extends React.Component<
                         label="Conference/Seminar**"
                         id="Conference/Seminar**"
                         checked={reqData.chbxVehicleRental}
-                        //disabled={ !isApprover }
+                        disabled={!isApprover}
                         onChange={this._onControlledCheckboxChange.bind(this)}
                         styles={checkboxStyles}
                       />
@@ -1600,7 +1600,7 @@ export default class TravelRequest extends React.Component<
                         label="Annual Auth. For Routine Travel"
                         id="Annual Auth. For Routine Travel"
                         checked={reqData.chbxVehicleRental}
-                        //disabled={ !isApprover }
+                        disabled={!isApprover}
                         onChange={this._onControlledCheckboxChange.bind(this)}
                         styles={checkboxStyles}
                       />
@@ -1616,7 +1616,7 @@ export default class TravelRequest extends React.Component<
                         label="In-State Travel"
                         id="In-State Travel"
                         checked={reqData.chbxVehicleRental}
-                        //disabled={ !isApprover }
+                        disabled={!isApprover}
                         onChange={this._onControlledCheckboxChange.bind(this)}
                         styles={checkboxStyles}
                       />
@@ -1632,7 +1632,7 @@ export default class TravelRequest extends React.Component<
                         label="Out-Of-State Travel"
                         id="Out-Of-State Travel"
                         checked={reqData.chbxVehicleRental}
-                        //disabled={ !isApprover }
+                        disabled={!isApprover}
                         onChange={this._onControlledCheckboxChange.bind(this)}
                         styles={checkboxStyles}
                       />
@@ -1648,7 +1648,7 @@ export default class TravelRequest extends React.Component<
                         label="Weekend Travel"
                         id="Weekend Travel"
                         checked={reqData.chbxVehicleRental}
-                        //disabled={ !isApprover }
+                        disabled={!isApprover}
                         onChange={this._onControlledCheckboxChange.bind(this)}
                         styles={checkboxStyles}
                       />
@@ -1664,7 +1664,7 @@ export default class TravelRequest extends React.Component<
                         label="Vehicle Rental"
                         id="Vehicle Rental"
                         checked={reqData.chbxVehicleRental}
-                        //disabled={ !isApprover }
+                        disabled={!isApprover}
                         onChange={this._onControlledCheckboxChange.bind(this)}
                         styles={checkboxStyles}
                       />
@@ -1680,7 +1680,7 @@ export default class TravelRequest extends React.Component<
                         label="Use Of Personal Vehicle"
                         id="Use Of Personal Vehicle"
                         checked={reqData.chbxVehicleRental}
-                        //disabled={ !isApprover }
+                        disabled={!isApprover}
                         onChange={this._onControlledCheckboxChange.bind(this)}
                         styles={checkboxStyles}
                       />
@@ -1696,7 +1696,7 @@ export default class TravelRequest extends React.Component<
                         label="Special Marketing Activity"
                         id="Special Marketing Activity"
                         checked={reqData.chbxVehicleRental}
-                        //disabled={ !isApprover }
+                        disabled={!isApprover}
                         onChange={this._onControlledCheckboxChange.bind(this)}
                         styles={checkboxStyles}
                       />
@@ -1712,7 +1712,7 @@ export default class TravelRequest extends React.Component<
                         label="Prospect In The Same Hotel As Employee"
                         id="Prospect In The Same Hotel As Employee"
                         checked={reqData.chbxVehicleRental}
-                        //disabled={ !isApprover }
+                        disabled={!isApprover}
                         onChange={this._onControlledCheckboxChange.bind(this)}
                         styles={checkboxStyles}
                       />
@@ -1728,7 +1728,7 @@ export default class TravelRequest extends React.Component<
                         label="50% Allowance above GSA Loding Rate"
                         id="50% Allowance above GSA Loding Rate"
                         checked={reqData.chbxVehicleRental}
-                        //disabled={ !isApprover }
+                        disabled={!isApprover}
                         onChange={this._onControlledCheckboxChange.bind(this)}
                         styles={checkboxStyles}
                       />
@@ -1744,9 +1744,15 @@ export default class TravelRequest extends React.Component<
                         label="Other (Please Attach Explanation)"
                         id="Other (Please Attach Explanation)"
                         checked={reqData.chbxVehicleRental}
-                        //disabled={ !isApprover }
+                        disabled={!isApprover}
                         onChange={this._onControlledCheckboxChange.bind(this)}
                         styles={checkboxStyles}
+                      />
+                      <TextField
+                        name="chbxOtherSig"
+                        value={reqData.chbxOtherSig}
+                        disabled={!isApprover}
+                        onChange={this.handlereqDataTextChange.bind(this)}
                       />
                     </Stack>
                   </div>
@@ -1766,120 +1772,717 @@ export default class TravelRequest extends React.Component<
                     <h2>Section C: Estimated Expenses Per Traveler</h2>
                   </div>
                   <div className="ms-Grid-row">
-                    <div className="ms-Grid-col ms-sm-8">
+                    <div className="ms-Grid-col ms-sm8">
                       <label className={styles.paddingLabel}>
                         Registration Fees:
                       </label>
                     </div>
-                    <div className="ms-Grid-col ms-sm-4">
-                      <label className={styles.paddingLabel}>$_____</label>
+                    <div className="ms-Grid-col ms-sm4">
+                      <label className={styles.paddingLabel}>$__________</label>
                     </div>
                   </div>
                   <div className="ms-Grid-row">
-                    <div className="ms-Grid-col ms-sm-8">
+                    <div className="ms-Grid-col ms-sm8">
                       <label className={styles.paddingLabel}>
                         Airfare Costs:
                       </label>
                     </div>
-                    <div className="ms-Grid-col ms-sm-4">
-                      <label className={styles.paddingLabel}>$_____</label>
+                    <div className="ms-Grid-col ms-sm4">
+                      <label className={styles.paddingLabel}>$__________</label>
                     </div>
                   </div>
                   <div className="ms-Grid-row">
-                    <div className="ms-Grid-col ms-sm-8">
-                      <label className={styles.paddingLabel}>
-                        Personal Car Mileage:($0.58 x $Miles)
-                      </label>
+                    <div className="ms-Grid-col ms-sm8">
+                      <Stack horizontal>
+                        <label className={styles.paddingLabel}>
+                          Personal Car Mileage:($0.58 x
+                        </label>
+                        <TextField
+                          className={styles.SectionCTextbox}
+                          name="Miles"
+                          value={reqData.chbxOtherSig}
+                          disabled={!isApprover}
+                          onChange={this.handlereqDataTextChange.bind(this)}
+                        />
+                        <label className={styles.paddingLabel}>miles):</label>
+                      </Stack>
                     </div>
-                    <div className="ms-Grid-col ms-sm-4">
-                      <label className={styles.paddingLabel}>$_____</label>
-                    </div>
-                  </div>
-                  <div className="ms-Grid-row">
-                    <div className="ms-Grid-col ms-sm-8">
-                      <label className={styles.paddingLabel}>
-                        Lodging: $Lodging x $Nights
-                      </label>
-                    </div>
-                    <div className="ms-Grid-col ms-sm-4">
-                      <label className={styles.paddingLabel}>$_____</label>
-                    </div>
-                  </div>
-                  <div className="ms-Grid-row">
-                    <div className="ms-Grid-col ms-sm-8">
-                      <label className={styles.paddingLabel}>
-                        Meals: $Meals x $Days
-                      </label>
-                    </div>
-                    <div className="ms-Grid-col ms-sm-4">
-                      <label className={styles.paddingLabel}>$_____</label>
+                    <div className="ms-Grid-col ms-sm4">
+                      <label className={styles.paddingLabel}>$__________</label>
                     </div>
                   </div>
                   <div className="ms-Grid-row">
-                    <div className="ms-Grid-col ms-sm-8">
-                      <label className={styles.paddingLabel}>
-                        Car Rental: (Checkbox)Yes (Checkbox)No
-                      </label>
+                    <div className="ms-Grid-col ms-sm8">
+                      <Stack horizontal>
+                        <label className={styles.paddingLabel}>Lodging $</label>
+                        <TextField
+                          className={styles.SectionCTextbox}
+                          name="Lodging"
+                          value={reqData.chbxOtherSig}
+                          disabled={!isApprover}
+                          onChange={this.handlereqDataTextChange.bind(this)}
+                        />
+                        <label className={styles.paddingLabel}>x</label>
+                        <TextField
+                          className={styles.SectionCTextbox}
+                          name="Nights"
+                          value={reqData.chbxOtherSig}
+                          disabled={!isApprover}
+                          onChange={this.handlereqDataTextChange.bind(this)}
+                        />
+                        <label className={styles.paddingLabel}>Nights=</label>
+                      </Stack>
                     </div>
-                    <div className="ms-Grid-col ms-sm-4">
-                      <label className={styles.paddingLabel}>$_____</label>
+                    <div className="ms-Grid-col ms-sm4">
+                      <label className={styles.paddingLabel}>$__________</label>
                     </div>
                   </div>
                   <div className="ms-Grid-row">
-                    <div className="ms-Grid-col ms-sm-8">
+                    <div className="ms-Grid-col ms-sm8">
+                      <Stack horizontal>
+                        <label className={styles.paddingLabel}>Meals $</label>
+                        <TextField
+                          className={styles.SectionCTextbox}
+                          name="Meals"
+                          value={reqData.chbxOtherSig}
+                          disabled={!isApprover}
+                          onChange={this.handlereqDataTextChange.bind(this)}
+                        />
+                        <label className={styles.paddingLabel}>x</label>
+                        <TextField
+                          className={styles.SectionCTextbox}
+                          name="Days"
+                          value={reqData.chbxOtherSig}
+                          disabled={!isApprover}
+                          onChange={this.handlereqDataTextChange.bind(this)}
+                        />
+                        <label className={styles.paddingLabel}>Days=</label>
+                      </Stack>
+                    </div>
+                    <div className="ms-Grid-col ms-sm4">
+                      <label className={styles.paddingLabel}>$__________</label>
+                    </div>
+                  </div>
+                  <div className="ms-Grid-row">
+                    <div className="ms-Grid-col ms-sm8">
+                      <Stack horizontal>
+                        <label className={styles.paddingLabel}>
+                          Car Rental:
+                        </label>
+                        &nbsp;&nbsp;&nbsp;
+                        <Checkbox
+                          name="Yes"
+                          label="Yes"
+                          id="Yes"
+                          checked={reqData.chbxVehicleRental}
+                          disabled={!isApprover}
+                          onChange={this._onControlledCheckboxChange.bind(this)}
+                          styles={checkboxStyles}
+                        />
+                        &nbsp;
+                        <Checkbox
+                          name="No"
+                          label="No"
+                          id="No"
+                          checked={reqData.chbxVehicleRental}
+                          disabled={!isApprover}
+                          onChange={this._onControlledCheckboxChange.bind(this)}
+                          styles={checkboxStyles}
+                        />
+                      </Stack>
+                    </div>
+                    <div className="ms-Grid-col ms-sm4">
+                      <label className={styles.paddingLabel}>$__________</label>
+                    </div>
+                  </div>
+                  <div className="ms-Grid-row">
+                    <div className="ms-Grid-col ms-sm8">
                       <label className={styles.paddingLabel}>
                         Other Transport Costs (Taxi/Shuttle):
                       </label>
                     </div>
-                    <div className="ms-Grid-col ms-sm-4">
-                      <label className={styles.paddingLabel}>$_____</label>
+                    <div className="ms-Grid-col ms-sm4">
+                      <label className={styles.paddingLabel}>$__________</label>
                     </div>
                   </div>
                   <div className="ms-Grid-row">
-                    <div className="ms-Grid-col ms-sm-8">
+                    <div className="ms-Grid-col ms-sm8">
                       <label className={styles.paddingLabel}>
                         Cost Per Traveler:
                       </label>
                     </div>
-                    <div className="ms-Grid-col ms-sm-4">
-                      <label className={styles.paddingLabel}>$_____</label>
+                    <div className="ms-Grid-col ms-sm4">
+                      <label className={styles.paddingLabel}>$__________</label>
                     </div>
                   </div>
                   <div className="ms-Grid-row">
-                    <div className="ms-Grid-col ms-sm-8">
+                    <div className="ms-Grid-col ms-sm8">
                       <label className={styles.paddingLabel}>
                         Special Marketing Activity:
                       </label>
                     </div>
-                    <div className="ms-Grid-col ms-sm-4">
-                      <label className={styles.paddingLabel}>Activity</label>
+                    <div className="ms-Grid-col ms-sm4">
+                      <label className={styles.paddingLabel}>$__________</label>
                     </div>
                   </div>
                   <div className="ms-Grid-row">
-                    <div className="ms-Grid-col ms-sm-8">
-                      <label className={styles.paddingLabel}>
-                        Number of Travelers:
-                      </label>
+                    <div className="ms-Grid-col ms-sm8">
+                      <Stack horizontal>
+                        <label className={styles.paddingLabel}>
+                          Number of Travelers:
+                        </label>
+                        &nbsp;
+                        <TextField
+                          className={styles.SectionCTextbox}
+                          name="Travelers"
+                          value={reqData.chbxOtherSig}
+                          disabled={!isApprover}
+                          onChange={this.handlereqDataTextChange.bind(this)}
+                        />
+                        &nbsp;
+                        <label className={styles.paddingLabel}>Total:</label>
+                      </Stack>
                     </div>
-                    <div className="ms-Grid-col ms-sm-4">
-                      <label className={styles.paddingLabel}>Travelers</label>
-                    </div>
-                  </div>
-                  <div className="ms-Grid-row">
-                    <div className="ms-Grid-col ms-sm-8">
-                      <label className={styles.paddingLabel}>Total:</label>
-                    </div>
-                    <div className="ms-Grid-col ms-sm-4">
-                      <label className={styles.paddingLabel}>$Total</label>
+                    <div className="ms-Grid-col ms-sm4">
+                      <label className={styles.paddingLabel}>$__________</label>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
 
+          {/* Section D */}
+          <div>
+            <h2>Section D: Additional Travelers</h2>
+            {/* Section D Header */}
+            <div className="ms-Grid-row">
+              <div className="ms-Grid-col ms-sm6">
+                <h4>Traveler Name</h4>
+              </div>
+              <div className="ms-Grid-col ms-sm6">
+                <h4>Traveler Job Title</h4>
+              </div>
+            </div>
+            {/* Section D Row 1 */}
+            <div className="ms-Grid-row">
+              <TextField
+                className="ms-Grid-col ms-sm6"
+                name="Name"
+                value={reqData.employeeName}
+                required={false}
+                validateOnLoad={false}
+                onGetErrorMessage={this.genericValidation.bind(
+                  this,
+                  name,
+                  stringIsNullOrEmpty(reqData.employeeName),
+                  "Name Required"
+                )}
+                disabled={disableControls}
+                onChange={this.handlereqDataTextChange.bind(this)}
+              />
+              <TextField
+                className="ms-Grid-col ms-sm6"
+                name="Job Title"
+                value={reqData.employeeName}
+                required={false}
+                validateOnLoad={false}
+                onGetErrorMessage={this.genericValidation.bind(
+                  this,
+                  name,
+                  stringIsNullOrEmpty(reqData.employeeName),
+                  "Job Title Required"
+                )}
+                disabled={disableControls}
+                onChange={this.handlereqDataTextChange.bind(this)}
+              />
+            </div>
+            {/* Section D Row 2 */}
+            <div className="ms-Grid-row">
+              <TextField
+                className="ms-Grid-col ms-sm6"
+                name="Name"
+                value={reqData.employeeName}
+                required={false}
+                validateOnLoad={false}
+                onGetErrorMessage={this.genericValidation.bind(
+                  this,
+                  name,
+                  stringIsNullOrEmpty(reqData.employeeName),
+                  "Name Required"
+                )}
+                disabled={disableControls}
+                onChange={this.handlereqDataTextChange.bind(this)}
+              />
+              <TextField
+                className="ms-Grid-col ms-sm6"
+                name="Job Title"
+                value={reqData.employeeName}
+                required={false}
+                validateOnLoad={false}
+                onGetErrorMessage={this.genericValidation.bind(
+                  this,
+                  name,
+                  stringIsNullOrEmpty(reqData.employeeName),
+                  "Job Title Required"
+                )}
+                disabled={disableControls}
+                onChange={this.handlereqDataTextChange.bind(this)}
+              />
+            </div>
+            {/* Section D Row 3 */}
+            <div className="ms-Grid-row">
+              <TextField
+                className="ms-Grid-col ms-sm6"
+                name="Name"
+                value={reqData.employeeName}
+                required={false}
+                validateOnLoad={false}
+                onGetErrorMessage={this.genericValidation.bind(
+                  this,
+                  name,
+                  stringIsNullOrEmpty(reqData.employeeName),
+                  "Name Required"
+                )}
+                disabled={disableControls}
+                onChange={this.handlereqDataTextChange.bind(this)}
+              />
+              <TextField
+                className="ms-Grid-col ms-sm6"
+                name="Job Title"
+                value={reqData.employeeName}
+                required={false}
+                validateOnLoad={false}
+                onGetErrorMessage={this.genericValidation.bind(
+                  this,
+                  name,
+                  stringIsNullOrEmpty(reqData.employeeName),
+                  "Job Title Required"
+                )}
+                disabled={disableControls}
+                onChange={this.handlereqDataTextChange.bind(this)}
+              />
+            </div>
+          </div>
+
+          {/* Section E */}
+          <br></br>
+          <div>
+            <Stack horizontal>
+              <h2>Section E: Agency Accounting</h2>
+              <TextField
+                name="Accounting"
+                value={reqData.chbxOtherSig}
+                disabled={!isApprover}
+                onChange={this.handlereqDataTextChange.bind(this)}
+              />
+              <TextField
+                name="KB"
+                value={reqData.chbxOtherSig}
+                disabled={!isApprover}
+                onChange={this.handlereqDataTextChange.bind(this)}
+              />
+              <h2>Deputy Undersecretary</h2>
+            </Stack>
+            {/* Section E Header */}
+            <div className="ms-Grid">
+              <div className="ms-Grid-row">
+                <h4 className="ms-Grid-col ms-sm2">Agency</h4>
+                <h4 className="ms-Grid-col ms-sm2">Cost Center</h4>
+                <h4 className="ms-Grid-col ms-sm2">Fund</h4>
+                <h4 className="ms-Grid-col ms-sm2">General Ledger</h4>
+                <h4 className="ms-Grid-col ms-sm2">Grant #</h4>
+                <h4 className="ms-Grid-col ms-sm2">WBS Element</h4>
+              </div>
+            </div>
+            {/* Section E Row 1 */}
+            <div className="ms-Grid-row">
+              <TextField
+                className="ms-Grid-col ms-sm2"
+                name="Agency"
+                value={reqData.employeeName}
+                required={false}
+                validateOnLoad={false}
+                onGetErrorMessage={this.genericValidation.bind(
+                  this,
+                  name,
+                  stringIsNullOrEmpty(reqData.employeeName),
+                  "Agency Required"
+                )}
+                disabled={disableControls}
+                onChange={this.handlereqDataTextChange.bind(this)}
+              />
+              <TextField
+                className="ms-Grid-col ms-sm2"
+                name="Cost Center"
+                value={reqData.employeeName}
+                required={false}
+                validateOnLoad={false}
+                onGetErrorMessage={this.genericValidation.bind(
+                  this,
+                  name,
+                  stringIsNullOrEmpty(reqData.employeeName),
+                  "Cost Center Required"
+                )}
+                disabled={disableControls}
+                onChange={this.handlereqDataTextChange.bind(this)}
+              />
+              <TextField
+                className="ms-Grid-col ms-sm2"
+                name="Fund"
+                value={reqData.employeeName}
+                required={false}
+                validateOnLoad={false}
+                onGetErrorMessage={this.genericValidation.bind(
+                  this,
+                  name,
+                  stringIsNullOrEmpty(reqData.employeeName),
+                  "Fund Required"
+                )}
+                disabled={disableControls}
+                onChange={this.handlereqDataTextChange.bind(this)}
+              />
+              <TextField
+                className="ms-Grid-col ms-sm2"
+                name="General Ledger"
+                value={reqData.employeeName}
+                required={false}
+                validateOnLoad={false}
+                onGetErrorMessage={this.genericValidation.bind(
+                  this,
+                  name,
+                  stringIsNullOrEmpty(reqData.employeeName),
+                  "General Ledger Required"
+                )}
+                disabled={disableControls}
+                onChange={this.handlereqDataTextChange.bind(this)}
+              />
+              <TextField
+                className="ms-Grid-col ms-sm2"
+                name="Grant #"
+                value={reqData.employeeName}
+                required={false}
+                validateOnLoad={false}
+                onGetErrorMessage={this.genericValidation.bind(
+                  this,
+                  name,
+                  stringIsNullOrEmpty(reqData.employeeName),
+                  "Grant # Required"
+                )}
+                disabled={disableControls}
+                onChange={this.handlereqDataTextChange.bind(this)}
+              />
+              <TextField
+                className="ms-Grid-col ms-sm2"
+                name="WBS Element"
+                value={reqData.employeeName}
+                required={false}
+                validateOnLoad={false}
+                onGetErrorMessage={this.genericValidation.bind(
+                  this,
+                  name,
+                  stringIsNullOrEmpty(reqData.employeeName),
+                  "WBS Element Required"
+                )}
+                disabled={disableControls}
+                onChange={this.handlereqDataTextChange.bind(this)}
+              />
+            </div>
+            {/* Section E Row 2 */}
+            <div className="ms-Grid-row">
+              <TextField
+                className="ms-Grid-col ms-sm2"
+                name="Agency"
+                value={reqData.employeeName}
+                required={false}
+                validateOnLoad={false}
+                onGetErrorMessage={this.genericValidation.bind(
+                  this,
+                  name,
+                  stringIsNullOrEmpty(reqData.employeeName),
+                  "Agency Required"
+                )}
+                disabled={disableControls}
+                onChange={this.handlereqDataTextChange.bind(this)}
+              />
+              <TextField
+                className="ms-Grid-col ms-sm2"
+                name="Cost Center"
+                value={reqData.employeeName}
+                required={false}
+                validateOnLoad={false}
+                onGetErrorMessage={this.genericValidation.bind(
+                  this,
+                  name,
+                  stringIsNullOrEmpty(reqData.employeeName),
+                  "Cost Center Required"
+                )}
+                disabled={disableControls}
+                onChange={this.handlereqDataTextChange.bind(this)}
+              />
+              <TextField
+                className="ms-Grid-col ms-sm2"
+                name="Fund"
+                value={reqData.employeeName}
+                required={false}
+                validateOnLoad={false}
+                onGetErrorMessage={this.genericValidation.bind(
+                  this,
+                  name,
+                  stringIsNullOrEmpty(reqData.employeeName),
+                  "Fund Required"
+                )}
+                disabled={disableControls}
+                onChange={this.handlereqDataTextChange.bind(this)}
+              />
+              <TextField
+                className="ms-Grid-col ms-sm2"
+                name="General Ledger"
+                value={reqData.employeeName}
+                required={false}
+                validateOnLoad={false}
+                onGetErrorMessage={this.genericValidation.bind(
+                  this,
+                  name,
+                  stringIsNullOrEmpty(reqData.employeeName),
+                  "General Ledger Required"
+                )}
+                disabled={disableControls}
+                onChange={this.handlereqDataTextChange.bind(this)}
+              />
+              <TextField
+                className="ms-Grid-col ms-sm2"
+                name="Grant #"
+                value={reqData.employeeName}
+                required={false}
+                validateOnLoad={false}
+                onGetErrorMessage={this.genericValidation.bind(
+                  this,
+                  name,
+                  stringIsNullOrEmpty(reqData.employeeName),
+                  "Grant # Required"
+                )}
+                disabled={disableControls}
+                onChange={this.handlereqDataTextChange.bind(this)}
+              />
+              <TextField
+                className="ms-Grid-col ms-sm2"
+                name="WBS Element"
+                value={reqData.employeeName}
+                required={false}
+                validateOnLoad={false}
+                onGetErrorMessage={this.genericValidation.bind(
+                  this,
+                  name,
+                  stringIsNullOrEmpty(reqData.employeeName),
+                  "WBS Element Required"
+                )}
+                disabled={disableControls}
+                onChange={this.handlereqDataTextChange.bind(this)}
+              />
+            </div>
+            {/* Section E Row 3 */}
+            <div className="ms-Grid-row">
+              <TextField
+                className="ms-Grid-col ms-sm2"
+                name="Agency"
+                value={reqData.employeeName}
+                required={false}
+                validateOnLoad={false}
+                onGetErrorMessage={this.genericValidation.bind(
+                  this,
+                  name,
+                  stringIsNullOrEmpty(reqData.employeeName),
+                  "Agency Required"
+                )}
+                disabled={disableControls}
+                onChange={this.handlereqDataTextChange.bind(this)}
+              />
+              <TextField
+                className="ms-Grid-col ms-sm2"
+                name="Cost Center"
+                value={reqData.employeeName}
+                required={false}
+                validateOnLoad={false}
+                onGetErrorMessage={this.genericValidation.bind(
+                  this,
+                  name,
+                  stringIsNullOrEmpty(reqData.employeeName),
+                  "Cost Center Required"
+                )}
+                disabled={disableControls}
+                onChange={this.handlereqDataTextChange.bind(this)}
+              />
+              <TextField
+                className="ms-Grid-col ms-sm2"
+                name="Fund"
+                value={reqData.employeeName}
+                required={false}
+                validateOnLoad={false}
+                onGetErrorMessage={this.genericValidation.bind(
+                  this,
+                  name,
+                  stringIsNullOrEmpty(reqData.employeeName),
+                  "Fund Required"
+                )}
+                disabled={disableControls}
+                onChange={this.handlereqDataTextChange.bind(this)}
+              />
+              <TextField
+                className="ms-Grid-col ms-sm2"
+                name="General Ledger"
+                value={reqData.employeeName}
+                required={false}
+                validateOnLoad={false}
+                onGetErrorMessage={this.genericValidation.bind(
+                  this,
+                  name,
+                  stringIsNullOrEmpty(reqData.employeeName),
+                  "General Ledger Required"
+                )}
+                disabled={disableControls}
+                onChange={this.handlereqDataTextChange.bind(this)}
+              />
+              <TextField
+                className="ms-Grid-col ms-sm2"
+                name="Grant #"
+                value={reqData.employeeName}
+                required={false}
+                validateOnLoad={false}
+                onGetErrorMessage={this.genericValidation.bind(
+                  this,
+                  name,
+                  stringIsNullOrEmpty(reqData.employeeName),
+                  "Grant # Required"
+                )}
+                disabled={disableControls}
+                onChange={this.handlereqDataTextChange.bind(this)}
+              />
+              <TextField
+                className="ms-Grid-col ms-sm2"
+                name="WBS Element"
+                value={reqData.employeeName}
+                required={false}
+                validateOnLoad={false}
+                onGetErrorMessage={this.genericValidation.bind(
+                  this,
+                  name,
+                  stringIsNullOrEmpty(reqData.employeeName),
+                  "WBS Element Required"
+                )}
+                disabled={disableControls}
+                onChange={this.handlereqDataTextChange.bind(this)}
+              />
+            </div>
+          </div>
+
+          {/* Section F */}
+          <br></br>
+          <div>
+            <h2>Section F: Approval Signature</h2>
+            {/* Section F Header */}
+            <div className="ms-Grid">
+              <div className="ms-Grid-row">
+                <h4 className="ms-Grid-col ms-sm3">Section Head Signature</h4>
+                <h4 className="ms-Grid-col ms-sm3">Date</h4>
+                <h4 className="ms-Grid-col ms-sm3">
+                  Department Head/Designee Signature
+                </h4>
+                <h4 className="ms-Grid-col ms-sm3">Date</h4>
+              </div>
+            </div>
+            {/* Section F Row 1 */}
+            <div className="ms-Grid-row">
+              <TextField
+                className="ms-Grid-col ms-sm3"
+                name="Section Head Signature"
+                value={reqData.employeeName}
+                required={true}
+                validateOnLoad={false}
+                onGetErrorMessage={this.genericValidation.bind(
+                  this,
+                  name,
+                  stringIsNullOrEmpty(reqData.employeeName),
+                  "Section Head Signature Required"
+                )}
+                disabled={disableControls}
+                onChange={this.handlereqDataTextChange.bind(this)}
+              />
+              <TextField
+                className="ms-Grid-col ms-sm3"
+                name="Date"
+                value={reqData.employeeName}
+                required={true}
+                validateOnLoad={false}
+                onGetErrorMessage={this.genericValidation.bind(
+                  this,
+                  name,
+                  stringIsNullOrEmpty(reqData.employeeName),
+                  "Date Required"
+                )}
+                disabled={disableControls}
+                onChange={this.handlereqDataTextChange.bind(this)}
+              />
+              <TextField
+                className="ms-Grid-col ms-sm3"
+                name="Department Head/Designee Signature"
+                value={reqData.employeeName}
+                required={true}
+                validateOnLoad={false}
+                onGetErrorMessage={this.genericValidation.bind(
+                  this,
+                  name,
+                  stringIsNullOrEmpty(reqData.employeeName),
+                  "Department Head/Designee Signature Required"
+                )}
+                disabled={disableControls}
+                onChange={this.handlereqDataTextChange.bind(this)}
+              />
+              <TextField
+                className="ms-Grid-col ms-sm3"
+                name="Date"
+                value={reqData.employeeName}
+                required={true}
+                validateOnLoad={false}
+                onGetErrorMessage={this.genericValidation.bind(
+                  this,
+                  name,
+                  stringIsNullOrEmpty(reqData.employeeName),
+                  "Date Required"
+                )}
+                disabled={disableControls}
+                onChange={this.handlereqDataTextChange.bind(this)}
+              />
+            </div>
+          </div>
+
+          {/* Section G */}
+          <br></br>
+          <div>
+            <h2>Section G: Notes</h2>
+            <TextField
+              underlined
+              //label="Notes"
+              name="Notes"
+              value={
+                "Rental Car Needed. hour away from the airport. Cheaper than taxis. Four LED employees plus baggage. Charge Jessica Airfare to STEP FY21"
+              }
+              required={false}
+              validateOnLoad={false}
+              onGetErrorMessage={this.genericValidation.bind(
+                this,
+                name,
+                stringIsNullOrEmpty("Notes"),
+                "Notes"
+              )}
+              disabled={disableControls}
+              onChange={this.handlereqDataTextChange.bind(this)}
+            />
+          </div>
+        </div>
+        <br></br>
         {/* Tool Options */}
+        <br></br>
         <div className="ms-Grid">
           <div className="ms-Grid-row">
             {reqData.status == "Draft" && (

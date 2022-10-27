@@ -45,6 +45,10 @@
     padding-bottom: 15px;
   }
 
+  h4 {
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+  }
   .button {
     // Our button
     text-decoration: none;
@@ -195,9 +199,17 @@
   }
 }
 
+.SectionCTextbox {
+  margin: 0;
+  padding: 0px 0px;
+  width: 100px;
+  font-size: 8px;
+}
+
 .ChooseFileButton {
   padding: 10px;
 }
+
 .underlineText {
   border-bottom-width: 1px;
   border-bottom-style: solid;
