@@ -1749,6 +1749,7 @@ export default class TravelRequest extends React.Component<
                         styles={checkboxStyles}
                       />
                       <TextField
+                      className={styles.otherTextField}
                         name="chbxOtherSig"
                         value={reqData.chbxOtherSig}
                         disabled={!isApprover}
