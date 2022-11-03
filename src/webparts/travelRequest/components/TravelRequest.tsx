@@ -442,6 +442,8 @@ export default class TravelRequest extends React.Component<
         Grant: "",
         WBSElemenet: "",
 
+        //Section F
+
         //Section G
         extraNotes: "",
 
@@ -1828,7 +1830,7 @@ export default class TravelRequest extends React.Component<
                 </div>
                 {/*Conference Seminar Checkbox*/}
                 <div className="ms-Grid-row">
-                  <div className="ms-Grid-col ms-sm12 extraPadding">
+                  <div className="ms-Grid-col ms-sm12">
                     <Stack horizontal>
                       <Checkbox
                         name="Conference/Seminar**"
@@ -1844,7 +1846,7 @@ export default class TravelRequest extends React.Component<
                 </div>
                 {/*Annual Auth. For Routine Travel Checkbox*/}
                 <div className="ms-Grid-row">
-                  <div className="ms-Grid-col ms-sm12 extraPadding">
+                  <div className="ms-Grid-col ms-sm12">
                     <Stack horizontal>
                       <Checkbox
                         name="Annual Auth. For Routine Travel"
@@ -1860,7 +1862,7 @@ export default class TravelRequest extends React.Component<
                 </div>
                 {/*In-State Travel Checkbox*/}
                 <div className="ms-Grid-row">
-                  <div className="ms-Grid-col ms-sm12 extraPadding">
+                  <div className="ms-Grid-col ms-sm12">
                     <Stack horizontal>
                       <Checkbox
                         name="In-State Travel"
@@ -1876,7 +1878,7 @@ export default class TravelRequest extends React.Component<
                 </div>
                 {/*Out-Of-State Travel Checkbox*/}
                 <div className="ms-Grid-row">
-                  <div className="ms-Grid-col ms-sm12 extraPadding">
+                  <div className="ms-Grid-col ms-sm12">
                     <Stack horizontal>
                       <Checkbox
                         name="Out-Of-State Travel"
@@ -1892,7 +1894,7 @@ export default class TravelRequest extends React.Component<
                 </div>
                 {/*Weekend Travel Checkbox*/}
                 <div className="ms-Grid-row">
-                  <div className="ms-Grid-col ms-sm12 extraPadding">
+                  <div className="ms-Grid-col ms-sm12">
                     <Stack horizontal>
                       <Checkbox
                         name="Weekend Travel"
@@ -1908,7 +1910,7 @@ export default class TravelRequest extends React.Component<
                 </div>
                 {/*Vehicle Rental Checkbox*/}
                 <div className="ms-Grid-row">
-                  <div className="ms-Grid-col ms-sm12 extraPadding">
+                  <div className="ms-Grid-col ms-sm12">
                     <Stack horizontal>
                       <Checkbox
                         name="Vehicle Rental"
@@ -1924,7 +1926,7 @@ export default class TravelRequest extends React.Component<
                 </div>
                 {/*Use Of Personal Vehicle Checkbox*/}
                 <div className="ms-Grid-row">
-                  <div className="ms-Grid-col ms-sm12 extraPadding">
+                  <div className="ms-Grid-col ms-sm12">
                     <Stack horizontal>
                       <Checkbox
                         name="Use Of Personal Vehicle"
@@ -1940,7 +1942,7 @@ export default class TravelRequest extends React.Component<
                 </div>
                 {/*Special Marketing Activity Checkbox*/}
                 <div className="ms-Grid-row">
-                  <div className="ms-Grid-col ms-sm12 extraPadding">
+                  <div className="ms-Grid-col ms-sm12">
                     <Stack horizontal>
                       <Checkbox
                         name="Special Marketing Activity"
@@ -1956,7 +1958,7 @@ export default class TravelRequest extends React.Component<
                 </div>
                 {/*Prospect In The Same Hotel As Employee Checkbox*/}
                 <div className="ms-Grid-row">
-                  <div className="ms-Grid-col ms-sm12 extraPadding">
+                  <div className="ms-Grid-col ms-sm12">
                     <Stack horizontal>
                       <Checkbox
                         name="Prospect In The Same Hotel As Employee"
@@ -1972,7 +1974,7 @@ export default class TravelRequest extends React.Component<
                 </div>
                 {/*50% Allowance above GSA Loding Rate Checkbox*/}
                 <div className="ms-Grid-row">
-                  <div className="ms-Grid-col ms-sm12 extraPadding">
+                  <div className="ms-Grid-col ms-sm12">
                     <Stack horizontal>
                       <Checkbox
                         name="50% Allowance above GSA Loding Rate"
@@ -1988,7 +1990,7 @@ export default class TravelRequest extends React.Component<
                 </div>
                 {/*Other (Please Attach Explanation) Checkbox*/}
                 <div className="ms-Grid-row">
-                  <div className="ms-Grid-col ms-sm12 extraPadding">
+                  <div className="ms-Grid-col ms-sm12">
                     <Stack horizontal>
                       <Checkbox
                         name="Other (Please Attach Explanation)"
@@ -2220,14 +2222,15 @@ export default class TravelRequest extends React.Component<
             <div className="ms-Grid-row">
               <TextField
                 className="ms-Grid-col ms-sm6"
+                underlined
                 name="Name"
-                value={reqData.employeeName}
+                value={reqData.TravelerName}
                 required={false}
                 validateOnLoad={false}
                 onGetErrorMessage={this.genericValidation.bind(
                   this,
                   name,
-                  stringIsNullOrEmpty(reqData.employeeName),
+                  stringIsNullOrEmpty(reqData.TravelerName),
                   "Name Required"
                 )}
                 disabled={disableControls}
@@ -2235,80 +2238,15 @@ export default class TravelRequest extends React.Component<
               />
               <TextField
                 className="ms-Grid-col ms-sm6"
+                underlined
                 name="Job Title"
-                value={reqData.employeeName}
+                value={reqData.TravelerjobTitle}
                 required={false}
                 validateOnLoad={false}
                 onGetErrorMessage={this.genericValidation.bind(
                   this,
                   name,
-                  stringIsNullOrEmpty(reqData.employeeName),
-                  "Job Title Required"
-                )}
-                disabled={disableControls}
-                onChange={this.handlereqDataTextChange.bind(this)}
-              />
-            </div>
-            {/* Section D Row 2 */}
-            <div className="ms-Grid-row">
-              <TextField
-                className="ms-Grid-col ms-sm6"
-                name="Name"
-                value={reqData.employeeName}
-                required={false}
-                validateOnLoad={false}
-                onGetErrorMessage={this.genericValidation.bind(
-                  this,
-                  name,
-                  stringIsNullOrEmpty(reqData.employeeName),
-                  "Name Required"
-                )}
-                disabled={disableControls}
-                onChange={this.handlereqDataTextChange.bind(this)}
-              />
-              <TextField
-                className="ms-Grid-col ms-sm6"
-                name="Job Title"
-                value={reqData.employeeName}
-                required={false}
-                validateOnLoad={false}
-                onGetErrorMessage={this.genericValidation.bind(
-                  this,
-                  name,
-                  stringIsNullOrEmpty(reqData.employeeName),
-                  "Job Title Required"
-                )}
-                disabled={disableControls}
-                onChange={this.handlereqDataTextChange.bind(this)}
-              />
-            </div>
-            {/* Section D Row 3 */}
-            <div className="ms-Grid-row">
-              <TextField
-                className="ms-Grid-col ms-sm6"
-                name="Name"
-                value={reqData.employeeName}
-                required={false}
-                validateOnLoad={false}
-                onGetErrorMessage={this.genericValidation.bind(
-                  this,
-                  name,
-                  stringIsNullOrEmpty(reqData.employeeName),
-                  "Name Required"
-                )}
-                disabled={disableControls}
-                onChange={this.handlereqDataTextChange.bind(this)}
-              />
-              <TextField
-                className="ms-Grid-col ms-sm6"
-                name="Job Title"
-                value={reqData.employeeName}
-                required={false}
-                validateOnLoad={false}
-                onGetErrorMessage={this.genericValidation.bind(
-                  this,
-                  name,
-                  stringIsNullOrEmpty(reqData.employeeName),
+                  stringIsNullOrEmpty(reqData.TravelerjobTitle),
                   "Job Title Required"
                 )}
                 disabled={disableControls}
@@ -2323,14 +2261,16 @@ export default class TravelRequest extends React.Component<
             <Stack horizontal>
               <h2>Section E: Agency Accounting</h2>
               <TextField
+                className={styles.SectionCTextbox}
                 name="Accounting"
-                value={reqData.chbxOtherSig}
+                value={reqData.agencyAccounting}
                 disabled={!isApprover}
                 onChange={this.handlereqDataTextChange.bind(this)}
               />
               <TextField
+                className={styles.SectionCTextbox}
                 name="KB"
-                value={reqData.chbxOtherSig}
+                value={reqData.deputySecretary}
                 disabled={!isApprover}
                 onChange={this.handlereqDataTextChange.bind(this)}
               />
@@ -2351,14 +2291,15 @@ export default class TravelRequest extends React.Component<
             <div className="ms-Grid-row">
               <TextField
                 className="ms-Grid-col ms-sm2"
+                underlined
                 name="Agency"
-                value={reqData.employeeName}
+                value={reqData.Agency}
                 required={false}
                 validateOnLoad={false}
                 onGetErrorMessage={this.genericValidation.bind(
                   this,
                   name,
-                  stringIsNullOrEmpty(reqData.employeeName),
+                  stringIsNullOrEmpty(reqData.Agency),
                   "Agency Required"
                 )}
                 disabled={disableControls}
@@ -2366,14 +2307,15 @@ export default class TravelRequest extends React.Component<
               />
               <TextField
                 className="ms-Grid-col ms-sm2"
+                underlined
                 name="Cost Center"
-                value={reqData.employeeName}
+                value={reqData.CostCenter}
                 required={false}
                 validateOnLoad={false}
                 onGetErrorMessage={this.genericValidation.bind(
                   this,
                   name,
-                  stringIsNullOrEmpty(reqData.employeeName),
+                  stringIsNullOrEmpty(reqData.CostCenter),
                   "Cost Center Required"
                 )}
                 disabled={disableControls}
@@ -2381,14 +2323,15 @@ export default class TravelRequest extends React.Component<
               />
               <TextField
                 className="ms-Grid-col ms-sm2"
+                underlined
                 name="Fund"
-                value={reqData.employeeName}
+                value={reqData.Fund}
                 required={false}
                 validateOnLoad={false}
                 onGetErrorMessage={this.genericValidation.bind(
                   this,
                   name,
-                  stringIsNullOrEmpty(reqData.employeeName),
+                  stringIsNullOrEmpty(reqData.Fund),
                   "Fund Required"
                 )}
                 disabled={disableControls}
@@ -2396,14 +2339,15 @@ export default class TravelRequest extends React.Component<
               />
               <TextField
                 className="ms-Grid-col ms-sm2"
+                underlined
                 name="General Ledger"
-                value={reqData.employeeName}
+                value={reqData.GeneralLedger}
                 required={false}
                 validateOnLoad={false}
                 onGetErrorMessage={this.genericValidation.bind(
                   this,
                   name,
-                  stringIsNullOrEmpty(reqData.employeeName),
+                  stringIsNullOrEmpty(reqData.GeneralLedger),
                   "General Ledger Required"
                 )}
                 disabled={disableControls}
@@ -2411,14 +2355,15 @@ export default class TravelRequest extends React.Component<
               />
               <TextField
                 className="ms-Grid-col ms-sm2"
+                underlined
                 name="Grant #"
-                value={reqData.employeeName}
+                value={reqData.Grant}
                 required={false}
                 validateOnLoad={false}
                 onGetErrorMessage={this.genericValidation.bind(
                   this,
                   name,
-                  stringIsNullOrEmpty(reqData.employeeName),
+                  stringIsNullOrEmpty(reqData.Grant),
                   "Grant # Required"
                 )}
                 disabled={disableControls}
@@ -2426,200 +2371,15 @@ export default class TravelRequest extends React.Component<
               />
               <TextField
                 className="ms-Grid-col ms-sm2"
+                underlined
                 name="WBS Element"
-                value={reqData.employeeName}
+                value={reqData.WBSElemenet}
                 required={false}
                 validateOnLoad={false}
                 onGetErrorMessage={this.genericValidation.bind(
                   this,
                   name,
-                  stringIsNullOrEmpty(reqData.employeeName),
-                  "WBS Element Required"
-                )}
-                disabled={disableControls}
-                onChange={this.handlereqDataTextChange.bind(this)}
-              />
-            </div>
-            {/* Section E Row 2 */}
-            <div className="ms-Grid-row">
-              <TextField
-                className="ms-Grid-col ms-sm2"
-                name="Agency"
-                value={reqData.employeeName}
-                required={false}
-                validateOnLoad={false}
-                onGetErrorMessage={this.genericValidation.bind(
-                  this,
-                  name,
-                  stringIsNullOrEmpty(reqData.employeeName),
-                  "Agency Required"
-                )}
-                disabled={disableControls}
-                onChange={this.handlereqDataTextChange.bind(this)}
-              />
-              <TextField
-                className="ms-Grid-col ms-sm2"
-                name="Cost Center"
-                value={reqData.employeeName}
-                required={false}
-                validateOnLoad={false}
-                onGetErrorMessage={this.genericValidation.bind(
-                  this,
-                  name,
-                  stringIsNullOrEmpty(reqData.employeeName),
-                  "Cost Center Required"
-                )}
-                disabled={disableControls}
-                onChange={this.handlereqDataTextChange.bind(this)}
-              />
-              <TextField
-                className="ms-Grid-col ms-sm2"
-                name="Fund"
-                value={reqData.employeeName}
-                required={false}
-                validateOnLoad={false}
-                onGetErrorMessage={this.genericValidation.bind(
-                  this,
-                  name,
-                  stringIsNullOrEmpty(reqData.employeeName),
-                  "Fund Required"
-                )}
-                disabled={disableControls}
-                onChange={this.handlereqDataTextChange.bind(this)}
-              />
-              <TextField
-                className="ms-Grid-col ms-sm2"
-                name="General Ledger"
-                value={reqData.employeeName}
-                required={false}
-                validateOnLoad={false}
-                onGetErrorMessage={this.genericValidation.bind(
-                  this,
-                  name,
-                  stringIsNullOrEmpty(reqData.employeeName),
-                  "General Ledger Required"
-                )}
-                disabled={disableControls}
-                onChange={this.handlereqDataTextChange.bind(this)}
-              />
-              <TextField
-                className="ms-Grid-col ms-sm2"
-                name="Grant #"
-                value={reqData.employeeName}
-                required={false}
-                validateOnLoad={false}
-                onGetErrorMessage={this.genericValidation.bind(
-                  this,
-                  name,
-                  stringIsNullOrEmpty(reqData.employeeName),
-                  "Grant # Required"
-                )}
-                disabled={disableControls}
-                onChange={this.handlereqDataTextChange.bind(this)}
-              />
-              <TextField
-                className="ms-Grid-col ms-sm2"
-                name="WBS Element"
-                value={reqData.employeeName}
-                required={false}
-                validateOnLoad={false}
-                onGetErrorMessage={this.genericValidation.bind(
-                  this,
-                  name,
-                  stringIsNullOrEmpty(reqData.employeeName),
-                  "WBS Element Required"
-                )}
-                disabled={disableControls}
-                onChange={this.handlereqDataTextChange.bind(this)}
-              />
-            </div>
-            {/* Section E Row 3 */}
-            <div className="ms-Grid-row">
-              <TextField
-                className="ms-Grid-col ms-sm2"
-                name="Agency"
-                value={reqData.employeeName}
-                required={false}
-                validateOnLoad={false}
-                onGetErrorMessage={this.genericValidation.bind(
-                  this,
-                  name,
-                  stringIsNullOrEmpty(reqData.employeeName),
-                  "Agency Required"
-                )}
-                disabled={disableControls}
-                onChange={this.handlereqDataTextChange.bind(this)}
-              />
-              <TextField
-                className="ms-Grid-col ms-sm2"
-                name="Cost Center"
-                value={reqData.employeeName}
-                required={false}
-                validateOnLoad={false}
-                onGetErrorMessage={this.genericValidation.bind(
-                  this,
-                  name,
-                  stringIsNullOrEmpty(reqData.employeeName),
-                  "Cost Center Required"
-                )}
-                disabled={disableControls}
-                onChange={this.handlereqDataTextChange.bind(this)}
-              />
-              <TextField
-                className="ms-Grid-col ms-sm2"
-                name="Fund"
-                value={reqData.employeeName}
-                required={false}
-                validateOnLoad={false}
-                onGetErrorMessage={this.genericValidation.bind(
-                  this,
-                  name,
-                  stringIsNullOrEmpty(reqData.employeeName),
-                  "Fund Required"
-                )}
-                disabled={disableControls}
-                onChange={this.handlereqDataTextChange.bind(this)}
-              />
-              <TextField
-                className="ms-Grid-col ms-sm2"
-                name="General Ledger"
-                value={reqData.employeeName}
-                required={false}
-                validateOnLoad={false}
-                onGetErrorMessage={this.genericValidation.bind(
-                  this,
-                  name,
-                  stringIsNullOrEmpty(reqData.employeeName),
-                  "General Ledger Required"
-                )}
-                disabled={disableControls}
-                onChange={this.handlereqDataTextChange.bind(this)}
-              />
-              <TextField
-                className="ms-Grid-col ms-sm2"
-                name="Grant #"
-                value={reqData.employeeName}
-                required={false}
-                validateOnLoad={false}
-                onGetErrorMessage={this.genericValidation.bind(
-                  this,
-                  name,
-                  stringIsNullOrEmpty(reqData.employeeName),
-                  "Grant # Required"
-                )}
-                disabled={disableControls}
-                onChange={this.handlereqDataTextChange.bind(this)}
-              />
-              <TextField
-                className="ms-Grid-col ms-sm2"
-                name="WBS Element"
-                value={reqData.employeeName}
-                required={false}
-                validateOnLoad={false}
-                onGetErrorMessage={this.genericValidation.bind(
-                  this,
-                  name,
-                  stringIsNullOrEmpty(reqData.employeeName),
+                  stringIsNullOrEmpty(reqData.WBSElemenet),
                   "WBS Element Required"
                 )}
                 disabled={disableControls}
@@ -2660,9 +2420,11 @@ export default class TravelRequest extends React.Component<
                 disabled={disableControls}
                 onChange={this.handlereqDataTextChange.bind(this)}
               />
+
               <TextField
                 className="ms-Grid-col ms-sm3"
                 name="Date"
+                underlined
                 value={reqData.employeeName}
                 required={true}
                 validateOnLoad={false}
@@ -2692,6 +2454,7 @@ export default class TravelRequest extends React.Component<
               />
               <TextField
                 className="ms-Grid-col ms-sm3"
+                underlined
                 name="Date"
                 value={reqData.employeeName}
                 required={true}
@@ -2716,15 +2479,13 @@ export default class TravelRequest extends React.Component<
               underlined
               //label="Notes"
               name="Notes"
-              value={
-                "Rental Car Needed. hour away from the airport. Cheaper than taxis. Four LED employees plus baggage. Charge Jessica Airfare to STEP FY21"
-              }
+              value={reqData.extraNotes}
               required={false}
               validateOnLoad={false}
               onGetErrorMessage={this.genericValidation.bind(
                 this,
                 name,
-                stringIsNullOrEmpty("Notes"),
+                stringIsNullOrEmpty(reqData.extraNotes),
                 "Notes"
               )}
               disabled={disableControls}
