@@ -2,7 +2,12 @@ import * as React from "react";
 import styles from "./TravelRequest.module.scss";
 import { ITravelRequestProps } from "./ITravelRequestProps";
 import { ITravelRequestState } from "./ITravelRequestState";
-import { Validation, Approver, MultidayCost } from "../../../models/props";
+import {
+  Validation,
+  Approver,
+  MultidayCost,
+  AdditionalTravelerClass,
+} from "../../../models/props";
 import { stringIsNullOrEmpty, getRandomString } from "@pnp/common";
 import { WebEnsureUserResult, sp } from "@pnp/sp";
 import { escape } from "@microsoft/sp-lodash-subset";
@@ -167,7 +172,7 @@ export default class TravelRequest extends React.Component<
       AddingAttachment: false,
       Attachments: [],
       kickoffFLOW: "",
-
+      /**
       reqData: {
         formKey: "",
         employeeId: null,
@@ -205,7 +210,7 @@ export default class TravelRequest extends React.Component<
         stage: "",
         nextApprover: null,
         requestLog: "",
-        purposeOfTrip: "",
+        justficationForTrip: "",
         benefitToState: "",
         airTravelAgencyUsed: null,
         airTravelAgencyUsedJustification: "",
@@ -269,7 +274,7 @@ export default class TravelRequest extends React.Component<
         chbxSpecialMarketingActivities: false,
         chbx50pctLodgingException: false,
         chbxOther: false,
-        OtherExplanation: "",
+        chbxOtherSig: "",
         chbxVehicleRentalSig: "",
         chbxGPSRentalVehicleSig: "",
         chbxProspectInSameHotelAsEmployeeSig: "",
@@ -371,49 +376,52 @@ export default class TravelRequest extends React.Component<
           approvalString: "",
         },
       },
-      /**
-      reqDataUpdated: {
+      */
+
+      reqData: {
         formKey: "",
 
         //Section A
         employeeId: null,
         employeeName: "",
-        //employeeTitle: "",
+        employeeTitle: "",
         destination: "",
         departureDateStr: "",
         returnDateStr: "",
         agency: "",
-        purposeOfTrip: "",
+        division: "",
+        justficationForTrip: "",
+        modeOfTransportation: "",
         benefitToState: "",
-        
+
         //Section B
-        //chbxConferenceSeminar: false,
-        //chbxAnnualAuthForTravel: false,
-        //chbxInStateTravel: false,
-        //chbxOutOfStateTravel: false,
-        //chbxWeekend: false,
+        chbxConferenceSeminar: false,
+        chbxAnnualAuthForTravel: false,
+        chbxInStateTravel: false,
+        chbxOutOfStateTravel: false,
+        chbxWeekend: false,
         chbxVehicleRental: false,
-        //chbxUserOfPersonalVehicle: false,
+        chbxUserOfPersonalVehicle: false,
         chbxSpecialMarketingActivities: false,
         chbxProspectInSameHotelAsEmployee: false,
         chbx50pctLodgingException: false,
         chbxOther: false,
-        OtherExplanation: "",
-        
+        chbxOtherSig: "",
+
         //Section C
-        //RegistrationFees: "0.00",
+        registrationFees: "0.00",
         airFareCost: "0.00",
         mileageEstimation: 0.0,
-        mileageRate: 0.0, //This is defined in form
+        mileageRate: 0.0, //This is defined in form, not sure it's needed
         mileageAmount: "0.00",
-        //lodgingCostPerNight: "0.00",
-        //lodgingNights: "0",
+        lodgingCostPerNight: "0.00",
+        lodgingNights: "0",
         totalLodgingAmount: "0.00",
-        //mealCostPerNight: "0.00",
-        //mealPerNights: "0",
+        mealCostPerNight: "0.00",
+        mealPerNights: "0",
         totalMealAmount: "0.00",
-        //chbxCarRentalYes: false,
-        //chbxCarRentalNo: false,
+        chbxCarRentalYes: false,
+        chbxCarRentalNo: false,
         chbxVehicleRentalSig: "",
         chbxGPSRentalVehicleSig: "",
         vehicleRentalCost: "0.00",
@@ -421,29 +429,199 @@ export default class TravelRequest extends React.Component<
         totalEstimatedCostOfTrip: "0.00",
 
         //Section D
-        //Added this below (New)
-        AdditionalTraveler: {
-          TravelerName: "",
-          TravelerjobTitle: "Employee",
-        },
-        
+        TravelerName: "",
+        TravelerjobTitle: "",
+
         //Section E
-        //agencyAccounting: "",
-        //deputySecretary: "",
-        //Added this below (New)
-        AdditionalTraveler: {
-          Agency: "",
-          CostCenter: "",
-          Fund: "",
-          GeneralLedger: "",
-          Grant#: "",
-          WBSElemenet: "",
-        },
+        agencyAccounting: "",
+        deputySecretary: "",
+        Agency: "",
+        CostCenter: "",
+        Fund: "",
+        GeneralLedger: "",
+        Grant: "",
+        WBSElemenet: "",
 
         //Section G
-        //extraNotes: "",
+        extraNotes: "",
 
-      },*/
+        //Everything below is only here for testing, Goal = Get rid of it
+        employeeLogin: "",
+        personnelNo: "",
+        costCenter: "",
+        domicile: "",
+        taNo: "",
+        departureTime: "",
+        returnTime: "",
+        fund: "",
+        dateOfRequest: new Date(),
+        fYBudget: "0.00",
+        amtRemainBudget: "0.00",
+        amtRemainingAfterThis: "0.00",
+        authBudget: "0.00",
+        gL: "",
+        sMAGL: "",
+        fySpecialMarketing: "0.00",
+        fySpecialMarketingamtRemaining: "0.00",
+        fySpecialMarketingamtRemainingAfterThis: "0.00",
+        fYBudgetFY2: "0.00",
+        amtRemainBudgetFY2: "0.00",
+        amtRemainingAfterThisFY2: "0.00",
+        authBudgetFY2: "0.00",
+        fySpecialMarketingFY2: "0.00",
+        fySpecialMarketingamtRemainingFY2: "0.00",
+        fySpecialMarketingamtRemainingAfterThisFY2: "0.00",
+        status: "Draft",
+        stage: "",
+        nextApprover: null,
+        requestLog: "",
+        airTravelAgencyUsed: null,
+        airTravelAgencyUsedJustification: "",
+        airFare: "",
+        vehicleType: "",
+        vehiclePassengers: "",
+        vehicleRentalTypeIsCompact: "",
+        vehicleRentalJustificationChoice: "",
+        vehicleRentalJustificationText: "",
+        limoTaxi: "",
+        limoTaxiFareAmount: "0.00",
+        tollsAndParking: "",
+        tollsAndParkingAmount: "0.00",
+        totalTransportationExpense: "0.00",
+        lodging: [
+          {
+            total: 0.0,
+            days: 0.0,
+            cost: 0.0,
+          },
+          {
+            total: 0.0,
+            days: 0.0,
+            cost: 0.0,
+          },
+          {
+            total: 0.0,
+            days: 0.0,
+            cost: 0.0,
+          },
+        ],
+        meals: [
+          {
+            total: 0.0,
+            days: 0.0,
+            cost: 0.0,
+          },
+        ],
+        tips: "",
+        tipsAmount: "0.00",
+        otherExpensePayableTo: "",
+        otherExpensePaymentMethod: "",
+        otherExpenseDueDate: "",
+        otherExpenseAmount: "0.00",
+        totalEstimatedTravelAmount: "0.00",
+        specialMarketingActivitiesAmountNotes: "",
+        travelAdvanceDate: "",
+        travelAdvanceAmount: "0.00",
+        chbxGPSRentalVehicle: false,
+        chbxProspectInSameHotelAsEmployeeSig: "",
+        chbxSpecialMarketingActivitiesSig: "",
+        chbx50pctLodgingExceptionSig: "",
+
+        EstimatedCompensatoryTime: "",
+        budgetYear1: 0,
+        budgetYear2: 0,
+
+        employeeApproval: {
+          userLogin: "",
+          jobTitle: "Employee",
+          displayName: "",
+          approvalStatus: "",
+          approvalDate: new Date(),
+          comment: "",
+          userId: null,
+        },
+        sectionHead: {
+          userLogin: "",
+          jobTitle: "Section Head",
+          displayName: "",
+          approvalStatus: "",
+          approvalDate: null,
+          comment: "",
+          userId: null,
+          approvalString: "",
+        },
+        secretary: {
+          userLogin: "",
+          jobTitle: "Secretary",
+          displayName: "",
+          approvalStatus: "",
+          approvalDate: null,
+          comment: "",
+          userId: null,
+          approvalString: "",
+        },
+        undersecretary: {
+          userLogin: "",
+          jobTitle: "Undersecretary",
+          displayName: "",
+          approvalStatus: "",
+          approvalDate: null,
+          comment: "",
+          userId: null,
+          approvalString: "",
+        },
+        deputyUndersecretary: {
+          userLogin: "",
+          jobTitle: "Deputy Undersecretary",
+          displayName: "",
+          approvalStatus: "",
+          approvalDate: null,
+          comment: "",
+          userId: null,
+          approvalString: "",
+        },
+        budget: {
+          userLogin: "",
+          jobTitle: "Budget",
+          displayName: "",
+          approvalStatus: "",
+          approvalDate: null,
+          comment: "",
+          userId: null,
+          approvalString: "",
+        },
+        acctmgr1: {
+          userLogin: "",
+          jobTitle: "Accounting Manager 1",
+          displayName: "",
+          approvalStatus: "",
+          approvalDate: new Date(),
+          comment: "",
+          userId: 0,
+          approvalString: "",
+        },
+        acctmgr2: {
+          userLogin: "",
+          jobTitle: "Accounting Manager 2",
+          displayName: "",
+          approvalStatus: "",
+          approvalDate: new Date(),
+          comment: "",
+          userId: 0,
+          approvalString: "",
+        },
+        acctAdmin: {
+          userLogin: "",
+          jobTitle: "Accounting Admin",
+          displayName: "",
+          approvalStatus: "",
+          approvalDate: new Date(),
+          comment: "",
+          userId: 0,
+          approvalString: "",
+        },
+      },
+
       hideDialog: true,
       dialogTitle: "",
       dialogText: "",
@@ -1399,7 +1577,7 @@ export default class TravelRequest extends React.Component<
       !reqData.departureDateStr ||
       !reqData.returnDateStr ||
       !reqData.destination ||
-      !reqData.purposeOfTrip ||
+      !reqData.justficationForTrip ||
       !reqData.benefitToState ||
       !reqData.domicile
     ) {
@@ -1524,13 +1702,13 @@ export default class TravelRequest extends React.Component<
                 className="ms-Grid-col ms-sm8"
                 label="Title:"
                 name="Title"
-                value={"Title"}
+                value={reqData.employeeTitle}
                 required={true}
                 validateOnLoad={false}
                 onGetErrorMessage={this.genericValidation.bind(
                   this,
                   name,
-                  stringIsNullOrEmpty(reqData.employeeName),
+                  stringIsNullOrEmpty(reqData.employeeTitle),
                   "Title Required"
                 )}
                 disabled={disableControls}
@@ -1568,13 +1746,13 @@ export default class TravelRequest extends React.Component<
                 className="ms-Grid-col ms-sm4"
                 label="Agency:"
                 name="Agency"
-                value={"Agency"}
+                value={reqData.Agency}
                 required={true}
                 validateOnLoad={false}
                 onGetErrorMessage={this.genericValidation.bind(
                   this,
                   name,
-                  stringIsNullOrEmpty("Agency"),
+                  stringIsNullOrEmpty(reqData.Agency),
                   "Agency Required"
                 )}
                 disabled={disableControls}
@@ -1585,13 +1763,13 @@ export default class TravelRequest extends React.Component<
                 className="ms-Grid-col ms-sm4"
                 label="Division/Section:"
                 name="Division/Section"
-                value={"Division/Section"}
+                value={reqData.division}
                 required={true}
                 validateOnLoad={false}
                 onGetErrorMessage={this.genericValidation.bind(
                   this,
                   name,
-                  stringIsNullOrEmpty("Division/Section"),
+                  stringIsNullOrEmpty(reqData.division),
                   "Division/Section Required"
                 )}
                 disabled={disableControls}
@@ -1602,13 +1780,13 @@ export default class TravelRequest extends React.Component<
                 className="ms-Grid-col ms-sm4"
                 label="Mode of Transportation:"
                 name="Mode of Transportation"
-                value={"Mode of Transportation"}
+                value={reqData.modeOfTransportation}
                 required={true}
                 validateOnLoad={false}
                 onGetErrorMessage={this.genericValidation.bind(
                   this,
                   name,
-                  stringIsNullOrEmpty("Mode of Transportation"),
+                  stringIsNullOrEmpty(reqData.modeOfTransportation),
                   "Mode Of Transportation Required"
                 )}
                 disabled={disableControls}
@@ -1624,14 +1802,14 @@ export default class TravelRequest extends React.Component<
                 className="ms-Grid-col ms-sm12"
                 label="Justification for trip:"
                 name="Justification for trip"
-                value={"Justification for trip"}
+                value={reqData.justficationForTrip}
                 required={true}
                 validateOnLoad={false}
                 onGetErrorMessage={this.genericValidation.bind(
                   this,
                   name,
-                  stringIsNullOrEmpty("Justification for trip"),
-                  "Justification for trip"
+                  stringIsNullOrEmpty(reqData.justficationForTrip),
+                  "Justification for trip Required"
                 )}
                 disabled={disableControls}
                 onChange={this.handlereqDataTextChange.bind(this)}
@@ -1656,7 +1834,7 @@ export default class TravelRequest extends React.Component<
                         name="Conference/Seminar**"
                         label="Conference/Seminar**"
                         id="Conference/Seminar**"
-                        checked={reqData.chbxVehicleRental}
+                        checked={reqData.chbxConferenceSeminar}
                         disabled={!isApprover}
                         onChange={this._onControlledCheckboxChange.bind(this)}
                         styles={checkboxStyles}
@@ -1672,7 +1850,7 @@ export default class TravelRequest extends React.Component<
                         name="Annual Auth. For Routine Travel"
                         label="Annual Auth. For Routine Travel"
                         id="Annual Auth. For Routine Travel"
-                        checked={reqData.chbxVehicleRental}
+                        checked={reqData.chbxAnnualAuthForTravel}
                         disabled={!isApprover}
                         onChange={this._onControlledCheckboxChange.bind(this)}
                         styles={checkboxStyles}
@@ -1688,7 +1866,7 @@ export default class TravelRequest extends React.Component<
                         name="In-State Travel"
                         label="In-State Travel"
                         id="In-State Travel"
-                        checked={reqData.chbxVehicleRental}
+                        checked={reqData.chbxInStateTravel}
                         disabled={!isApprover}
                         onChange={this._onControlledCheckboxChange.bind(this)}
                         styles={checkboxStyles}
@@ -1704,7 +1882,7 @@ export default class TravelRequest extends React.Component<
                         name="Out-Of-State Travel"
                         label="Out-Of-State Travel"
                         id="Out-Of-State Travel"
-                        checked={reqData.chbxVehicleRental}
+                        checked={reqData.chbxOutOfStateTravel}
                         disabled={!isApprover}
                         onChange={this._onControlledCheckboxChange.bind(this)}
                         styles={checkboxStyles}
@@ -1720,7 +1898,7 @@ export default class TravelRequest extends React.Component<
                         name="Weekend Travel"
                         label="Weekend Travel"
                         id="Weekend Travel"
-                        checked={reqData.chbxVehicleRental}
+                        checked={reqData.chbxWeekend}
                         disabled={!isApprover}
                         onChange={this._onControlledCheckboxChange.bind(this)}
                         styles={checkboxStyles}
@@ -1752,7 +1930,7 @@ export default class TravelRequest extends React.Component<
                         name="Use Of Personal Vehicle"
                         label="Use Of Personal Vehicle"
                         id="Use Of Personal Vehicle"
-                        checked={reqData.chbxVehicleRental}
+                        checked={reqData.chbxUserOfPersonalVehicle}
                         disabled={!isApprover}
                         onChange={this._onControlledCheckboxChange.bind(this)}
                         styles={checkboxStyles}
@@ -1768,7 +1946,7 @@ export default class TravelRequest extends React.Component<
                         name="Special Marketing Activity"
                         label="Special Marketing Activity"
                         id="Special Marketing Activity"
-                        checked={reqData.chbxVehicleRental}
+                        checked={reqData.chbxSpecialMarketingActivities}
                         disabled={!isApprover}
                         onChange={this._onControlledCheckboxChange.bind(this)}
                         styles={checkboxStyles}
@@ -1784,7 +1962,7 @@ export default class TravelRequest extends React.Component<
                         name="Prospect In The Same Hotel As Employee"
                         label="Prospect In The Same Hotel As Employee"
                         id="Prospect In The Same Hotel As Employee"
-                        checked={reqData.chbxVehicleRental}
+                        checked={reqData.chbxProspectInSameHotelAsEmployee}
                         disabled={!isApprover}
                         onChange={this._onControlledCheckboxChange.bind(this)}
                         styles={checkboxStyles}
@@ -1800,7 +1978,7 @@ export default class TravelRequest extends React.Component<
                         name="50% Allowance above GSA Loding Rate"
                         label="50% Allowance above GSA Loding Rate"
                         id="50% Allowance above GSA Loding Rate"
-                        checked={reqData.chbxVehicleRental}
+                        checked={reqData.chbx50pctLodgingException}
                         disabled={!isApprover}
                         onChange={this._onControlledCheckboxChange.bind(this)}
                         styles={checkboxStyles}
@@ -1816,7 +1994,7 @@ export default class TravelRequest extends React.Component<
                         name="Other (Please Attach Explanation)"
                         label="Other (Please Attach Explanation)"
                         id="Other (Please Attach Explanation)"
-                        checked={reqData.chbxVehicleRental}
+                        checked={reqData.chbxOther}
                         disabled={!isApprover}
                         onChange={this._onControlledCheckboxChange.bind(this)}
                         styles={checkboxStyles}
