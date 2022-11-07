@@ -82,6 +82,12 @@ export interface IReqData {
   Grant: string;
   WBSElemenet: string;
 
+  //Section F
+  sectionHeadSig: string;
+  sectionHeadSigDate: string;
+  departmentHeadSig: string;
+  departmentHeadSigDate: string;
+
   //Section G
   extraNotes: string;
 
