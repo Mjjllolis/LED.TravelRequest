@@ -411,7 +411,7 @@ export default class TravelRequest extends React.Component<
         //Section C
         registrationFees: "0.00",
         airFareCost: "0.00",
-        mileageEstimation: "0.00", //Currently total miles
+        mileageEstimation: "0", //Currently total miles
         mileageRate: 0.0, //This is defined in form, not sure it's needed
         mileageAmount: "0.00",
         lodgingCostPerNight: "0.00",
@@ -2058,6 +2058,7 @@ export default class TravelRequest extends React.Component<
                           Personal Car Mileage:($0.58 x
                         </label>
                         <TextField
+                          styles={{ root: { height: "20px" } }}
                           className={styles.SectionCTextbox}
                           name="mileageEstimation"
                           value={reqData.mileageEstimation}
@@ -2076,6 +2077,7 @@ export default class TravelRequest extends React.Component<
                       <Stack horizontal>
                         <label className={styles.paddingLabel}>Lodging $</label>
                         <TextField
+                          styles={{ root: { height: "20px" } }}
                           className={styles.SectionCTextbox}
                           name="lodgingCostPerNight"
                           value={reqData.lodgingCostPerNight}
@@ -2084,6 +2086,7 @@ export default class TravelRequest extends React.Component<
                         />
                         <label className={styles.paddingLabel}>x</label>
                         <TextField
+                          styles={{ root: { height: "20px" } }}
                           className={styles.SectionCTextbox}
                           name="lodgingNights"
                           value={reqData.lodgingNights}
@@ -2102,6 +2105,7 @@ export default class TravelRequest extends React.Component<
                       <Stack horizontal>
                         <label className={styles.paddingLabel}>Meals $</label>
                         <TextField
+                          styles={{ root: { height: "20px" } }}
                           className={styles.SectionCTextbox}
                           name="mealCostPerNight"
                           value={reqData.mealCostPerNight}
@@ -2110,6 +2114,7 @@ export default class TravelRequest extends React.Component<
                         />
                         <label className={styles.paddingLabel}>x</label>
                         <TextField
+                          styles={{ root: { height: "20px" } }}
                           className={styles.SectionCTextbox}
                           name="mealPerNights"
                           value={reqData.mealPerNights}
@@ -2193,6 +2198,7 @@ export default class TravelRequest extends React.Component<
                         </label>
                         &nbsp;
                         <TextField
+                          styles={{ root: { height: "20px" } }}
                           className={styles.SectionCTextbox}
                           name="numberOfTravelers"
                           value={reqData.numberOfTravelers}
@@ -2263,6 +2269,7 @@ export default class TravelRequest extends React.Component<
                 <h2>Section E: Agency Accounting</h2>
                 <TextField
                   className={styles.SectionCTextbox}
+                  styles={{ root: { height: "20px" } }}
                   name="agencyAccounting"
                   value={reqData.agencyAccounting}
                   //disabled={!isApprover}
@@ -2270,6 +2277,7 @@ export default class TravelRequest extends React.Component<
                 />
                 <TextField
                   className={styles.SectionCTextbox}
+                  styles={{ root: { height: "20px" } }}
                   name="deputySecretary"
                   value={reqData.deputySecretary}
                   //disabled={!isApprover}

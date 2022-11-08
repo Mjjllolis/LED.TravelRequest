@@ -37,6 +37,14 @@
     @include ms-fontColor-white;
   }
 
+  .SectionCTextbox {
+    margin: 0;
+    padding: 0px 0px;
+    width: 100px;
+    font-size: 8px;
+    height: 20px;
+  }
+
   .currencyFormatting input {
     font-size: 12px !important;
   }
@@ -204,13 +212,6 @@
   .printShow {
     display: none;
   }
-}
-
-.SectionCTextbox {
-  margin: 0;
-  padding: 0px 0px;
-  width: 100px;
-  font-size: 8px;
 }
 
 .ChooseFileButton {
