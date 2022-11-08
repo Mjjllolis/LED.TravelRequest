@@ -51,7 +51,7 @@ export interface IReqData {
   //Section C
   registrationFees: string;
   airFareCost?: string;
-  mileageEstimation?: number;
+  mileageEstimation?: string;
   mileageRate?: number;
   mileageAmount?: string;
   lodgingCostPerNight: string;
@@ -64,6 +64,7 @@ export interface IReqData {
   chbxCarRentalNo: boolean;
   vehicleRentalCost?: string;
   specialMarketingActivitiesAmount?: string;
+  numberOfTravelers: string;
   totalEstimatedCostOfTrip?: string;
 
   //Section D

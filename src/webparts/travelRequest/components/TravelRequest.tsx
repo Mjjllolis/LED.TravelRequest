@@ -411,7 +411,7 @@ export default class TravelRequest extends React.Component<
         //Section C
         registrationFees: "0.00",
         airFareCost: "0.00",
-        mileageEstimation: 0.0,
+        mileageEstimation: "0.00", //Currently total miles
         mileageRate: 0.0, //This is defined in form, not sure it's needed
         mileageAmount: "0.00",
         lodgingCostPerNight: "0.00",
@@ -425,6 +425,7 @@ export default class TravelRequest extends React.Component<
         chbxVehicleRentalSig: "",
         chbxGPSRentalVehicleSig: "",
         vehicleRentalCost: "0.00",
+        numberOfTravelers: "0",
         specialMarketingActivitiesAmount: "0.00",
         totalEstimatedCostOfTrip: "0.00",
 
@@ -865,10 +866,11 @@ export default class TravelRequest extends React.Component<
       ? Number(reqData.limoTaxiFareAmount.replace(/,/g, ""))
       : 0.0;
     let mileageRate = reqData.mileageRate ? Number(reqData.mileageRate) : 0.0;
-    reqData.mileageAmount =
-      reqData.vehicleType == "Personal"
-        ? (miles * mileageRate).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, "$&,")
-        : "0.00";
+    //Dealing with this later
+    // reqData.mileageAmount =
+    //   reqData.vehicleType == "Personal"
+    //     ? (miles * mileageRate).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, "$&,")
+    //     : "0.00";
     reqData.totalTransportationExpense = (
       airFare +
       Number(reqData.mileageAmount.replace(/,/g, "")) +
@@ -2057,8 +2059,8 @@ export default class TravelRequest extends React.Component<
                         </label>
                         <TextField
                           className={styles.SectionCTextbox}
-                          name="miles"
-                          value={reqData.chbxOtherSig}
+                          name="mileageEstimation"
+                          value={reqData.mileageEstimation}
                           //disabled={!isApprover}
                           onChange={this.handlereqDataTextChange.bind(this)}
                         />
@@ -2075,16 +2077,16 @@ export default class TravelRequest extends React.Component<
                         <label className={styles.paddingLabel}>Lodging $</label>
                         <TextField
                           className={styles.SectionCTextbox}
-                          name="Lodging"
-                          value={reqData.chbxOtherSig}
+                          name="lodgingCostPerNight"
+                          value={reqData.lodgingCostPerNight}
                           //disabled={!isApprover}
                           onChange={this.handlereqDataTextChange.bind(this)}
                         />
                         <label className={styles.paddingLabel}>x</label>
                         <TextField
                           className={styles.SectionCTextbox}
-                          name="Nights"
-                          value={reqData.chbxOtherSig}
+                          name="lodgingNights"
+                          value={reqData.lodgingNights}
                           //disabled={!isApprover}
                           onChange={this.handlereqDataTextChange.bind(this)}
                         />
@@ -2101,16 +2103,16 @@ export default class TravelRequest extends React.Component<
                         <label className={styles.paddingLabel}>Meals $</label>
                         <TextField
                           className={styles.SectionCTextbox}
-                          name="Meals"
-                          value={reqData.chbxOtherSig}
+                          name="mealCostPerNight"
+                          value={reqData.mealCostPerNight}
                           //disabled={!isApprover}
                           onChange={this.handlereqDataTextChange.bind(this)}
                         />
                         <label className={styles.paddingLabel}>x</label>
                         <TextField
                           className={styles.SectionCTextbox}
-                          name="Days"
-                          value={reqData.chbxOtherSig}
+                          name="mealPerNights"
+                          value={reqData.mealPerNights}
                           //disabled={!isApprover}
                           onChange={this.handlereqDataTextChange.bind(this)}
                         />
@@ -2129,20 +2131,20 @@ export default class TravelRequest extends React.Component<
                         </label>
                         &nbsp;&nbsp;&nbsp;
                         <Checkbox
-                          name="Yes"
+                          name="chbxCarRentalYes"
                           label="Yes"
                           id="Yes"
-                          checked={reqData.chbxVehicleRental}
+                          checked={reqData.chbxCarRentalYes}
                           //disabled={!isApprover}
                           onChange={this._onControlledCheckboxChange.bind(this)}
                           styles={checkboxStyles}
                         />
                         &nbsp;
                         <Checkbox
-                          name="No"
+                          name="chbxCarRentalNo"
                           label="No"
                           id="No"
-                          checked={reqData.chbxVehicleRental}
+                          checked={reqData.chbxCarRentalNo}
                           //disabled={!isApprover}
                           onChange={this._onControlledCheckboxChange.bind(this)}
                           styles={checkboxStyles}
@@ -2192,8 +2194,8 @@ export default class TravelRequest extends React.Component<
                         &nbsp;
                         <TextField
                           className={styles.SectionCTextbox}
-                          name="Travelers"
-                          value={reqData.chbxOtherSig}
+                          name="numberOfTravelers"
+                          value={reqData.numberOfTravelers}
                           //disabled={!isApprover}
                           onChange={this.handlereqDataTextChange.bind(this)}
                         />
@@ -2219,7 +2221,7 @@ export default class TravelRequest extends React.Component<
               <div className="ms-Grid-col ms-sm6">
                 <Label required>Traveler Name</Label>
                 <TextField
-                  name="Name"
+                  name="TravelerName"
                   value={reqData.TravelerName}
                   required={false}
                   validateOnLoad={false}
@@ -2227,7 +2229,7 @@ export default class TravelRequest extends React.Component<
                     this,
                     name,
                     stringIsNullOrEmpty(reqData.TravelerName),
-                    "Name Required"
+                    "Traveler Name Required"
                   )}
                   //disabled={disableControls}
                   onChange={this.handlereqDataTextChange.bind(this)}
@@ -2236,7 +2238,7 @@ export default class TravelRequest extends React.Component<
               <div className="ms-Grid-col ms-sm6">
                 <Label required>Traveler Job Title</Label>
                 <TextField
-                  name="Job Title"
+                  name="TravelerjobTitle"
                   value={reqData.TravelerjobTitle}
                   required={false}
                   validateOnLoad={false}
@@ -2244,7 +2246,7 @@ export default class TravelRequest extends React.Component<
                     this,
                     name,
                     stringIsNullOrEmpty(reqData.TravelerjobTitle),
-                    "Job Title Required"
+                    "Traveler Job Title Required"
                   )}
                   //disabled={disableControls}
                   onChange={this.handlereqDataTextChange.bind(this)}
@@ -2261,14 +2263,14 @@ export default class TravelRequest extends React.Component<
                 <h2>Section E: Agency Accounting</h2>
                 <TextField
                   className={styles.SectionCTextbox}
-                  name="Accounting"
+                  name="agencyAccounting"
                   value={reqData.agencyAccounting}
                   //disabled={!isApprover}
                   onChange={this.handlereqDataTextChange.bind(this)}
                 />
                 <TextField
                   className={styles.SectionCTextbox}
-                  name="KB"
+                  name="deputySecretary"
                   value={reqData.deputySecretary}
                   //disabled={!isApprover}
                   onChange={this.handlereqDataTextChange.bind(this)}
@@ -2297,7 +2299,7 @@ export default class TravelRequest extends React.Component<
               <div className="ms-Grid-col ms-sm2">
                 <Label required>Cost Center</Label>
                 <TextField
-                  name="Cost Center"
+                  name="CostCenter"
                   value={reqData.CostCenter}
                   required={false}
                   validateOnLoad={false}
@@ -2331,7 +2333,7 @@ export default class TravelRequest extends React.Component<
               <div className="ms-Grid-col ms-sm2">
                 <Label required>General Ledger</Label>
                 <TextField
-                  name="General Ledger"
+                  name="GeneralLedger"
                   value={reqData.GeneralLedger}
                   required={false}
                   validateOnLoad={false}
@@ -2348,7 +2350,7 @@ export default class TravelRequest extends React.Component<
               <div className="ms-Grid-col ms-sm2">
                 <Label required>Grant #</Label>
                 <TextField
-                  name="Grant #"
+                  name="Grant"
                   value={reqData.Grant}
                   required={false}
                   validateOnLoad={false}
@@ -2365,7 +2367,7 @@ export default class TravelRequest extends React.Component<
               <div className="ms-Grid-col ms-sm2">
                 <Label required>WBS Element</Label>
                 <TextField
-                  name="WBS Element"
+                  name="WBSElemenet"
                   value={reqData.WBSElemenet}
                   required={false}
                   validateOnLoad={false}
@@ -2393,7 +2395,7 @@ export default class TravelRequest extends React.Component<
               <div className="ms-Grid-col ms-sm4">
                 <Label required>Section Head Signature</Label>
                 <TextField
-                  name="Section Head Signature"
+                  name="sectionHeadSig"
                   value={reqData.sectionHeadSig}
                   required={false}
                   validateOnLoad={false}
@@ -2410,7 +2412,7 @@ export default class TravelRequest extends React.Component<
               <div className="ms-Grid-col ms-sm2">
                 <Label required>Date</Label>
                 <TextField
-                  name="Section Head Date"
+                  name="sectionHeadSigDate"
                   value={reqData.sectionHeadSigDate}
                   required={false}
                   validateOnLoad={false}
@@ -2427,7 +2429,7 @@ export default class TravelRequest extends React.Component<
               <div className="ms-Grid-col ms-sm4">
                 <Label required>Department Head Signature</Label>
                 <TextField
-                  name="Department Head Signature"
+                  name="departmentHeadSig"
                   value={reqData.departmentHeadSig}
                   required={false}
                   validateOnLoad={false}
@@ -2444,7 +2446,7 @@ export default class TravelRequest extends React.Component<
               <div className="ms-Grid-col ms-sm2">
                 <Label required>Date</Label>
                 <TextField
-                  name="Department Head Date"
+                  name="departmentHeadSigDate"
                   value={reqData.departmentHeadSigDate}
                   required={false}
                   validateOnLoad={false}
@@ -2468,7 +2470,7 @@ export default class TravelRequest extends React.Component<
           <h2>Section G: Notes</h2>
           <TextField
             multiline
-            name="Notes"
+            name="extraNotes"
             value={reqData.extraNotes}
             required={false}
             validateOnLoad={false}
