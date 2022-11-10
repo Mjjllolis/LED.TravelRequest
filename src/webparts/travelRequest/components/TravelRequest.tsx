@@ -1642,9 +1642,7 @@ export default class TravelRequest extends React.Component<
           {/* Header Text */}
           <div className="ms-Grid">
             <div className="ms-Grid-row">
-              <h2 className="col align-self-center title">
-                Travel Request Form
-              </h2>
+              <h2 className="col align-self-center">Travel Request Form</h2>
             </div>
             <div className="ms-Grid-row">
               <p>
@@ -1661,7 +1659,9 @@ export default class TravelRequest extends React.Component<
           <div className="ms-Grid">
             {/* Section A Row 1*/}
             <div className="ms-Grid-row">
-              <h2>Section A: General Information- Complete All Info</h2>
+              <h2 className={styles.sectionHeader}>
+                Section A: General Information- Complete All Info
+              </h2>
             </div>
 
             {/* Section A Row 2*/}
@@ -1832,7 +1832,10 @@ export default class TravelRequest extends React.Component<
               {/* Section B */}
               <div className="ms-Grid-col ms-sm6">
                 <div className="ms-Grid-row">
-                  <h2>Section B: Type of Travel (Select all that apply)</h2>
+                  <h2 className={styles.sectionHeader}>
+                    Section B: Type of Travel (Select all that apply)
+                  </h2>
+                  <br></br>
                 </div>
                 {/*Conference Seminar Checkbox*/}
                 <div className="ms-Grid-row">
@@ -2009,6 +2012,7 @@ export default class TravelRequest extends React.Component<
                       />
                       <TextField
                         //className={styles.otherTextField}
+                        underlined
                         name="chbxOtherSig"
                         value={reqData.chbxOtherSig}
                         //disabled={!isApprover}
@@ -2029,7 +2033,10 @@ export default class TravelRequest extends React.Component<
               <div className="ms-Grid-col ms-sm6">
                 <div className="ms-Grid">
                   <div className="ms-Grid-row">
-                    <h2>Section C: Estimated Expenses Per Traveler</h2>
+                    <h2 className={styles.sectionHeader}>
+                      Section C: Estimated Expenses Per Traveler
+                    </h2>
+                    <br></br>
                   </div>
                   <div className="ms-Grid-row">
                     <div className="ms-Grid-col ms-sm8">
@@ -2058,8 +2065,9 @@ export default class TravelRequest extends React.Component<
                           Personal Car Mileage:($0.58 x
                         </label>
                         <TextField
-                          styles={{ root: { height: "20px" } }}
+                          //styles={{ root: { height: "20px" } }}
                           className={styles.SectionCTextbox}
+                          underlined
                           name="mileageEstimation"
                           value={reqData.mileageEstimation}
                           //disabled={!isApprover}
@@ -2077,8 +2085,9 @@ export default class TravelRequest extends React.Component<
                       <Stack horizontal>
                         <label className={styles.paddingLabel}>Lodging $</label>
                         <TextField
-                          styles={{ root: { height: "20px" } }}
+                          //styles={{ root: { height: "20px" } }}
                           className={styles.SectionCTextbox}
+                          underlined
                           name="lodgingCostPerNight"
                           value={reqData.lodgingCostPerNight}
                           //disabled={!isApprover}
@@ -2086,8 +2095,9 @@ export default class TravelRequest extends React.Component<
                         />
                         <label className={styles.paddingLabel}>x</label>
                         <TextField
-                          styles={{ root: { height: "20px" } }}
+                          //styles={{ root: { height: "20px" } }}
                           className={styles.SectionCTextbox}
+                          underlined
                           name="lodgingNights"
                           value={reqData.lodgingNights}
                           //disabled={!isApprover}
@@ -2105,8 +2115,9 @@ export default class TravelRequest extends React.Component<
                       <Stack horizontal>
                         <label className={styles.paddingLabel}>Meals $</label>
                         <TextField
-                          styles={{ root: { height: "20px" } }}
+                          //styles={{ root: { height: "20px" } }}
                           className={styles.SectionCTextbox}
+                          underlined
                           name="mealCostPerNight"
                           value={reqData.mealCostPerNight}
                           //disabled={!isApprover}
@@ -2114,8 +2125,9 @@ export default class TravelRequest extends React.Component<
                         />
                         <label className={styles.paddingLabel}>x</label>
                         <TextField
-                          styles={{ root: { height: "20px" } }}
+                          //styles={{ root: { height: "20px" } }}
                           className={styles.SectionCTextbox}
+                          underlined
                           name="mealPerNights"
                           value={reqData.mealPerNights}
                           //disabled={!isApprover}
@@ -2198,8 +2210,9 @@ export default class TravelRequest extends React.Component<
                         </label>
                         &nbsp;
                         <TextField
-                          styles={{ root: { height: "20px" } }}
+                          //styles={{ root: { height: "20px" } }}
                           className={styles.SectionCTextbox}
+                          underlined
                           name="numberOfTravelers"
                           value={reqData.numberOfTravelers}
                           //disabled={!isApprover}
@@ -2221,12 +2234,45 @@ export default class TravelRequest extends React.Component<
           {/* Section D */}
           <div className="ms-Grid">
             <div className="ms-Grid-row">
-              <h2>Section D: Additional Travelers</h2>
+              <h2 className={styles.sectionHeader}>
+                Section D: Additional Travelers
+              </h2>
             </div>
             <div className="ms-Grid-row">
               <div className="ms-Grid-col ms-sm6">
                 <Label required>Traveler Name</Label>
                 <TextField
+                  underlined
+                  name="TravelerName"
+                  value={reqData.TravelerName}
+                  required={false}
+                  validateOnLoad={false}
+                  onGetErrorMessage={this.genericValidation.bind(
+                    this,
+                    name,
+                    stringIsNullOrEmpty(reqData.TravelerName),
+                    "Traveler Name Required"
+                  )}
+                  //disabled={disableControls}
+                  onChange={this.handlereqDataTextChange.bind(this)}
+                />
+                <TextField
+                  underlined
+                  name="TravelerName"
+                  value={reqData.TravelerName}
+                  required={false}
+                  validateOnLoad={false}
+                  onGetErrorMessage={this.genericValidation.bind(
+                    this,
+                    name,
+                    stringIsNullOrEmpty(reqData.TravelerName),
+                    "Traveler Name Required"
+                  )}
+                  //disabled={disableControls}
+                  onChange={this.handlereqDataTextChange.bind(this)}
+                />
+                <TextField
+                  underlined
                   name="TravelerName"
                   value={reqData.TravelerName}
                   required={false}
@@ -2244,6 +2290,37 @@ export default class TravelRequest extends React.Component<
               <div className="ms-Grid-col ms-sm6">
                 <Label required>Traveler Job Title</Label>
                 <TextField
+                  underlined
+                  name="TravelerjobTitle"
+                  value={reqData.TravelerjobTitle}
+                  required={false}
+                  validateOnLoad={false}
+                  onGetErrorMessage={this.genericValidation.bind(
+                    this,
+                    name,
+                    stringIsNullOrEmpty(reqData.TravelerjobTitle),
+                    "Traveler Job Title Required"
+                  )}
+                  //disabled={disableControls}
+                  onChange={this.handlereqDataTextChange.bind(this)}
+                />
+                <TextField
+                  underlined
+                  name="TravelerjobTitle"
+                  value={reqData.TravelerjobTitle}
+                  required={false}
+                  validateOnLoad={false}
+                  onGetErrorMessage={this.genericValidation.bind(
+                    this,
+                    name,
+                    stringIsNullOrEmpty(reqData.TravelerjobTitle),
+                    "Traveler Job Title Required"
+                  )}
+                  //disabled={disableControls}
+                  onChange={this.handlereqDataTextChange.bind(this)}
+                />
+                <TextField
+                  underlined
                   name="TravelerjobTitle"
                   value={reqData.TravelerjobTitle}
                   required={false}
@@ -2263,33 +2340,68 @@ export default class TravelRequest extends React.Component<
 
           {/* Section E */}
           <br></br>
+          <br></br>
           <div className="ms-Grid">
             <div className="ms-Grid-row">
               <Stack horizontal>
-                <h2>Section E: Agency Accounting</h2>
+                <h2 className={styles.sectionHeader}>
+                  Section E: Agency Accounting
+                </h2>
+                <br></br>
                 <TextField
-                  className={styles.SectionCTextbox}
-                  styles={{ root: { height: "20px" } }}
+                  underlined
                   name="agencyAccounting"
                   value={reqData.agencyAccounting}
                   //disabled={!isApprover}
                   onChange={this.handlereqDataTextChange.bind(this)}
                 />
+                &nbsp;
                 <TextField
-                  className={styles.SectionCTextbox}
-                  styles={{ root: { height: "20px" } }}
+                  underlined
                   name="deputySecretary"
                   value={reqData.deputySecretary}
                   //disabled={!isApprover}
                   onChange={this.handlereqDataTextChange.bind(this)}
                 />
-                <h2>Deputy Undersecretary</h2>
+                <h2 className={styles.sectionHeader}>Deputy Undersecretary</h2>
               </Stack>
             </div>
+
             <div className="ms-Grid-row">
               <div className="ms-Grid-col ms-sm2">
                 <Label required>Agency</Label>
                 <TextField
+                  underlined
+                  name="Agency"
+                  value={reqData.Agency}
+                  required={false}
+                  validateOnLoad={false}
+                  onGetErrorMessage={this.genericValidation.bind(
+                    this,
+                    name,
+                    stringIsNullOrEmpty(reqData.Agency),
+                    "Agency Required"
+                  )}
+                  //disabled={disableControls}
+                  onChange={this.handlereqDataTextChange.bind(this)}
+                />
+                <TextField
+                  underlined
+                  name="Agency"
+                  value={reqData.Agency}
+                  required={false}
+                  validateOnLoad={false}
+                  onGetErrorMessage={this.genericValidation.bind(
+                    this,
+                    name,
+                    stringIsNullOrEmpty(reqData.Agency),
+                    "Agency Required"
+                  )}
+                  //disabled={disableControls}
+                  onChange={this.handlereqDataTextChange.bind(this)}
+                />
+                <TextField
+                  underlined
                   name="Agency"
                   value={reqData.Agency}
                   required={false}
@@ -2307,6 +2419,37 @@ export default class TravelRequest extends React.Component<
               <div className="ms-Grid-col ms-sm2">
                 <Label required>Cost Center</Label>
                 <TextField
+                  underlined
+                  name="CostCenter"
+                  value={reqData.CostCenter}
+                  required={false}
+                  validateOnLoad={false}
+                  onGetErrorMessage={this.genericValidation.bind(
+                    this,
+                    name,
+                    stringIsNullOrEmpty(reqData.CostCenter),
+                    "Cost Center Required"
+                  )}
+                  //disabled={disableControls}
+                  onChange={this.handlereqDataTextChange.bind(this)}
+                />
+                <TextField
+                  underlined
+                  name="CostCenter"
+                  value={reqData.CostCenter}
+                  required={false}
+                  validateOnLoad={false}
+                  onGetErrorMessage={this.genericValidation.bind(
+                    this,
+                    name,
+                    stringIsNullOrEmpty(reqData.CostCenter),
+                    "Cost Center Required"
+                  )}
+                  //disabled={disableControls}
+                  onChange={this.handlereqDataTextChange.bind(this)}
+                />
+                <TextField
+                  underlined
                   name="CostCenter"
                   value={reqData.CostCenter}
                   required={false}
@@ -2324,6 +2467,37 @@ export default class TravelRequest extends React.Component<
               <div className="ms-Grid-col ms-sm2">
                 <Label required>Fund</Label>
                 <TextField
+                  underlined
+                  name="Fund"
+                  value={reqData.Fund}
+                  required={false}
+                  validateOnLoad={false}
+                  onGetErrorMessage={this.genericValidation.bind(
+                    this,
+                    name,
+                    stringIsNullOrEmpty(reqData.Fund),
+                    "Fund Required"
+                  )}
+                  //disabled={disableControls}
+                  onChange={this.handlereqDataTextChange.bind(this)}
+                />
+                <TextField
+                  underlined
+                  name="Fund"
+                  value={reqData.Fund}
+                  required={false}
+                  validateOnLoad={false}
+                  onGetErrorMessage={this.genericValidation.bind(
+                    this,
+                    name,
+                    stringIsNullOrEmpty(reqData.Fund),
+                    "Fund Required"
+                  )}
+                  //disabled={disableControls}
+                  onChange={this.handlereqDataTextChange.bind(this)}
+                />
+                <TextField
+                  underlined
                   name="Fund"
                   value={reqData.Fund}
                   required={false}
@@ -2341,6 +2515,37 @@ export default class TravelRequest extends React.Component<
               <div className="ms-Grid-col ms-sm2">
                 <Label required>General Ledger</Label>
                 <TextField
+                  underlined
+                  name="GeneralLedger"
+                  value={reqData.GeneralLedger}
+                  required={false}
+                  validateOnLoad={false}
+                  onGetErrorMessage={this.genericValidation.bind(
+                    this,
+                    name,
+                    stringIsNullOrEmpty(reqData.GeneralLedger),
+                    "General Ledger Required"
+                  )}
+                  //disabled={disableControls}
+                  onChange={this.handlereqDataTextChange.bind(this)}
+                />
+                <TextField
+                  underlined
+                  name="GeneralLedger"
+                  value={reqData.GeneralLedger}
+                  required={false}
+                  validateOnLoad={false}
+                  onGetErrorMessage={this.genericValidation.bind(
+                    this,
+                    name,
+                    stringIsNullOrEmpty(reqData.GeneralLedger),
+                    "General Ledger Required"
+                  )}
+                  //disabled={disableControls}
+                  onChange={this.handlereqDataTextChange.bind(this)}
+                />
+                <TextField
+                  underlined
                   name="GeneralLedger"
                   value={reqData.GeneralLedger}
                   required={false}
@@ -2358,6 +2563,37 @@ export default class TravelRequest extends React.Component<
               <div className="ms-Grid-col ms-sm2">
                 <Label required>Grant #</Label>
                 <TextField
+                  underlined
+                  name="Grant"
+                  value={reqData.Grant}
+                  required={false}
+                  validateOnLoad={false}
+                  onGetErrorMessage={this.genericValidation.bind(
+                    this,
+                    name,
+                    stringIsNullOrEmpty(reqData.Grant),
+                    "Grant # Required"
+                  )}
+                  //disabled={disableControls}
+                  onChange={this.handlereqDataTextChange.bind(this)}
+                />
+                <TextField
+                  underlined
+                  name="Grant"
+                  value={reqData.Grant}
+                  required={false}
+                  validateOnLoad={false}
+                  onGetErrorMessage={this.genericValidation.bind(
+                    this,
+                    name,
+                    stringIsNullOrEmpty(reqData.Grant),
+                    "Grant # Required"
+                  )}
+                  //disabled={disableControls}
+                  onChange={this.handlereqDataTextChange.bind(this)}
+                />
+                <TextField
+                  underlined
                   name="Grant"
                   value={reqData.Grant}
                   required={false}
@@ -2375,6 +2611,37 @@ export default class TravelRequest extends React.Component<
               <div className="ms-Grid-col ms-sm2">
                 <Label required>WBS Element</Label>
                 <TextField
+                  underlined
+                  name="WBSElemenet"
+                  value={reqData.WBSElemenet}
+                  required={false}
+                  validateOnLoad={false}
+                  onGetErrorMessage={this.genericValidation.bind(
+                    this,
+                    name,
+                    stringIsNullOrEmpty(reqData.WBSElemenet),
+                    "WBS Element Required"
+                  )}
+                  //disabled={disableControls}
+                  onChange={this.handlereqDataTextChange.bind(this)}
+                />
+                <TextField
+                  underlined
+                  name="WBSElemenet"
+                  value={reqData.WBSElemenet}
+                  required={false}
+                  validateOnLoad={false}
+                  onGetErrorMessage={this.genericValidation.bind(
+                    this,
+                    name,
+                    stringIsNullOrEmpty(reqData.WBSElemenet),
+                    "WBS Element Required"
+                  )}
+                  //disabled={disableControls}
+                  onChange={this.handlereqDataTextChange.bind(this)}
+                />
+                <TextField
+                  underlined
                   name="WBSElemenet"
                   value={reqData.WBSElemenet}
                   required={false}
@@ -2396,13 +2663,16 @@ export default class TravelRequest extends React.Component<
           <br></br>
           <div className="ms-Grid">
             <div className="ms-Grid-row">
-              <h2>Section F: Approval Signature</h2>
+              <h2 className={styles.sectionHeader}>
+                Section F: Approval Signature
+              </h2>
             </div>
 
             <div className="ms-Grid-row">
               <div className="ms-Grid-col ms-sm4">
                 <Label required>Section Head Signature</Label>
                 <TextField
+                  underlined
                   name="sectionHeadSig"
                   value={reqData.sectionHeadSig}
                   required={false}
@@ -2420,6 +2690,7 @@ export default class TravelRequest extends React.Component<
               <div className="ms-Grid-col ms-sm2">
                 <Label required>Date</Label>
                 <TextField
+                  underlined
                   name="sectionHeadSigDate"
                   value={reqData.sectionHeadSigDate}
                   required={false}
@@ -2435,8 +2706,9 @@ export default class TravelRequest extends React.Component<
                 />
               </div>
               <div className="ms-Grid-col ms-sm4">
-                <Label required>Department Head Signature</Label>
+                <Label required>Department Head/Designee Signature</Label>
                 <TextField
+                  underlined
                   name="departmentHeadSig"
                   value={reqData.departmentHeadSig}
                   required={false}
@@ -2454,6 +2726,7 @@ export default class TravelRequest extends React.Component<
               <div className="ms-Grid-col ms-sm2">
                 <Label required>Date</Label>
                 <TextField
+                  underlined
                   name="departmentHeadSigDate"
                   value={reqData.departmentHeadSigDate}
                   required={false}
@@ -2475,9 +2748,10 @@ export default class TravelRequest extends React.Component<
         {/* Section G */}
         <br></br>
         <div>
-          <h2>Section G: Notes</h2>
+          <h2 className={styles.sectionHeader}>Section G: Notes</h2>
           <TextField
             multiline
+            underlined
             name="extraNotes"
             value={reqData.extraNotes}
             required={false}
