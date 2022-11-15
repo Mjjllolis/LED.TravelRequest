@@ -1665,11 +1665,11 @@ export default class TravelRequest extends React.Component<
             </div>
 
             {/* Section A Row 2*/}
-            <div className="ms-Grid-row">
+            <Stack horizontal>
+              <label className={styles.generalLabel}>Name:</label>
               <TextField
                 underlined
-                className="ms-Grid-col ms-sm8"
-                label="Name:"
+                className="ms-Grid-col ms-sm6"
                 name="employeeName"
                 value={reqData.employeeName}
                 required={true}
@@ -1683,10 +1683,11 @@ export default class TravelRequest extends React.Component<
                 //disabled={disableControls}
                 onChange={this.handlereqDataTextChange.bind(this)}
               />
+              &nbsp;
+              <label className={styles.generalLabel}>Destination:</label>
               <TextField
                 underlined
-                className="ms-Grid-col ms-sm4"
-                label="Destination:"
+                className="ms-Grid-col ms-sm6"
                 name="destination"
                 value={reqData.destination}
                 required={true}
@@ -1700,15 +1701,15 @@ export default class TravelRequest extends React.Component<
                 //disabled={disableControls}
                 onChange={this.handlereqDataTextChange.bind(this)}
               />
-            </div>
+            </Stack>
 
             {/* Section A Row 3*/}
             <br></br>
-            <div className="ms-Grid-row">
+            <Stack horizontal>
+              <label className={styles.generalLabel}>Title:</label>
               <TextField
                 underlined
                 className="ms-Grid-col ms-sm8"
-                label="Title:"
                 name="employeeTitle"
                 value={reqData.employeeTitle}
                 required={true}
@@ -1722,37 +1723,36 @@ export default class TravelRequest extends React.Component<
                 //disabled={disableControls}
                 onChange={this.handlereqDataTextChange.bind(this)}
               />
-              <Stack horizontal className="ms-Grid-col ms-sm4">
-                <Label required>Begin Date:</Label>
-                <MaskedInput
-                  mask="11/11/1111"
-                  name="departureDateStr"
-                  onChange={this.handleMaskedDateWithValidation.bind(this)}
-                  value={reqData.departureDateStr}
-                  className={styles.inputMaskControl}
-                  //disabled={disableControls}
-                  required={true}
-                />
-                <Label required>End Date:</Label>
-                <MaskedInput
-                  mask="11/11/1111"
-                  name="returnDateStr"
-                  onChange={this.handleMaskedDateWithValidation.bind(this)}
-                  value={reqData.returnDateStr}
-                  className={styles.inputMaskControl}
-                  //disabled={disableControls}
-                  required={true}
-                />
-              </Stack>
-            </div>
+              &nbsp;
+              <label className={styles.generalLabel}>Begin Date:</label>
+              <MaskedInput
+                mask="11/11/1111"
+                name="departureDateStr"
+                onChange={this.handleMaskedDateWithValidation.bind(this)}
+                value={reqData.departureDateStr}
+                className={styles.inputMaskControl}
+                //disabled={disableControls}
+                required={true}
+              />
+              <label className={styles.generalLabel}>End Date:</label>
+              <MaskedInput
+                mask="11/11/1111"
+                name="returnDateStr"
+                onChange={this.handleMaskedDateWithValidation.bind(this)}
+                value={reqData.returnDateStr}
+                className={styles.inputMaskControl}
+                //disabled={disableControls}
+                required={true}
+              />
+            </Stack>
 
             {/* Section A Row 4*/}
             <br></br>
-            <div className="ms-Grid-row">
+            <Stack horizontal>
+              <label className={styles.generalLabel}>Agency:</label>
               <TextField
                 underlined
-                className="ms-Grid-col ms-sm4"
-                label="Agency:"
+                className="ms-Grid-col ms-sm2"
                 name="Agency"
                 value={reqData.Agency}
                 required={true}
@@ -1766,10 +1766,11 @@ export default class TravelRequest extends React.Component<
                 //disabled={disableControls}
                 onChange={this.handlereqDataTextChange.bind(this)}
               />
+              &nbsp;
+              <label className={styles.generalLabel}>Division/Section:</label>
               <TextField
                 underlined
-                className="ms-Grid-col ms-sm4"
-                label="Division/Section:"
+                className="ms-Grid-col ms-sm3"
                 name="division"
                 value={reqData.division}
                 required={true}
@@ -1783,10 +1784,13 @@ export default class TravelRequest extends React.Component<
                 //disabled={disableControls}
                 onChange={this.handlereqDataTextChange.bind(this)}
               />
+              &nbsp;
+              <label className={styles.generalLabel}>
+                Mode of Transportation:
+              </label>
               <TextField
                 underlined
-                className="ms-Grid-col ms-sm4"
-                label="Mode of Transportation:"
+                className="ms-Grid-col ms-sm3"
                 name="modeOfTransportation"
                 value={reqData.modeOfTransportation}
                 required={true}
@@ -1800,15 +1804,17 @@ export default class TravelRequest extends React.Component<
                 //disabled={disableControls}
                 onChange={this.handlereqDataTextChange.bind(this)}
               />
-            </div>
+            </Stack>
 
             {/* Section A Row 5*/}
             <br></br>
-            <div className="ms-Grid-row">
+            <Stack>
+              <label className={styles.generalLabel}>
+                Justification for trip:
+              </label>
               <TextField
                 underlined
                 className="ms-Grid-col ms-sm12"
-                label="Justification for trip:"
                 name="justficationForTrip"
                 value={reqData.justficationForTrip}
                 required={true}
@@ -1822,7 +1828,7 @@ export default class TravelRequest extends React.Component<
                 //disabled={disableControls}
                 onChange={this.handlereqDataTextChange.bind(this)}
               />
-            </div>
+            </Stack>
           </div>
 
           {/* Section B/C */}
@@ -1835,21 +1841,23 @@ export default class TravelRequest extends React.Component<
                   <h2 className={styles.sectionHeader}>
                     Section B: Type of Travel (Select all that apply)
                   </h2>
-                  <br></br>
                 </div>
                 {/*Conference Seminar Checkbox*/}
                 <div className="ms-Grid-row">
                   <div className="ms-Grid-col ms-sm12">
                     <Stack horizontal>
                       <Checkbox
+                        className={styles.generalLabel}
                         name="chbxConferenceSeminar"
-                        label="Conference/Seminar**"
                         id="chbxConferenceSeminar"
                         checked={reqData.chbxConferenceSeminar}
                         //disabled={!isApprover}
                         onChange={this._onControlledCheckboxChange.bind(this)}
                         styles={checkboxStyles}
                       />
+                      <label className={styles.generalLabel}>
+                        Conference/Seminar**
+                      </label>
                     </Stack>
                   </div>
                 </div>
@@ -1859,13 +1867,15 @@ export default class TravelRequest extends React.Component<
                     <Stack horizontal>
                       <Checkbox
                         name="chbxAnnualAuthForTravel"
-                        label="Annual Auth. For Routine Travel"
                         id="chbxAnnualAuthForTravel"
                         checked={reqData.chbxAnnualAuthForTravel}
                         //disabled={!isApprover}
                         onChange={this._onControlledCheckboxChange.bind(this)}
                         styles={checkboxStyles}
                       />
+                      <label className={styles.generalLabel}>
+                        Annual Auth. For Routine Travel
+                      </label>
                     </Stack>
                   </div>
                 </div>
@@ -1875,13 +1885,15 @@ export default class TravelRequest extends React.Component<
                     <Stack horizontal>
                       <Checkbox
                         name="chbxInStateTravel"
-                        label="In-State Travel"
                         id="chbxInStateTravel"
                         checked={reqData.chbxInStateTravel}
                         //disabled={!isApprover}
                         onChange={this._onControlledCheckboxChange.bind(this)}
                         styles={checkboxStyles}
                       />
+                      <label className={styles.generalLabel}>
+                        In-State Travel
+                      </label>
                     </Stack>
                   </div>
                 </div>
@@ -1891,13 +1903,15 @@ export default class TravelRequest extends React.Component<
                     <Stack horizontal>
                       <Checkbox
                         name="chbxOutOfStateTravel"
-                        label="Out-Of-State Travel"
                         id="chbxOutOfStateTravel"
                         checked={reqData.chbxOutOfStateTravel}
                         //disabled={!isApprover}
                         onChange={this._onControlledCheckboxChange.bind(this)}
                         styles={checkboxStyles}
                       />
+                      <label className={styles.generalLabel}>
+                        Out-Of-State Travel
+                      </label>
                     </Stack>
                   </div>
                 </div>
@@ -1907,13 +1921,15 @@ export default class TravelRequest extends React.Component<
                     <Stack horizontal>
                       <Checkbox
                         name="chbxWeekend"
-                        label="Weekend Travel"
                         id="chbxWeekend"
                         checked={reqData.chbxWeekend}
                         //disabled={!isApprover}
                         onChange={this._onControlledCheckboxChange.bind(this)}
                         styles={checkboxStyles}
                       />
+                      <label className={styles.generalLabel}>
+                        Weekend Travel
+                      </label>
                     </Stack>
                   </div>
                 </div>
@@ -1923,13 +1939,15 @@ export default class TravelRequest extends React.Component<
                     <Stack horizontal>
                       <Checkbox
                         name="chbxVehicleRental"
-                        label="Vehicle Rental"
                         id="chbxVehicleRental"
                         checked={reqData.chbxVehicleRental}
                         //disabled={!isApprover}
                         onChange={this._onControlledCheckboxChange.bind(this)}
                         styles={checkboxStyles}
                       />
+                      <label className={styles.generalLabel}>
+                        Vehicle Rental
+                      </label>
                     </Stack>
                   </div>
                 </div>
@@ -1939,13 +1957,15 @@ export default class TravelRequest extends React.Component<
                     <Stack horizontal>
                       <Checkbox
                         name="chbxUserOfPersonalVehicle"
-                        label="Use Of Personal Vehicle"
                         id="chbxUserOfPersonalVehicle"
                         checked={reqData.chbxUserOfPersonalVehicle}
                         //disabled={!isApprover}
                         onChange={this._onControlledCheckboxChange.bind(this)}
                         styles={checkboxStyles}
                       />
+                      <label className={styles.generalLabel}>
+                        Use Of Personal Vehicle
+                      </label>
                     </Stack>
                   </div>
                 </div>
@@ -1955,13 +1975,15 @@ export default class TravelRequest extends React.Component<
                     <Stack horizontal>
                       <Checkbox
                         name="chbxSpecialMarketingActivities"
-                        label="Special Marketing Activity"
                         id="chbxSpecialMarketingActivities"
                         checked={reqData.chbxSpecialMarketingActivities}
                         //disabled={!isApprover}
                         onChange={this._onControlledCheckboxChange.bind(this)}
                         styles={checkboxStyles}
                       />
+                      <label className={styles.generalLabel}>
+                        Special Marketing Activity
+                      </label>
                     </Stack>
                   </div>
                 </div>
@@ -1971,13 +1993,15 @@ export default class TravelRequest extends React.Component<
                     <Stack horizontal>
                       <Checkbox
                         name="chbxProspectInSameHotelAsEmployee"
-                        label="Prospect In The Same Hotel As Employee"
                         id="chbxProspectInSameHotelAsEmployee"
                         checked={reqData.chbxProspectInSameHotelAsEmployee}
                         //disabled={!isApprover}
                         onChange={this._onControlledCheckboxChange.bind(this)}
                         styles={checkboxStyles}
                       />
+                      <label className={styles.generalLabel}>
+                        Prospect In The Same Hotel As Employee
+                      </label>
                     </Stack>
                   </div>
                 </div>
@@ -1987,13 +2011,15 @@ export default class TravelRequest extends React.Component<
                     <Stack horizontal>
                       <Checkbox
                         name="chbx50pctLodgingException"
-                        label="50% Allowance above GSA Loding Rate"
                         id="chbx50pctLodgingException"
                         checked={reqData.chbx50pctLodgingException}
                         //disabled={!isApprover}
                         onChange={this._onControlledCheckboxChange.bind(this)}
                         styles={checkboxStyles}
                       />
+                      <label className={styles.generalLabel}>
+                        50% Allowance above GSA Loding Rate
+                      </label>
                     </Stack>
                   </div>
                 </div>
@@ -2003,13 +2029,15 @@ export default class TravelRequest extends React.Component<
                     <Stack horizontal>
                       <Checkbox
                         name="chbxOther"
-                        label="Other (Please Attach Explanation)"
                         id="chbxOther"
                         checked={reqData.chbxOther}
                         //disabled={!isApprover}
                         onChange={this._onControlledCheckboxChange.bind(this)}
                         styles={checkboxStyles}
                       />
+                      <label className={styles.generalLabel}>
+                        Other (Please Attach Explanation)
+                      </label>
                       <TextField
                         //className={styles.otherTextField}
                         underlined
@@ -2036,32 +2064,35 @@ export default class TravelRequest extends React.Component<
                     <h2 className={styles.sectionHeader}>
                       Section C: Estimated Expenses Per Traveler
                     </h2>
-                    <br></br>
                   </div>
                   <div className="ms-Grid-row">
                     <div className="ms-Grid-col ms-sm8">
-                      <label className={styles.paddingLabel}>
+                      <label className={styles.sectionCLabel}>
                         Registration Fees:
                       </label>
                     </div>
                     <div className="ms-Grid-col ms-sm4">
-                      <label className={styles.paddingLabel}>$__________</label>
+                      <label className={styles.sectionCLabel}>
+                        $__________
+                      </label>
                     </div>
                   </div>
                   <div className="ms-Grid-row">
                     <div className="ms-Grid-col ms-sm8">
-                      <label className={styles.paddingLabel}>
+                      <label className={styles.sectionCLabel}>
                         Airfare Costs:
                       </label>
                     </div>
                     <div className="ms-Grid-col ms-sm4">
-                      <label className={styles.paddingLabel}>$__________</label>
+                      <label className={styles.sectionCLabel}>
+                        $__________
+                      </label>
                     </div>
                   </div>
                   <div className="ms-Grid-row">
                     <div className="ms-Grid-col ms-sm8">
                       <Stack horizontal>
-                        <label className={styles.paddingLabel}>
+                        <label className={styles.sectionCLabel}>
                           Personal Car Mileage:($0.58 x
                         </label>
                         <TextField
@@ -2073,17 +2104,21 @@ export default class TravelRequest extends React.Component<
                           //disabled={!isApprover}
                           onChange={this.handlereqDataTextChange.bind(this)}
                         />
-                        <label className={styles.paddingLabel}>miles):</label>
+                        <label className={styles.sectionCLabel}>miles):</label>
                       </Stack>
                     </div>
                     <div className="ms-Grid-col ms-sm4">
-                      <label className={styles.paddingLabel}>$__________</label>
+                      <label className={styles.sectionCLabel}>
+                        $__________
+                      </label>
                     </div>
                   </div>
                   <div className="ms-Grid-row">
                     <div className="ms-Grid-col ms-sm8">
                       <Stack horizontal>
-                        <label className={styles.paddingLabel}>Lodging $</label>
+                        <label className={styles.sectionCLabel}>
+                          Lodging $
+                        </label>
                         <TextField
                           //styles={{ root: { height: "20px" } }}
                           className={styles.SectionCTextbox}
@@ -2093,7 +2128,7 @@ export default class TravelRequest extends React.Component<
                           //disabled={!isApprover}
                           onChange={this.handlereqDataTextChange.bind(this)}
                         />
-                        <label className={styles.paddingLabel}>x</label>
+                        <label className={styles.sectionCLabel}>x</label>
                         <TextField
                           //styles={{ root: { height: "20px" } }}
                           className={styles.SectionCTextbox}
@@ -2103,17 +2138,19 @@ export default class TravelRequest extends React.Component<
                           //disabled={!isApprover}
                           onChange={this.handlereqDataTextChange.bind(this)}
                         />
-                        <label className={styles.paddingLabel}>Nights=</label>
+                        <label className={styles.sectionCLabel}>Nights=</label>
                       </Stack>
                     </div>
                     <div className="ms-Grid-col ms-sm4">
-                      <label className={styles.paddingLabel}>$__________</label>
+                      <label className={styles.sectionCLabel}>
+                        $__________
+                      </label>
                     </div>
                   </div>
                   <div className="ms-Grid-row">
                     <div className="ms-Grid-col ms-sm8">
                       <Stack horizontal>
-                        <label className={styles.paddingLabel}>Meals $</label>
+                        <label className={styles.sectionCLabel}>Meals $</label>
                         <TextField
                           //styles={{ root: { height: "20px" } }}
                           className={styles.SectionCTextbox}
@@ -2123,7 +2160,7 @@ export default class TravelRequest extends React.Component<
                           //disabled={!isApprover}
                           onChange={this.handlereqDataTextChange.bind(this)}
                         />
-                        <label className={styles.paddingLabel}>x</label>
+                        <label className={styles.sectionCLabel}>x</label>
                         <TextField
                           //styles={{ root: { height: "20px" } }}
                           className={styles.SectionCTextbox}
@@ -2133,17 +2170,19 @@ export default class TravelRequest extends React.Component<
                           //disabled={!isApprover}
                           onChange={this.handlereqDataTextChange.bind(this)}
                         />
-                        <label className={styles.paddingLabel}>Days=</label>
+                        <label className={styles.sectionCLabel}>Days=</label>
                       </Stack>
                     </div>
                     <div className="ms-Grid-col ms-sm4">
-                      <label className={styles.paddingLabel}>$__________</label>
+                      <label className={styles.sectionCLabel}>
+                        $__________
+                      </label>
                     </div>
                   </div>
                   <div className="ms-Grid-row">
                     <div className="ms-Grid-col ms-sm8">
                       <Stack horizontal>
-                        <label className={styles.paddingLabel}>
+                        <label className={styles.sectionCLabel}>
                           Car Rental:
                         </label>
                         &nbsp;&nbsp;&nbsp;
@@ -2169,43 +2208,51 @@ export default class TravelRequest extends React.Component<
                       </Stack>
                     </div>
                     <div className="ms-Grid-col ms-sm4">
-                      <label className={styles.paddingLabel}>$__________</label>
+                      <label className={styles.sectionCLabel}>
+                        $__________
+                      </label>
                     </div>
                   </div>
                   <div className="ms-Grid-row">
                     <div className="ms-Grid-col ms-sm8">
-                      <label className={styles.paddingLabel}>
+                      <label className={styles.sectionCLabel}>
                         Other Transport Costs (Taxi/Shuttle):
                       </label>
                     </div>
                     <div className="ms-Grid-col ms-sm4">
-                      <label className={styles.paddingLabel}>$__________</label>
+                      <label className={styles.sectionCLabel}>
+                        $__________
+                      </label>
                     </div>
                   </div>
                   <div className="ms-Grid-row">
                     <div className="ms-Grid-col ms-sm8">
-                      <label className={styles.paddingLabel}>
+                      <label className={styles.sectionCLabel}>
                         Cost Per Traveler:
                       </label>
                     </div>
                     <div className="ms-Grid-col ms-sm4">
-                      <label className={styles.paddingLabel}>$__________</label>
+                      <label className={styles.sectionCLabel}>
+                        $__________
+                      </label>
                     </div>
                   </div>
                   <div className="ms-Grid-row">
                     <div className="ms-Grid-col ms-sm8">
-                      <label className={styles.paddingLabel}>
+                      <label className={styles.sectionCLabel}>
                         Special Marketing Activity:
                       </label>
                     </div>
                     <div className="ms-Grid-col ms-sm4">
-                      <label className={styles.paddingLabel}>$__________</label>
+                      <label className={styles.sectionCLabel}>
+                        $__________
+                      </label>
                     </div>
                   </div>
                   <div className="ms-Grid-row">
                     <div className="ms-Grid-col ms-sm8">
                       <Stack horizontal>
-                        <label className={styles.paddingLabel}>
+                        <label className={styles.sectionCLabel}>
                           Number of Travelers:
                         </label>
                         &nbsp;
@@ -2219,11 +2266,13 @@ export default class TravelRequest extends React.Component<
                           onChange={this.handlereqDataTextChange.bind(this)}
                         />
                         &nbsp;
-                        <label className={styles.paddingLabel}>Total:</label>
+                        <label className={styles.sectionCLabel}>Total:</label>
                       </Stack>
                     </div>
                     <div className="ms-Grid-col ms-sm4">
-                      <label className={styles.paddingLabel}>$__________</label>
+                      <label className={styles.sectionCLabel}>
+                        $__________
+                      </label>
                     </div>
                   </div>
                 </div>
@@ -2240,7 +2289,7 @@ export default class TravelRequest extends React.Component<
             </div>
             <div className="ms-Grid-row">
               <div className="ms-Grid-col ms-sm6">
-                <Label required>Traveler Name</Label>
+                <label className={styles.generalLabel}>Traveler Name</label>
                 <TextField
                   underlined
                   name="TravelerName"
@@ -2288,7 +2337,9 @@ export default class TravelRequest extends React.Component<
                 />
               </div>
               <div className="ms-Grid-col ms-sm6">
-                <Label required>Traveler Job Title</Label>
+                <label className={styles.generalLabel}>
+                  Traveler Job Title
+                </label>
                 <TextField
                   underlined
                   name="TravelerjobTitle"
@@ -2349,6 +2400,7 @@ export default class TravelRequest extends React.Component<
                 </h2>
                 <br></br>
                 <TextField
+                  className={styles.sectionETextbox}
                   underlined
                   name="agencyAccounting"
                   value={reqData.agencyAccounting}
@@ -2357,6 +2409,7 @@ export default class TravelRequest extends React.Component<
                 />
                 &nbsp;
                 <TextField
+                  className={styles.sectionETextbox}
                   underlined
                   name="deputySecretary"
                   value={reqData.deputySecretary}
@@ -2369,7 +2422,7 @@ export default class TravelRequest extends React.Component<
 
             <div className="ms-Grid-row">
               <div className="ms-Grid-col ms-sm2">
-                <Label required>Agency</Label>
+                <label className={styles.generalLabel}>Agency</label>
                 <TextField
                   underlined
                   name="Agency"
@@ -2417,7 +2470,7 @@ export default class TravelRequest extends React.Component<
                 />
               </div>
               <div className="ms-Grid-col ms-sm2">
-                <Label required>Cost Center</Label>
+                <label className={styles.generalLabel}>Cost Center</label>
                 <TextField
                   underlined
                   name="CostCenter"
@@ -2465,7 +2518,7 @@ export default class TravelRequest extends React.Component<
                 />
               </div>
               <div className="ms-Grid-col ms-sm2">
-                <Label required>Fund</Label>
+                <label className={styles.generalLabel}>Fund</label>
                 <TextField
                   underlined
                   name="Fund"
@@ -2513,7 +2566,7 @@ export default class TravelRequest extends React.Component<
                 />
               </div>
               <div className="ms-Grid-col ms-sm2">
-                <Label required>General Ledger</Label>
+                <Label>General Ledger</Label>
                 <TextField
                   underlined
                   name="GeneralLedger"
@@ -2561,7 +2614,7 @@ export default class TravelRequest extends React.Component<
                 />
               </div>
               <div className="ms-Grid-col ms-sm2">
-                <Label required>Grant #</Label>
+                <Label>Grant #</Label>
                 <TextField
                   underlined
                   name="Grant"
@@ -2609,7 +2662,7 @@ export default class TravelRequest extends React.Component<
                 />
               </div>
               <div className="ms-Grid-col ms-sm2">
-                <Label required>WBS Element</Label>
+                <label className={styles.generalLabel}>WBS Element</label>
                 <TextField
                   underlined
                   name="WBSElemenet"
@@ -2670,7 +2723,9 @@ export default class TravelRequest extends React.Component<
 
             <div className="ms-Grid-row">
               <div className="ms-Grid-col ms-sm4">
-                <Label required>Section Head Signature</Label>
+                <label className={styles.generalLabel}>
+                  Section Head Signature
+                </label>
                 <TextField
                   underlined
                   name="sectionHeadSig"
@@ -2688,7 +2743,7 @@ export default class TravelRequest extends React.Component<
                 />
               </div>
               <div className="ms-Grid-col ms-sm2">
-                <Label required>Date</Label>
+                <label className={styles.generalLabel}>Date</label>
                 <TextField
                   underlined
                   name="sectionHeadSigDate"
@@ -2706,7 +2761,9 @@ export default class TravelRequest extends React.Component<
                 />
               </div>
               <div className="ms-Grid-col ms-sm4">
-                <Label required>Department Head/Designee Signature</Label>
+                <label className={styles.generalLabel}>
+                  Department Head/Designee Signature
+                </label>
                 <TextField
                   underlined
                   name="departmentHeadSig"
@@ -2724,7 +2781,7 @@ export default class TravelRequest extends React.Component<
                 />
               </div>
               <div className="ms-Grid-col ms-sm2">
-                <Label required>Date</Label>
+                <label className={styles.generalLabel}>Date</label>
                 <TextField
                   underlined
                   name="departmentHeadSigDate"
