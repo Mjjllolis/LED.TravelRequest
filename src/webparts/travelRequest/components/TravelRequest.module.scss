@@ -50,7 +50,7 @@
   .SectionCTextbox {
     margin: 0;
     padding: 0px 0px;
-    width: 80px;
+    width: 70px;
     height: 0px;
   }
 
@@ -352,9 +352,10 @@
     display: flex;
     border-bottom-width: 2px !important;
     border-bottom-style: solid;
-    width: 100%;
-    min-height: 22px !important;
+    width: 25px;
+    height: 32px !important;
     border-bottom-color: black !important;
+    border: none;
 
     label {
       font-family: "Segoe UI", "Segoe UI Web (West European)", "Segoe UI",
@@ -376,34 +377,24 @@
       padding-left: 12px;
       overflow-wrap: break-word;
       line-height: 10px;
-      //height: 32px;
+      height: 32px;
     }
     input {
       font-size: 9px;
       font-weight: 700;
-      border-top-style: none;
-      border-right-style: none;
-      border-left-style: none;
-      border-bottom-style: none;
+      border-style: none;
       outline: 0px;
-      padding-top: 2px;
-      padding-right: 0px;
-      padding-bottom: 2px;
-      padding-left: 12px;
+      padding: 0%;
       text-align: right;
-      width: inherit;
+      width: 20px;
     }
     span {
       font-size: 9px;
       font-weight: 700;
-      padding-top: 2px;
-      padding-right: 0px;
-      padding-bottom: 2px;
-      padding-left: 12px;
-      min-width: 40px;
+      padding: 0%;
       background-color: #f4f4f4;
-      text-align: right;
-      width: inherit;
+      text-align: center;
+      width: 20px;
     }
     .DatepickerComboBox {
       min-width: auto;

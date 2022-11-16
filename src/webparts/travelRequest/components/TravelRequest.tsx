@@ -2093,10 +2093,9 @@ export default class TravelRequest extends React.Component<
                     <div className="ms-Grid-col ms-sm8">
                       <Stack horizontal>
                         <label className={styles.sectionCLabel}>
-                          Personal Car Mileage:($0.58 x
+                          Personal Car Mileage:
                         </label>
                         <TextField
-                          //styles={{ root: { height: "20px" } }}
                           className={styles.SectionCTextbox}
                           underlined
                           name="mileageEstimation"
@@ -2104,13 +2103,31 @@ export default class TravelRequest extends React.Component<
                           //disabled={!isApprover}
                           onChange={this.handlereqDataTextChange.bind(this)}
                         />
-                        <label className={styles.sectionCLabel}>miles):</label>
+                        &nbsp;
+                        <TextField
+                          className={styles.SectionCTextbox}
+                          underlined
+                          name="mileageRate"
+                          value={reqData.mileageRate.toString()}
+                          validateOnLoad={false}
+                          //onGetErrorMessage={this.genericValidation.bind(this, name, stringIsNullOrEmpty(reqData.mileageEstimation), 'Answer Required')}
+                          disabled={true}
+                          onChange={this.handlereqDataTextChange.bind(this)}
+                        />
+                        <label className={styles.sectionCLabel}>¢/mile:</label>
                       </Stack>
                     </div>
                     <div className="ms-Grid-col ms-sm4">
-                      <label className={styles.sectionCLabel}>
-                        $__________
-                      </label>
+                      <TextField
+                        className={styles.SectionCTextbox}
+                        underlined
+                        name="mileageAmount"
+                        value={reqData.mileageAmount.toString()}
+                        validateOnLoad={false}
+                        //onGetErrorMessage={this.genericValidation.bind(this, name, stringIsNullOrEmpty(reqData.mileageEstimation), 'Answer Required')}
+                        disabled={true}
+                        onChange={this.handlereqDataTextChange.bind(this)}
+                      />
                     </div>
                   </div>
                   <div className="ms-Grid-row">
