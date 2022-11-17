@@ -429,6 +429,7 @@ export default class TravelRequest extends React.Component<
         numberOfTravelers: "0",
         costPerTraveler: "0.00",
         specialMarketingActivitiesAmount: "0.00",
+        totalEstimatedTravelAmount: "0.00",
         totalEstimatedCostOfTrip: "0.00",
 
         //Section D
@@ -527,7 +528,6 @@ export default class TravelRequest extends React.Component<
         otherExpensePaymentMethod: "",
         otherExpenseDueDate: "",
         otherExpenseAmount: "0.00",
-        totalEstimatedTravelAmount: "0.00",
         specialMarketingActivitiesAmountNotes: "",
         travelAdvanceDate: "",
         travelAdvanceAmount: "0.00",
@@ -535,7 +535,6 @@ export default class TravelRequest extends React.Component<
         chbxProspectInSameHotelAsEmployeeSig: "",
         chbxSpecialMarketingActivitiesSig: "",
         chbx50pctLodgingExceptionSig: "",
-
         EstimatedCompensatoryTime: "",
         budgetYear1: 0,
         budgetYear2: 0,
@@ -662,14 +661,14 @@ export default class TravelRequest extends React.Component<
     reqData[name] = value;
     this.setState({ reqData });
   }
-  private handleMaskedreqDataDateChange(event) {
-    const { name, value } = event.target;
-    let reqData = { ...this.state.reqData };
-    //let val = value.replace('_','');
-    reqData[name] = value;
-    reqData[name] = reqData[name].replace("_", "");
-    this.setState({ reqData });
-  }
+  // private handleMaskedreqDataDateChange(event) {
+  //   const { name, value } = event.target;
+  //   let reqData = { ...this.state.reqData };
+  //   let val = value.replace('_','');
+  //   reqData[name] = value;
+  //   reqData[name] = reqData[name].replace("_", "");
+  //   this.setState({ reqData });
+  // }
 
   private async handleMaskedDateWithValidation(event) {
     const { name, value } = event.target;
@@ -779,22 +778,23 @@ export default class TravelRequest extends React.Component<
     reqData[name] = checked;
     this.setState({ reqData });
   }
-  private async _onUniqueCheckboxChange(checkboxVal, event) {
-    const { name } = event.target;
-    let reqData = { ...this.state.reqData };
-    checkboxVal = reqData[name] == checkboxVal ? "" : checkboxVal; //to allow for unchecking
-    reqData[name] = checkboxVal;
-    await this.setState({ reqData });
-    this.updateCurrencyCalculations(this);
-  }
 
-  private handlereqDataRadioChange(event, option: any) {
-    const { name } = event.target;
-    const val = option.key;
-    let reqData = { ...this.state.reqData };
-    reqData[name] = val;
-    this.setState({ reqData });
-  }
+  // private async _onUniqueCheckboxChange(checkboxVal, event) {
+  //   const { name } = event.target;
+  //   let reqData = { ...this.state.reqData };
+  //   checkboxVal = reqData[name] == checkboxVal ? "" : checkboxVal; //to allow for unchecking
+  //   reqData[name] = checkboxVal;
+  //   await this.setState({ reqData });
+  //   this.updateCurrencyCalculations(this);
+  // }
+
+  // private handlereqDataRadioChange(event, option: any) {
+  //   const { name } = event.target;
+  //   const val = option.key;
+  //   let reqData = { ...this.state.reqData };
+  //   reqData[name] = val;
+  //   this.setState({ reqData });
+  // }
 
   private async handlereqDataNumberChange(fieldName, value) {
     let reqData = { ...this.state.reqData };
@@ -808,34 +808,36 @@ export default class TravelRequest extends React.Component<
     this.updateCurrencyCalculations(this);
   }
 
-  private async handlereqDataNumberChangeOLD(fieldName, value) {
-    let reqData = { ...this.state.reqData };
-    let val = !isNaN(value.floatValue) ? value.floatValue : "";
-    reqData[fieldName] = val;
-    await this.setState({ reqData });
-    this.updateCurrencyCalculations(this);
-  }
+  // private async handlereqDataNumberChangeOLD(fieldName, value) {
+  //   let reqData = { ...this.state.reqData };
+  //   let val = !isNaN(value.floatValue) ? value.floatValue : "";
+  //   reqData[fieldName] = val;
+  //   await this.setState({ reqData });
+  //   this.updateCurrencyCalculations(this);
+  // }
 
-  private async handleMultiDayNumberChange(arrayName, index, prop, value) {
-    let reqData = { ...this.state.reqData };
-    let val = !isNaN(value.floatValue) ? value.floatValue : null;
-    reqData[arrayName][index][prop] = val;
-    await this.setState({ reqData });
-    this.updateCurrencyCalculations(this);
-  }
-  private async _addMultiDay(arrayName, event) {
-    let reqData = { ...this.state.reqData };
-    let newMDay = new MultidayCost();
-    reqData[arrayName].push({ total: 0, days: 0, cost: 0 });
-    await this.setState({ reqData });
-    this.updateCurrencyCalculations(this);
-  }
-  private async _removeMultiDay(arrayName, index, event) {
-    let reqData = { ...this.state.reqData };
-    reqData[arrayName].splice(index, 1);
-    await this.setState({ reqData });
-    this.updateCurrencyCalculations(this);
-  }
+  // private async handleMultiDayNumberChange(arrayName, index, prop, value) {
+  //   let reqData = { ...this.state.reqData };
+  //   let val = !isNaN(value.floatValue) ? value.floatValue : null;
+  //   reqData[arrayName][index][prop] = val;
+  //   await this.setState({ reqData });
+  //   this.updateCurrencyCalculations(this);
+  // }
+
+  // private async _addMultiDay(arrayName, event) {
+  //   let reqData = { ...this.state.reqData };
+  //   let newMDay = new MultidayCost();
+  //   reqData[arrayName].push({ total: 0, days: 0, cost: 0 });
+  //   await this.setState({ reqData });
+  //   this.updateCurrencyCalculations(this);
+  // }
+
+  // private async _removeMultiDay(arrayName, index, event) {
+  //   let reqData = { ...this.state.reqData };
+  //   reqData[arrayName].splice(index, 1);
+  //   await this.setState({ reqData });
+  //   this.updateCurrencyCalculations(this);
+  // }
 
   private printPage() {
     window.print();
@@ -912,13 +914,17 @@ export default class TravelRequest extends React.Component<
     let otherExpenseAmount = reqData.otherExpenseAmount
       ? Number(reqData.otherExpenseAmount.replace(/,/g, ""))
       : 0.0;
+
     reqData.totalEstimatedTravelAmount = (
-      Number(reqData.totalTransportationExpense.replace(/,/g, "")) +
-      Number(reqData.totalLodgingAmount.replace(/,/g, "")) +
-      Number(reqData.totalMealAmount.replace(/,/g, "")) +
-      tollsAndParkingAmount +
-      tipsAmount +
-      otherExpenseAmount
+      parseFloat(reqData.registrationFees) +
+      parseFloat(reqData.airFareCost) +
+      parseFloat(reqData.mileageAmount) +
+      parseFloat(reqData.totalLodgingAmount) +
+      parseFloat(reqData.totalMealAmount) +
+      parseFloat(reqData.vehicleRentalCost) +
+      parseFloat(reqData.otherTransportCosts) +
+      parseFloat(reqData.costPerTraveler) + //Need to multiple this by # of travelers
+      parseFloat(reqData.specialMarketingActivitiesAmount)
     )
       .toFixed(2)
       .replace(/\d(?=(\d{3})+\.)/g, "$&,");
@@ -971,34 +977,34 @@ export default class TravelRequest extends React.Component<
     return needToValidate ? valiMessage : "";
   }
 
-  private requiredNumberValidation(value) {
-    return isNaN(value.floatValue) ? false : true;
-  }
+  // private requiredNumberValidation(value) {
+  //   return isNaN(value.floatValue) ? false : true;
+  // }
 
   //when people picker changes, update state
-  private async _getPeoplePickerItems(items: any[]) {
-    if (items.length > 0) {
-      let selectedUser = await sp.web.ensureUser(items[0].id);
-      await this.setState((prevState) => ({
-        reqData: {
-          ...prevState.reqData,
-          employeeId: selectedUser.data.Id,
-          employeeName: items[0].text,
-          employeeLogin: items[0].id,
-        },
-      }));
-      this._getAndSetApprovers();
-    } else {
-      this.setState((prevState) => ({
-        reqData: {
-          ...prevState.reqData,
-          employeeId: undefined,
-          employeeName: "",
-          employeeLogin: "",
-        },
-      }));
-    }
-  }
+  // private async _getPeoplePickerItems(items: any[]) {
+  //   if (items.length > 0) {
+  //     let selectedUser = await sp.web.ensureUser(items[0].id);
+  //     await this.setState((prevState) => ({
+  //       reqData: {
+  //         ...prevState.reqData,
+  //         employeeId: selectedUser.data.Id,
+  //         employeeName: items[0].text,
+  //         employeeLogin: items[0].id,
+  //       },
+  //     }));
+  //     this._getAndSetApprovers();
+  //   } else {
+  //     this.setState((prevState) => ({
+  //       reqData: {
+  //         ...prevState.reqData,
+  //         employeeId: undefined,
+  //         employeeName: "",
+  //         employeeLogin: "",
+  //       },
+  //     }));
+  //   }
+  // }
 
   private async _getAndSetApprovers() {
     let employeesApprovers = await this.service.GetApprovers(
@@ -1157,33 +1163,33 @@ export default class TravelRequest extends React.Component<
     this.setState({ reqData });
   }
 
-  private _onSelectDate(id, date: Date | null | undefined) {
-    let reqData = { ...this.state.reqData };
-    reqData[id] = date;
-    this.setState({ reqData });
-  }
+  // private _onSelectDate(id, date: Date | null | undefined) {
+  //   let reqData = { ...this.state.reqData };
+  //   reqData[id] = date;
+  //   this.setState({ reqData });
+  // }
 
-  private _onSelectDD(id, event) {
-    if (event.type == "click") {
-      const { innerText } = event.target;
-      let reqData = { ...this.state.reqData };
-      reqData[id] = innerText;
-      this.setState({ reqData });
-    }
-  }
+  // private _onSelectDD(id, event) {
+  //   if (event.type == "click") {
+  //     const { innerText } = event.target;
+  //     let reqData = { ...this.state.reqData };
+  //     reqData[id] = innerText;
+  //     this.setState({ reqData });
+  //   }
+  // }
 
-  private _onFormatDate = (date: Date): string => {
-    return date.toLocaleDateString();
-  };
-  private handleCommentChange(event) {
-    const { name, value } = event.target;
-    var st = { ...this.state };
-    st.reqData[name].comment = value;
-    this.setState(st);
-  }
-  private _closeDialog = (): void => {
-    this.setState({ hideDialog: true });
-  };
+  // private _onFormatDate = (date: Date): string => {
+  //   return date.toLocaleDateString();
+  // };
+  // private handleCommentChange(event) {
+  //   const { name, value } = event.target;
+  //   var st = { ...this.state };
+  //   st.reqData[name].comment = value;
+  //   this.setState(st);
+  // }
+  // private _closeDialog = (): void => {
+  //   this.setState({ hideDialog: true });
+  // };
 
   private async approvalButton(approvalName) {
     //set approval status on the current approval object
@@ -1390,20 +1396,21 @@ export default class TravelRequest extends React.Component<
       toast.success("Form approved!");
     }
   }
-  private rejectButton(approval: Approver, event) {
-    //check and only continue if comment is added
 
-    //prompt to ensure that user wants to cancel existing approvals and restart process
+  // private rejectButton(approval: Approver, event) {
+  //   //check and only continue if comment is added
 
-    //remove approval status on all other approvals and set stage
+  //   //prompt to ensure that user wants to cancel existing approvals and restart process
 
-    //set rejection info with user name, date and comments to be used in emails and logs
+  //   //remove approval status on all other approvals and set stage
 
-    //append rejection info to request log
+  //   //set rejection info with user name, date and comments to be used in emails and logs
 
-    //save form
-    this.SaveButton();
-  }
+  //   //append rejection info to request log
+
+  //   //save form
+  //   this.SaveButton();
+  // }
 
   private async SaveButton() {
     this.setState({ saving: true });
@@ -1461,12 +1468,12 @@ export default class TravelRequest extends React.Component<
   }
 
   //handle adding attachments
-  private showForm() {
-    //let reqData = { ...this.state.reqData };
-    //reqData.Adding= true;
-    //this.setState({ reqData });
-    this.setState({ AddingAttachment: true });
-  }
+  // private showForm() {
+  //   //let reqData = { ...this.state.reqData };
+  //   //reqData.Adding= true;
+  //   //this.setState({ reqData });
+  //   this.setState({ AddingAttachment: true });
+  // }
 
   private _onClose(success) {
     this.setState({ AddingAttachment: false });
@@ -1484,15 +1491,15 @@ export default class TravelRequest extends React.Component<
     this.setState({ Attachments: results });
   }
 
-  private async RemoveAttachment(attachment) {
-    await this.service.RemoveAttachment(attachment.Id);
-    setTimeout(
-      function () {
-        this.FetchAttachments();
-      }.bind(this),
-      1000
-    );
-  }
+  // private async RemoveAttachment(attachment) {
+  //   await this.service.RemoveAttachment(attachment.Id);
+  //   setTimeout(
+  //     function () {
+  //       this.FetchAttachments();
+  //     }.bind(this),
+  //     1000
+  //   );
+  // }
 
   public componentDidMount() {
     this.init();
@@ -2084,7 +2091,11 @@ export default class TravelRequest extends React.Component<
                           validateOnLoad={false}
                           //onGetErrorMessage={this.genericValidation.bind(this, name, stringIsNullOrEmpty(reqData.mileageEstimation), 'Answer Required')}
                           disabled={false}
-                          onChange={this.handlereqDataTextChange.bind(this)}
+                          onChange={this.handlereqDataNumberChange.bind(
+                            this,
+                            "registrationFees"
+                          )}
+                          //onValueChange={this.handlereqDataNumberChange.bind(this, 'tipsAmount')} /> */}
                         />
                       </Stack>
                     </div>
@@ -2106,7 +2117,10 @@ export default class TravelRequest extends React.Component<
                           validateOnLoad={false}
                           //onGetErrorMessage={this.genericValidation.bind(this, name, stringIsNullOrEmpty(reqData.mileageEstimation), 'Answer Required')}
                           disabled={false}
-                          onChange={this.handlereqDataTextChange.bind(this)}
+                          onChange={this.handlereqDataNumberChange.bind(
+                            this,
+                            "airFareCost"
+                          )}
                         />
                       </Stack>
                     </div>
@@ -2122,8 +2136,11 @@ export default class TravelRequest extends React.Component<
                           underlined
                           name="mileageEstimation"
                           value={reqData.mileageEstimation}
-                          //disabled={!isApprover}
-                          onChange={this.handlereqDataTextChange.bind(this)}
+                          disabled={!isApprover}
+                          onChange={this.handlereqDataNumberChange.bind(
+                            this,
+                            "mileageEstimation"
+                          )}
                         />
                         &nbsp;
                         <TextField
@@ -2132,9 +2149,11 @@ export default class TravelRequest extends React.Component<
                           name="mileageRate"
                           value={reqData.mileageRate.toString()}
                           validateOnLoad={false}
-                          //onGetErrorMessage={this.genericValidation.bind(this, name, stringIsNullOrEmpty(reqData.mileageEstimation), 'Answer Required')}
                           disabled={true}
-                          onChange={this.handlereqDataTextChange.bind(this)}
+                          onChange={this.handlereqDataNumberChange.bind(
+                            this,
+                            "mileageRate"
+                          )}
                         />
                         <label className={styles.sectionCLabel}>¢/mile:</label>
                       </Stack>
@@ -2148,9 +2167,11 @@ export default class TravelRequest extends React.Component<
                           name="mileageAmount"
                           value={reqData.mileageAmount.toString()}
                           validateOnLoad={false}
-                          //onGetErrorMessage={this.genericValidation.bind(this, name, stringIsNullOrEmpty(reqData.mileageEstimation), 'Answer Required')}
                           disabled={true}
-                          onChange={this.handlereqDataTextChange.bind(this)}
+                          onChange={this.handlereqDataNumberChange.bind(
+                            this,
+                            "mileageAmount"
+                          )}
                         />
                       </Stack>
                     </div>
@@ -2168,7 +2189,10 @@ export default class TravelRequest extends React.Component<
                           name="lodgingCostPerNight"
                           value={reqData.lodgingCostPerNight}
                           //disabled={!isApprover}
-                          onChange={this.handlereqDataTextChange.bind(this)}
+                          onChange={this.handlereqDataNumberChange.bind(
+                            this,
+                            "lodgingCostPerNight"
+                          )}
                         />
                         <label className={styles.sectionCLabel}>x</label>
                         <TextField
@@ -2178,7 +2202,10 @@ export default class TravelRequest extends React.Component<
                           name="lodgingNights"
                           value={reqData.lodgingNights}
                           //disabled={!isApprover}
-                          onChange={this.handlereqDataTextChange.bind(this)}
+                          onChange={this.handlereqDataNumberChange.bind(
+                            this,
+                            "lodgingNights"
+                          )}
                         />
                         <label className={styles.sectionCLabel}>Nights=</label>
                       </Stack>
@@ -2193,8 +2220,11 @@ export default class TravelRequest extends React.Component<
                           value={reqData.totalLodgingAmount.toString()}
                           validateOnLoad={false}
                           //onGetErrorMessage={this.genericValidation.bind(this, name, stringIsNullOrEmpty(reqData.mileageEstimation), 'Answer Required')}
-                          disabled={false}
-                          onChange={this.handlereqDataTextChange.bind(this)}
+                          disabled={true}
+                          onChange={this.handlereqDataNumberChange.bind(
+                            this,
+                            "totalLodgingAmount"
+                          )}
                         />
                       </Stack>
                     </div>
@@ -2210,7 +2240,10 @@ export default class TravelRequest extends React.Component<
                           name="mealCostPerNight"
                           value={reqData.mealCostPerNight}
                           //disabled={!isApprover}
-                          onChange={this.handlereqDataTextChange.bind(this)}
+                          onChange={this.handlereqDataNumberChange.bind(
+                            this,
+                            "mealCostPerNight"
+                          )}
                         />
                         <label className={styles.sectionCLabel}>x</label>
                         <TextField
@@ -2220,7 +2253,10 @@ export default class TravelRequest extends React.Component<
                           name="mealPerNights"
                           value={reqData.mealPerNights}
                           //disabled={!isApprover}
-                          onChange={this.handlereqDataTextChange.bind(this)}
+                          onChange={this.handlereqDataNumberChange.bind(
+                            this,
+                            "mealPerNights"
+                          )}
                         />
                         <label className={styles.sectionCLabel}>Days=</label>
                       </Stack>
@@ -2235,8 +2271,11 @@ export default class TravelRequest extends React.Component<
                           value={reqData.totalMealAmount.toString()}
                           validateOnLoad={false}
                           //onGetErrorMessage={this.genericValidation.bind(this, name, stringIsNullOrEmpty(reqData.mileageEstimation), 'Answer Required')}
-                          disabled={false}
-                          onChange={this.handlereqDataTextChange.bind(this)}
+                          disabled={true}
+                          onChange={this.handlereqDataNumberChange.bind(
+                            this,
+                            "totalMealAmount"
+                          )}
                         />
                       </Stack>
                     </div>
@@ -2280,7 +2319,10 @@ export default class TravelRequest extends React.Component<
                           validateOnLoad={false}
                           //onGetErrorMessage={this.genericValidation.bind(this, name, stringIsNullOrEmpty(reqData.mileageEstimation), 'Answer Required')}
                           disabled={false}
-                          onChange={this.handlereqDataTextChange.bind(this)}
+                          onChange={this.handlereqDataNumberChange.bind(
+                            this,
+                            "vehicleRentalCost"
+                          )}
                         />
                       </Stack>
                     </div>
@@ -2302,7 +2344,10 @@ export default class TravelRequest extends React.Component<
                           validateOnLoad={false}
                           //onGetErrorMessage={this.genericValidation.bind(this, name, stringIsNullOrEmpty(reqData.mileageEstimation), 'Answer Required')}
                           disabled={false}
-                          onChange={this.handlereqDataTextChange.bind(this)}
+                          onChange={this.handlereqDataNumberChange.bind(
+                            this,
+                            "otherTransportCosts"
+                          )}
                         />
                       </Stack>
                     </div>
@@ -2324,7 +2369,10 @@ export default class TravelRequest extends React.Component<
                           validateOnLoad={false}
                           //onGetErrorMessage={this.genericValidation.bind(this, name, stringIsNullOrEmpty(reqData.mileageEstimation), 'Answer Required')}
                           disabled={false}
-                          onChange={this.handlereqDataTextChange.bind(this)}
+                          onChange={this.handlereqDataNumberChange.bind(
+                            this,
+                            "costPerTraveler"
+                          )}
                         />
                       </Stack>
                     </div>
@@ -2346,7 +2394,10 @@ export default class TravelRequest extends React.Component<
                           validateOnLoad={false}
                           //onGetErrorMessage={this.genericValidation.bind(this, name, stringIsNullOrEmpty(reqData.mileageEstimation), 'Answer Required')}
                           disabled={false}
-                          onChange={this.handlereqDataTextChange.bind(this)}
+                          onChange={this.handlereqDataNumberChange.bind(
+                            this,
+                            "specialMarketingActivitiesAmount"
+                          )}
                         />
                       </Stack>
                     </div>
@@ -2365,7 +2416,10 @@ export default class TravelRequest extends React.Component<
                           name="numberOfTravelers"
                           value={reqData.numberOfTravelers}
                           //disabled={!isApprover}
-                          onChange={this.handlereqDataTextChange.bind(this)}
+                          onChange={this.handlereqDataNumberChange.bind(
+                            this,
+                            "numberOfTravelers"
+                          )}
                         />
                         &nbsp;
                         <label className={styles.sectionCLabel}>Total:</label>
@@ -2382,7 +2436,10 @@ export default class TravelRequest extends React.Component<
                           validateOnLoad={false}
                           //onGetErrorMessage={this.genericValidation.bind(this, name, stringIsNullOrEmpty(reqData.mileageEstimation), 'Answer Required')}
                           disabled={true}
-                          onChange={this.handlereqDataTextChange.bind(this)}
+                          onChange={this.handlereqDataNumberChange.bind(
+                            this,
+                            "totalEstimatedTravelAmount"
+                          )}
                         />
                       </Stack>
                     </div>
