@@ -2143,7 +2143,7 @@ export default class TravelRequest extends React.Component<
                       <Stack horizontal>
                         <label className={styles.sectionCLabel}>$</label>
                         <TextField
-                          className={styles.SectionCTextbox}
+                          className={styles.SectionPriceColumn}
                           underlined
                           name="mileageAmount"
                           value={reqData.mileageAmount.toString()}
