@@ -63,8 +63,10 @@ export interface IReqData {
   chbxCarRentalYes: boolean;
   chbxCarRentalNo: boolean;
   vehicleRentalCost?: string;
+  otherTransportCosts: string;
   specialMarketingActivitiesAmount?: string;
   numberOfTravelers: string;
+  costPerTraveler: string;
   totalEstimatedCostOfTrip?: string;
 
   //Section D
