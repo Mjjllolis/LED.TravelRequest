@@ -1,10 +1,4 @@
-import {
-  Validation,
-  Approver,
-  MultidayCost,
-  AdditionalTravelerClass,
-  AgencyAccountingClass,
-} from "../../../models/props";
+import { Validation, Approver, MultidayCost } from "../../../models/props";
 import {
   IRefObject,
   ITextField,
@@ -71,20 +65,34 @@ export interface IReqData {
   totalEstimatedCostOfTrip?: string;
 
   //Section D
-  //AdditionalTraveler: AdditionalTravelerClass[]; //Might use array later, for now just want it working
-  TravelerName: string;
-  TravelerjobTitle: string;
+  TravelerName1: string;
+  TravelerjobTitle1: string;
+  TravelerName2: string;
+  TravelerjobTitle2: string;
+  TravelerName3: string;
+  TravelerjobTitle3: string;
 
   //Section E
   agencyAccounting: string;
   deputySecretary: string;
-  //AgencyAccounting: AgencyAccountingClass[]; //Might use array later, for now just want it working
-  Agency: string;
-  CostCenter: string;
-  Fund: string;
-  GeneralLedger: string;
-  Grant: string;
-  WBSElemenet: string;
+  Agency1: string;
+  CostCenter1: string;
+  Fund1: string;
+  GeneralLedger1: string;
+  Grant1: string;
+  WBSElemenet1: string;
+  Agency2: string;
+  CostCenter2: string;
+  Fund2: string;
+  GeneralLedger2: string;
+  Grant2: string;
+  WBSElemenet2: string;
+  Agency3: string;
+  CostCenter3: string;
+  Fund3: string;
+  GeneralLedger3: string;
+  Grant3: string;
+  WBSElemenet3: string;
 
   //Section F
   sectionHeadSig: string;

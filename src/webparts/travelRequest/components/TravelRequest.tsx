@@ -2,12 +2,7 @@ import * as React from "react";
 import styles from "./TravelRequest.module.scss";
 import { ITravelRequestProps } from "./ITravelRequestProps";
 import { ITravelRequestState } from "./ITravelRequestState";
-import {
-  Validation,
-  Approver,
-  MultidayCost,
-  AdditionalTravelerClass,
-} from "../../../models/props";
+import { Validation, Approver, MultidayCost } from "../../../models/props";
 import { stringIsNullOrEmpty, getRandomString } from "@pnp/common";
 import { WebEnsureUserResult, sp } from "@pnp/sp";
 import { escape } from "@microsoft/sp-lodash-subset";
@@ -228,18 +223,34 @@ export default class TravelRequest extends React.Component<
         totalEstimatedCostOfTrip: "",
 
         //Section D
-        TravelerName: "",
-        TravelerjobTitle: "",
+        TravelerName1: "",
+        TravelerjobTitle1: "",
+        TravelerName2: "",
+        TravelerjobTitle2: "",
+        TravelerName3: "",
+        TravelerjobTitle3: "",
 
         //Section E
         agencyAccounting: "",
         deputySecretary: "",
-        Agency: "",
-        CostCenter: "",
-        Fund: "",
-        GeneralLedger: "",
-        Grant: "",
-        WBSElemenet: "",
+        Agency1: "",
+        CostCenter1: "",
+        Fund1: "",
+        GeneralLedger1: "",
+        Grant1: "",
+        WBSElemenet1: "",
+        Agency2: "",
+        CostCenter2: "",
+        Fund2: "",
+        GeneralLedger2: "",
+        Grant2: "",
+        WBSElemenet2: "",
+        Agency3: "",
+        CostCenter3: "",
+        Fund3: "",
+        GeneralLedger3: "",
+        Grant3: "",
+        WBSElemenet3: "",
 
         //Section F
         sectionHeadSig: "",
@@ -1448,14 +1459,14 @@ export default class TravelRequest extends React.Component<
               <TextField
                 underlined
                 className="ms-Grid-col ms-sm2"
-                name="Agency"
-                value={reqData.Agency}
+                name="agency"
+                value={reqData.agency}
                 required={true}
                 validateOnLoad={false}
                 onGetErrorMessage={this.genericValidation.bind(
                   this,
                   name,
-                  stringIsNullOrEmpty(reqData.Agency),
+                  stringIsNullOrEmpty(reqData.agency),
                   "Agency Required"
                 )}
                 //disabled={disableControls}
@@ -2156,46 +2167,28 @@ export default class TravelRequest extends React.Component<
                 <label className={styles.generalLabel}>Traveler Name</label>
                 <TextField
                   underlined
-                  name="TravelerName"
-                  value={reqData.TravelerName}
+                  name="TravelerName1"
+                  value={reqData.TravelerName1}
                   required={false}
                   validateOnLoad={false}
-                  onGetErrorMessage={this.genericValidation.bind(
-                    this,
-                    name,
-                    stringIsNullOrEmpty(reqData.TravelerName),
-                    "Traveler Name Required"
-                  )}
                   //disabled={disableControls}
                   onChange={this.handlereqDataTextChange.bind(this)}
                 />
                 <TextField
                   underlined
-                  name="TravelerName"
-                  value={reqData.TravelerName}
+                  name="TravelerName2"
+                  value={reqData.TravelerName2}
                   required={false}
                   validateOnLoad={false}
-                  onGetErrorMessage={this.genericValidation.bind(
-                    this,
-                    name,
-                    stringIsNullOrEmpty(reqData.TravelerName),
-                    "Traveler Name Required"
-                  )}
                   //disabled={disableControls}
                   onChange={this.handlereqDataTextChange.bind(this)}
                 />
                 <TextField
                   underlined
-                  name="TravelerName"
-                  value={reqData.TravelerName}
+                  name="TravelerName3"
+                  value={reqData.TravelerName3}
                   required={false}
                   validateOnLoad={false}
-                  onGetErrorMessage={this.genericValidation.bind(
-                    this,
-                    name,
-                    stringIsNullOrEmpty(reqData.TravelerName),
-                    "Traveler Name Required"
-                  )}
                   //disabled={disableControls}
                   onChange={this.handlereqDataTextChange.bind(this)}
                 />
@@ -2206,46 +2199,28 @@ export default class TravelRequest extends React.Component<
                 </label>
                 <TextField
                   underlined
-                  name="TravelerjobTitle"
-                  value={reqData.TravelerjobTitle}
+                  name="TravelerjobTitle1"
+                  value={reqData.TravelerjobTitle1}
                   required={false}
                   validateOnLoad={false}
-                  onGetErrorMessage={this.genericValidation.bind(
-                    this,
-                    name,
-                    stringIsNullOrEmpty(reqData.TravelerjobTitle),
-                    "Traveler Job Title Required"
-                  )}
                   //disabled={disableControls}
                   onChange={this.handlereqDataTextChange.bind(this)}
                 />
                 <TextField
                   underlined
-                  name="TravelerjobTitle"
-                  value={reqData.TravelerjobTitle}
+                  name="TravelerjobTitle2"
+                  value={reqData.TravelerjobTitle2}
                   required={false}
                   validateOnLoad={false}
-                  onGetErrorMessage={this.genericValidation.bind(
-                    this,
-                    name,
-                    stringIsNullOrEmpty(reqData.TravelerjobTitle),
-                    "Traveler Job Title Required"
-                  )}
                   //disabled={disableControls}
                   onChange={this.handlereqDataTextChange.bind(this)}
                 />
                 <TextField
                   underlined
-                  name="TravelerjobTitle"
-                  value={reqData.TravelerjobTitle}
+                  name="TravelerjobTitle3"
+                  value={reqData.TravelerjobTitle3}
                   required={false}
                   validateOnLoad={false}
-                  onGetErrorMessage={this.genericValidation.bind(
-                    this,
-                    name,
-                    stringIsNullOrEmpty(reqData.TravelerjobTitle),
-                    "Traveler Job Title Required"
-                  )}
                   //disabled={disableControls}
                   onChange={this.handlereqDataTextChange.bind(this)}
                 />
@@ -2289,46 +2264,28 @@ export default class TravelRequest extends React.Component<
                 <label className={styles.generalLabel}>Agency</label>
                 <TextField
                   underlined
-                  name="Agency"
-                  value={reqData.Agency}
+                  name="Agency1"
+                  value={reqData.Agency1}
                   required={false}
                   validateOnLoad={false}
-                  onGetErrorMessage={this.genericValidation.bind(
-                    this,
-                    name,
-                    stringIsNullOrEmpty(reqData.Agency),
-                    "Agency Required"
-                  )}
                   //disabled={disableControls}
                   onChange={this.handlereqDataTextChange.bind(this)}
                 />
                 <TextField
                   underlined
-                  name="Agency"
-                  value={reqData.Agency}
+                  name="Agency2"
+                  value={reqData.Agency2}
                   required={false}
                   validateOnLoad={false}
-                  onGetErrorMessage={this.genericValidation.bind(
-                    this,
-                    name,
-                    stringIsNullOrEmpty(reqData.Agency),
-                    "Agency Required"
-                  )}
                   //disabled={disableControls}
                   onChange={this.handlereqDataTextChange.bind(this)}
                 />
                 <TextField
                   underlined
-                  name="Agency"
-                  value={reqData.Agency}
+                  name="Agency3"
+                  value={reqData.Agency3}
                   required={false}
                   validateOnLoad={false}
-                  onGetErrorMessage={this.genericValidation.bind(
-                    this,
-                    name,
-                    stringIsNullOrEmpty(reqData.Agency),
-                    "Agency Required"
-                  )}
                   //disabled={disableControls}
                   onChange={this.handlereqDataTextChange.bind(this)}
                 />
@@ -2337,46 +2294,28 @@ export default class TravelRequest extends React.Component<
                 <label className={styles.generalLabel}>Cost Center</label>
                 <TextField
                   underlined
-                  name="CostCenter"
-                  value={reqData.CostCenter}
+                  name="CostCenter1"
+                  value={reqData.CostCenter1}
                   required={false}
                   validateOnLoad={false}
-                  onGetErrorMessage={this.genericValidation.bind(
-                    this,
-                    name,
-                    stringIsNullOrEmpty(reqData.CostCenter),
-                    "Cost Center Required"
-                  )}
                   //disabled={disableControls}
                   onChange={this.handlereqDataTextChange.bind(this)}
                 />
                 <TextField
                   underlined
-                  name="CostCenter"
-                  value={reqData.CostCenter}
+                  name="CostCenter2"
+                  value={reqData.CostCenter2}
                   required={false}
                   validateOnLoad={false}
-                  onGetErrorMessage={this.genericValidation.bind(
-                    this,
-                    name,
-                    stringIsNullOrEmpty(reqData.CostCenter),
-                    "Cost Center Required"
-                  )}
                   //disabled={disableControls}
                   onChange={this.handlereqDataTextChange.bind(this)}
                 />
                 <TextField
                   underlined
-                  name="CostCenter"
-                  value={reqData.CostCenter}
+                  name="CostCenter3"
+                  value={reqData.CostCenter3}
                   required={false}
                   validateOnLoad={false}
-                  onGetErrorMessage={this.genericValidation.bind(
-                    this,
-                    name,
-                    stringIsNullOrEmpty(reqData.CostCenter),
-                    "Cost Center Required"
-                  )}
                   //disabled={disableControls}
                   onChange={this.handlereqDataTextChange.bind(this)}
                 />
@@ -2385,46 +2324,28 @@ export default class TravelRequest extends React.Component<
                 <label className={styles.generalLabel}>Fund</label>
                 <TextField
                   underlined
-                  name="Fund"
-                  value={reqData.Fund}
+                  name="Fund1"
+                  value={reqData.Fund1}
                   required={false}
                   validateOnLoad={false}
-                  onGetErrorMessage={this.genericValidation.bind(
-                    this,
-                    name,
-                    stringIsNullOrEmpty(reqData.Fund),
-                    "Fund Required"
-                  )}
                   //disabled={disableControls}
                   onChange={this.handlereqDataTextChange.bind(this)}
                 />
                 <TextField
                   underlined
-                  name="Fund"
-                  value={reqData.Fund}
+                  name="Fund2"
+                  value={reqData.Fund2}
                   required={false}
                   validateOnLoad={false}
-                  onGetErrorMessage={this.genericValidation.bind(
-                    this,
-                    name,
-                    stringIsNullOrEmpty(reqData.Fund),
-                    "Fund Required"
-                  )}
                   //disabled={disableControls}
                   onChange={this.handlereqDataTextChange.bind(this)}
                 />
                 <TextField
                   underlined
-                  name="Fund"
-                  value={reqData.Fund}
+                  name="Fund3"
+                  value={reqData.Fund3}
                   required={false}
                   validateOnLoad={false}
-                  onGetErrorMessage={this.genericValidation.bind(
-                    this,
-                    name,
-                    stringIsNullOrEmpty(reqData.Fund),
-                    "Fund Required"
-                  )}
                   //disabled={disableControls}
                   onChange={this.handlereqDataTextChange.bind(this)}
                 />
@@ -2433,46 +2354,28 @@ export default class TravelRequest extends React.Component<
                 <label className={styles.generalLabel}>General Ledger</label>
                 <TextField
                   underlined
-                  name="GeneralLedger"
-                  value={reqData.GeneralLedger}
+                  name="GeneralLedger1"
+                  value={reqData.GeneralLedger1}
                   required={false}
                   validateOnLoad={false}
-                  onGetErrorMessage={this.genericValidation.bind(
-                    this,
-                    name,
-                    stringIsNullOrEmpty(reqData.GeneralLedger),
-                    "General Ledger Required"
-                  )}
                   //disabled={disableControls}
                   onChange={this.handlereqDataTextChange.bind(this)}
                 />
                 <TextField
                   underlined
-                  name="GeneralLedger"
-                  value={reqData.GeneralLedger}
+                  name="GeneralLedger2"
+                  value={reqData.GeneralLedger2}
                   required={false}
                   validateOnLoad={false}
-                  onGetErrorMessage={this.genericValidation.bind(
-                    this,
-                    name,
-                    stringIsNullOrEmpty(reqData.GeneralLedger),
-                    "General Ledger Required"
-                  )}
                   //disabled={disableControls}
                   onChange={this.handlereqDataTextChange.bind(this)}
                 />
                 <TextField
                   underlined
-                  name="GeneralLedger"
-                  value={reqData.GeneralLedger}
+                  name="GeneralLedger3"
+                  value={reqData.GeneralLedger3}
                   required={false}
                   validateOnLoad={false}
-                  onGetErrorMessage={this.genericValidation.bind(
-                    this,
-                    name,
-                    stringIsNullOrEmpty(reqData.GeneralLedger),
-                    "General Ledger Required"
-                  )}
                   //disabled={disableControls}
                   onChange={this.handlereqDataTextChange.bind(this)}
                 />
@@ -2481,46 +2384,28 @@ export default class TravelRequest extends React.Component<
                 <label className={styles.generalLabel}>Grant #</label>
                 <TextField
                   underlined
-                  name="Grant"
-                  value={reqData.Grant}
+                  name="Grant1"
+                  value={reqData.Grant1}
                   required={false}
                   validateOnLoad={false}
-                  onGetErrorMessage={this.genericValidation.bind(
-                    this,
-                    name,
-                    stringIsNullOrEmpty(reqData.Grant),
-                    "Grant # Required"
-                  )}
                   //disabled={disableControls}
                   onChange={this.handlereqDataTextChange.bind(this)}
                 />
                 <TextField
                   underlined
-                  name="Grant"
-                  value={reqData.Grant}
+                  name="Grant2"
+                  value={reqData.Grant2}
                   required={false}
                   validateOnLoad={false}
-                  onGetErrorMessage={this.genericValidation.bind(
-                    this,
-                    name,
-                    stringIsNullOrEmpty(reqData.Grant),
-                    "Grant # Required"
-                  )}
                   //disabled={disableControls}
                   onChange={this.handlereqDataTextChange.bind(this)}
                 />
                 <TextField
                   underlined
-                  name="Grant"
-                  value={reqData.Grant}
+                  name="Grant3"
+                  value={reqData.Grant3}
                   required={false}
                   validateOnLoad={false}
-                  onGetErrorMessage={this.genericValidation.bind(
-                    this,
-                    name,
-                    stringIsNullOrEmpty(reqData.Grant),
-                    "Grant # Required"
-                  )}
                   //disabled={disableControls}
                   onChange={this.handlereqDataTextChange.bind(this)}
                 />
@@ -2529,46 +2414,28 @@ export default class TravelRequest extends React.Component<
                 <label className={styles.generalLabel}>WBS Element</label>
                 <TextField
                   underlined
-                  name="WBSElemenet"
-                  value={reqData.WBSElemenet}
+                  name="WBSElemenet1"
+                  value={reqData.WBSElemenet1}
                   required={false}
                   validateOnLoad={false}
-                  onGetErrorMessage={this.genericValidation.bind(
-                    this,
-                    name,
-                    stringIsNullOrEmpty(reqData.WBSElemenet),
-                    "WBS Element Required"
-                  )}
                   //disabled={disableControls}
                   onChange={this.handlereqDataTextChange.bind(this)}
                 />
                 <TextField
                   underlined
-                  name="WBSElemenet"
-                  value={reqData.WBSElemenet}
+                  name="WBSElemenet2"
+                  value={reqData.WBSElemenet2}
                   required={false}
                   validateOnLoad={false}
-                  onGetErrorMessage={this.genericValidation.bind(
-                    this,
-                    name,
-                    stringIsNullOrEmpty(reqData.WBSElemenet),
-                    "WBS Element Required"
-                  )}
                   //disabled={disableControls}
                   onChange={this.handlereqDataTextChange.bind(this)}
                 />
                 <TextField
                   underlined
-                  name="WBSElemenet"
-                  value={reqData.WBSElemenet}
+                  name="WBSElemenet3"
+                  value={reqData.WBSElemenet3}
                   required={false}
                   validateOnLoad={false}
-                  onGetErrorMessage={this.genericValidation.bind(
-                    this,
-                    name,
-                    stringIsNullOrEmpty(reqData.WBSElemenet),
-                    "WBS Element Required"
-                  )}
                   //disabled={disableControls}
                   onChange={this.handlereqDataTextChange.bind(this)}
                 />

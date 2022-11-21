@@ -42,17 +42,3 @@ export class MultidayCost {
   public cost?: number;
   public total?: number;
 }
-
-export class AdditionalTravelerClass {
-  public TravelerName: string;
-  public TravelerjobTitle: string;
-}
-
-export class AgencyAccountingClass {
-  public Agency: string;
-  public CostCenter: string;
-  public Fund: string;
-  public GeneralLedger: string;
-  public Grant: string;
-  public WBSElemenet: string;
-}
