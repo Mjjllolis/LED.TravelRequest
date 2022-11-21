@@ -60,8 +60,9 @@ export interface IReqData {
   mealCostPerNight: string;
   mealPerNights: string;
   totalMealAmount?: string;
-  chbxCarRentalYes: boolean;
+  carRentalUsed?: string;
   chbxCarRentalNo: boolean;
+  chbxCarRentalYes: boolean;
   vehicleRentalCost?: string;
   otherTransportCosts: string;
   specialMarketingActivitiesAmount?: string;

@@ -172,211 +172,6 @@ export default class TravelRequest extends React.Component<
       AddingAttachment: false,
       Attachments: [],
       kickoffFLOW: "",
-      /**
-      reqData: {
-        formKey: "",
-        employeeId: null,
-        employeeName: "",
-        employeeLogin: "",
-        agency: "",
-        personnelNo: "",
-        costCenter: "",
-        domicile: "",
-        taNo: "",
-        departureTime: "",
-        departureDateStr: "",
-        returnTime: "",
-        returnDateStr: "",
-        fund: "",
-        dateOfRequest: new Date(),
-        fYBudget: "0.00",
-        amtRemainBudget: "0.00",
-        amtRemainingAfterThis: "0.00",
-        authBudget: "0.00",
-        gL: "",
-        sMAGL: "",
-        fySpecialMarketing: "0.00",
-        fySpecialMarketingamtRemaining: "0.00",
-        fySpecialMarketingamtRemainingAfterThis: "0.00",
-        fYBudgetFY2: "0.00",
-        amtRemainBudgetFY2: "0.00",
-        amtRemainingAfterThisFY2: "0.00",
-        authBudgetFY2: "0.00",
-        fySpecialMarketingFY2: "0.00",
-        fySpecialMarketingamtRemainingFY2: "0.00",
-        fySpecialMarketingamtRemainingAfterThisFY2: "0.00",
-        destination: "",
-        status: "Draft",
-        stage: "",
-        nextApprover: null,
-        requestLog: "",
-        justficationForTrip: "",
-        benefitToState: "",
-        airTravelAgencyUsed: null,
-        airTravelAgencyUsedJustification: "",
-        airFare: "",
-        airFareCost: "0.00",
-        vehicleType: "",
-        mileageEstimation: 0.0,
-        mileageRate: 0.0,
-        mileageAmount: "0.00",
-        vehiclePassengers: "",
-        vehicleRentalTypeIsCompact: "",
-        vehicleRentalJustificationChoice: "",
-        vehicleRentalJustificationText: "",
-        vehicleRentalCost: "0.00",
-        limoTaxi: "",
-        limoTaxiFareAmount: "0.00",
-        tollsAndParking: "",
-        tollsAndParkingAmount: "0.00",
-        totalTransportationExpense: "0.00",
-        lodging: [
-          {
-            total: 0.0,
-            days: 0.0,
-            cost: 0.0,
-          },
-          {
-            total: 0.0,
-            days: 0.0,
-            cost: 0.0,
-          },
-          {
-            total: 0.0,
-            days: 0.0,
-            cost: 0.0,
-          },
-        ],
-        totalLodgingAmount: "0.00",
-        meals: [
-          {
-            total: 0.0,
-            days: 0.0,
-            cost: 0.0,
-          },
-        ],
-        totalMealAmount: "0.00",
-        tips: "",
-        tipsAmount: "0.00",
-        otherExpensePayableTo: "",
-        otherExpensePaymentMethod: "",
-        otherExpenseDueDate: "",
-        otherExpenseAmount: "0.00",
-        totalEstimatedTravelAmount: "0.00",
-        specialMarketingActivitiesAmountNotes: "",
-        specialMarketingActivitiesAmount: "0.00",
-        totalEstimatedCostOfTrip: "0.00",
-        travelAdvanceDate: "",
-        travelAdvanceAmount: "0.00",
-        chbxVehicleRental: false,
-        chbxGPSRentalVehicle: false,
-        chbxProspectInSameHotelAsEmployee: false,
-        chbxSpecialMarketingActivities: false,
-        chbx50pctLodgingException: false,
-        chbxOther: false,
-        chbxOtherSig: "",
-        chbxVehicleRentalSig: "",
-        chbxGPSRentalVehicleSig: "",
-        chbxProspectInSameHotelAsEmployeeSig: "",
-        chbxSpecialMarketingActivitiesSig: "",
-        chbx50pctLodgingExceptionSig: "",
-        chbxOtherSig: "",
-
-        EstimatedCompensatoryTime: "",
-        budgetYear1: 0,
-        budgetYear2: 0,
-
-        employeeApproval: {
-          userLogin: "",
-          jobTitle: "Employee",
-          displayName: "",
-          approvalStatus: "",
-          approvalDate: new Date(),
-          comment: "",
-          userId: null,
-        },
-        sectionHead: {
-          userLogin: "",
-          jobTitle: "Section Head",
-          displayName: "",
-          approvalStatus: "",
-          approvalDate: null,
-          comment: "",
-          userId: null,
-          approvalString: "",
-        },
-        secretary: {
-          userLogin: "",
-          jobTitle: "Secretary",
-          displayName: "",
-          approvalStatus: "",
-          approvalDate: null,
-          comment: "",
-          userId: null,
-          approvalString: "",
-        },
-        undersecretary: {
-          userLogin: "",
-          jobTitle: "Undersecretary",
-          displayName: "",
-          approvalStatus: "",
-          approvalDate: null,
-          comment: "",
-          userId: null,
-          approvalString: "",
-        },
-        deputyUndersecretary: {
-          userLogin: "",
-          jobTitle: "Deputy Undersecretary",
-          displayName: "",
-          approvalStatus: "",
-          approvalDate: null,
-          comment: "",
-          userId: null,
-          approvalString: "",
-        },
-        budget: {
-          userLogin: "",
-          jobTitle: "Budget",
-          displayName: "",
-          approvalStatus: "",
-          approvalDate: null,
-          comment: "",
-          userId: null,
-          approvalString: "",
-        },
-        acctmgr1: {
-          userLogin: "",
-          jobTitle: "Accounting Manager 1",
-          displayName: "",
-          approvalStatus: "",
-          approvalDate: new Date(),
-          comment: "",
-          userId: 0,
-          approvalString: "",
-        },
-        acctmgr2: {
-          userLogin: "",
-          jobTitle: "Accounting Manager 2",
-          displayName: "",
-          approvalStatus: "",
-          approvalDate: new Date(),
-          comment: "",
-          userId: 0,
-          approvalString: "",
-        },
-        acctAdmin: {
-          userLogin: "",
-          jobTitle: "Accounting Admin",
-          displayName: "",
-          approvalStatus: "",
-          approvalDate: new Date(),
-          comment: "",
-          userId: 0,
-          approvalString: "",
-        },
-      },
-      */
 
       reqData: {
         formKey: "",
@@ -409,28 +204,28 @@ export default class TravelRequest extends React.Component<
         chbxOtherSig: "",
 
         //Section C
-        registrationFees: "0.00",
-        airFareCost: "0.00",
-        mileageEstimation: "0", //Currently total miles
+        registrationFees: "",
+        airFareCost: "",
+        mileageEstimation: "", //Currently total miles
         mileageRate: 0.0, //This is defined in form, not sure it's needed
-        mileageAmount: "0.00",
-        lodgingCostPerNight: "0.00",
-        lodgingNights: "0",
-        totalLodgingAmount: "0.00",
-        mealCostPerNight: "0.00",
-        mealPerNights: "0",
-        totalMealAmount: "0.00",
+        mileageAmount: "",
+        lodgingCostPerNight: "",
+        lodgingNights: "",
+        totalLodgingAmount: "",
+        mealCostPerNight: "",
+        mealPerNights: "",
+        totalMealAmount: "",
         chbxCarRentalYes: false,
         chbxCarRentalNo: false,
+        carRentalUsed: null,
         chbxVehicleRentalSig: "",
         chbxGPSRentalVehicleSig: "",
-        vehicleRentalCost: "0.00",
-        otherTransportCosts: "0.00",
-        numberOfTravelers: "0",
-        costPerTraveler: "0.00",
-        specialMarketingActivitiesAmount: "0.00",
-        totalEstimatedTravelAmount: "0.00",
-        totalEstimatedCostOfTrip: "0.00",
+        vehicleRentalCost: "",
+        otherTransportCosts: "",
+        numberOfTravelers: "",
+        costPerTraveler: "",
+        specialMarketingActivitiesAmount: "",
+        totalEstimatedCostOfTrip: "",
 
         //Section D
         TravelerName: "",
@@ -772,6 +567,7 @@ export default class TravelRequest extends React.Component<
     });
   }
 
+  //Used for general Checkboxes
   private _onControlledCheckboxChange(event) {
     const { name, checked } = event.target;
     let reqData = { ...this.state.reqData };
@@ -779,23 +575,23 @@ export default class TravelRequest extends React.Component<
     this.setState({ reqData });
   }
 
-  // private async _onUniqueCheckboxChange(checkboxVal, event) {
-  //   const { name } = event.target;
-  //   let reqData = { ...this.state.reqData };
-  //   checkboxVal = reqData[name] == checkboxVal ? "" : checkboxVal; //to allow for unchecking
-  //   reqData[name] = checkboxVal;
-  //   await this.setState({ reqData });
-  //   this.updateCurrencyCalculations(this);
-  // }
+  //Used for yes/No checkboxes, Unchecks other box
+  private async _onUniqueCheckboxChange(checkboxVal, event) {
+    const { name } = event.target;
+    let reqData = { ...this.state.reqData };
+    checkboxVal = reqData[name] == checkboxVal ? "" : checkboxVal; //to allow for unchecking
+    reqData[name] = checkboxVal;
 
-  // private handlereqDataRadioChange(event, option: any) {
-  //   const { name } = event.target;
-  //   const val = option.key;
-  //   let reqData = { ...this.state.reqData };
-  //   reqData[name] = val;
-  //   this.setState({ reqData });
-  // }
+    //If No car rental, change cost to 0
+    if (reqData.carRentalUsed == "false") {
+      reqData.vehicleRentalCost = "0.00";
+    }
 
+    await this.setState({ reqData });
+    this.updateCurrencyCalculations(this);
+  }
+
+  //Used to handle all data changes regarding numbers (Mainly section C)
   private async handlereqDataNumberChange(fieldName, value) {
     let reqData = { ...this.state.reqData };
     //let val = !isNaN(value.floatValue) ? value.floatValue : "";
@@ -807,37 +603,16 @@ export default class TravelRequest extends React.Component<
     await this.setState({ reqData });
     this.updateCurrencyCalculations(this);
   }
-
-  // private async handlereqDataNumberChangeOLD(fieldName, value) {
-  //   let reqData = { ...this.state.reqData };
-  //   let val = !isNaN(value.floatValue) ? value.floatValue : "";
-  //   reqData[fieldName] = val;
-  //   await this.setState({ reqData });
-  //   this.updateCurrencyCalculations(this);
-  // }
-
-  // private async handleMultiDayNumberChange(arrayName, index, prop, value) {
-  //   let reqData = { ...this.state.reqData };
-  //   let val = !isNaN(value.floatValue) ? value.floatValue : null;
-  //   reqData[arrayName][index][prop] = val;
-  //   await this.setState({ reqData });
-  //   this.updateCurrencyCalculations(this);
-  // }
-
-  // private async _addMultiDay(arrayName, event) {
-  //   let reqData = { ...this.state.reqData };
-  //   let newMDay = new MultidayCost();
-  //   reqData[arrayName].push({ total: 0, days: 0, cost: 0 });
-  //   await this.setState({ reqData });
-  //   this.updateCurrencyCalculations(this);
-  // }
-
-  // private async _removeMultiDay(arrayName, index, event) {
-  //   let reqData = { ...this.state.reqData };
-  //   reqData[arrayName].splice(index, 1);
-  //   await this.setState({ reqData });
-  //   this.updateCurrencyCalculations(this);
-  // }
+  //Used to handle all data changes regarding numbers (Mainly section C)
+  private async handlereqDataWholeNumberChange(fieldName, value) {
+    let reqData = { ...this.state.reqData };
+    //let val = !isNaN(value.floatValue) ? value.floatValue : "";
+    let val = Number(value.target.value.replace(/[^0-9\.]+/g, "")).toFixed();
+    //let val = !isNaN(temp) ? parseFloat(temp) : "";
+    reqData[fieldName] = val;
+    await this.setState({ reqData });
+    this.updateCurrencyCalculations(this);
+  }
 
   private printPage() {
     window.print();
@@ -846,18 +621,6 @@ export default class TravelRequest extends React.Component<
   private updateCurrencyCalculations(ctx) {
     let reqData = { ...this.state.reqData };
 
-    //demo calculation, not sure if it's needed, probably not correct
-    if (
-      Number(reqData.amtRemainBudget.replace(/,/g, "")) > 0 &&
-      Number(reqData.authBudget.replace(/,/g, "")) > 0
-    ) {
-      reqData.amtRemainingAfterThis = (
-        Number(reqData.amtRemainBudget.replace(/,/g, "")) -
-        Number(reqData.authBudget.replace(/,/g, ""))
-      )
-        .toFixed(2)
-        .replace(/\d(?=(\d{3})+\.)/g, "$&,");
-    }
     //trim trailing decimals
     let miles = reqData.mileageEstimation ? reqData.mileageEstimation : 0.0;
     let airFare = reqData.airFareCost
@@ -870,72 +633,52 @@ export default class TravelRequest extends React.Component<
       ? Number(reqData.limoTaxiFareAmount.replace(/,/g, ""))
       : 0.0;
     let mileageRate = reqData.mileageRate ? Number(reqData.mileageRate) : 0.0;
-    //Dealing with this later
-    // reqData.mileageAmount =
-    //   reqData.vehicleType == "Personal"
-    //     ? (miles * mileageRate).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, "$&,")
-    //     : "0.00";
-    reqData.totalTransportationExpense = (
-      airFare +
+
+    //Updating Mileage Amount
+    reqData.mileageAmount = (
+      Number(reqData.mileageEstimation.replace(/,/g, "")) * reqData.mileageRate
+    )
+      .toFixed(2)
+      .replace(/\d(?=(\d{3})+\.)/g, "$&,");
+
+    //Updating Total Lodging Costs
+    reqData.totalLodgingAmount = (
+      Number(reqData.lodgingCostPerNight.replace(/,/g, "")) *
+      Number(reqData.lodgingNights.replace(/,/g, ""))
+    )
+      .toFixed(2)
+      .replace(/\d(?=(\d{3})+\.)/g, "$&,");
+
+    //Updating Total Lodging Costs
+    reqData.totalMealAmount = (
+      Number(reqData.mealCostPerNight.replace(/,/g, "")) *
+      Number(reqData.mealPerNights.replace(/,/g, ""))
+    )
+      .toFixed(2)
+      .replace(/\d(?=(\d{3})+\.)/g, "$&,");
+
+    //Updating Cost Per Traveler
+    reqData.costPerTraveler = (
+      Number(reqData.registrationFees.replace(/,/g, "")) +
+      Number(reqData.airFareCost.replace(/,/g, "")) +
       Number(reqData.mileageAmount.replace(/,/g, "")) +
-      vehicleRentalCost +
-      limoTaxiFareAmount
+      Number(reqData.totalLodgingAmount.replace(/,/g, "")) +
+      Number(reqData.totalMealAmount.replace(/,/g, "")) +
+      Number(reqData.vehicleRentalCost.replace(/,/g, "")) +
+      Number(reqData.otherTransportCosts.replace(/,/g, ""))
     )
       .toFixed(2)
       .replace(/\d(?=(\d{3})+\.)/g, "$&,");
 
-    //add lodging costs
-    let tempCost = 0.0;
-    for (const lodge of reqData.lodging) {
-      lodge.total = lodge.days && lodge.cost ? lodge.days * lodge.cost : 0.0;
-      tempCost = tempCost + lodge.total;
-    }
-    reqData.totalLodgingAmount = tempCost
-      .toFixed(2)
-      .replace(/\d(?=(\d{3})+\.)/g, "$&,");
-
-    //add meals costs
-    tempCost = 0.0;
-    for (const meal of reqData.meals) {
-      meal.total = meal.days && meal.cost ? meal.days * meal.cost : 0.0;
-      tempCost = tempCost + meal.total;
-    }
-    reqData.totalMealAmount = tempCost
-      .toFixed(2)
-      .replace(/\d(?=(\d{3})+\.)/g, "$&,");
-
-    //TOTALS
-    let tollsAndParkingAmount = reqData.tollsAndParkingAmount
-      ? Number(reqData.tollsAndParkingAmount.replace(/,/g, ""))
-      : 0.0;
-    let tipsAmount = reqData.tipsAmount
-      ? Number(reqData.tipsAmount.replace(/,/g, ""))
-      : 0.0;
-    let otherExpenseAmount = reqData.otherExpenseAmount
-      ? Number(reqData.otherExpenseAmount.replace(/,/g, ""))
-      : 0.0;
-
-    reqData.totalEstimatedTravelAmount = (
-      parseFloat(reqData.registrationFees) +
-      parseFloat(reqData.airFareCost) +
-      parseFloat(reqData.mileageAmount) +
-      parseFloat(reqData.totalLodgingAmount) +
-      parseFloat(reqData.totalMealAmount) +
-      parseFloat(reqData.vehicleRentalCost) +
-      parseFloat(reqData.otherTransportCosts) +
-      parseFloat(reqData.costPerTraveler) + //Need to multiple this by # of travelers
-      parseFloat(reqData.specialMarketingActivitiesAmount)
-    )
-      .toFixed(2)
-      .replace(/\d(?=(\d{3})+\.)/g, "$&,");
-
-    //total Estimated Cost of trip
+    //Configuring Special marketing activity to make it compatible
     let specialMarketingActivitiesAmount =
       reqData.specialMarketingActivitiesAmount
         ? Number(reqData.specialMarketingActivitiesAmount.replace(/,/g, ""))
         : 0.0;
+    //Total Estimated cost of trip
     reqData.totalEstimatedCostOfTrip = (
-      Number(reqData.totalEstimatedTravelAmount.replace(/,/g, "")) +
+      Number(reqData.costPerTraveler.replace(/,/g, "")) *
+        Number(reqData.numberOfTravelers.replace(/,/g, "")) +
       specialMarketingActivitiesAmount
     )
       .toFixed(2)
@@ -976,35 +719,6 @@ export default class TravelRequest extends React.Component<
     //return message to set control validation
     return needToValidate ? valiMessage : "";
   }
-
-  // private requiredNumberValidation(value) {
-  //   return isNaN(value.floatValue) ? false : true;
-  // }
-
-  //when people picker changes, update state
-  // private async _getPeoplePickerItems(items: any[]) {
-  //   if (items.length > 0) {
-  //     let selectedUser = await sp.web.ensureUser(items[0].id);
-  //     await this.setState((prevState) => ({
-  //       reqData: {
-  //         ...prevState.reqData,
-  //         employeeId: selectedUser.data.Id,
-  //         employeeName: items[0].text,
-  //         employeeLogin: items[0].id,
-  //       },
-  //     }));
-  //     this._getAndSetApprovers();
-  //   } else {
-  //     this.setState((prevState) => ({
-  //       reqData: {
-  //         ...prevState.reqData,
-  //         employeeId: undefined,
-  //         employeeName: "",
-  //         employeeLogin: "",
-  //       },
-  //     }));
-  //   }
-  // }
 
   private async _getAndSetApprovers() {
     let employeesApprovers = await this.service.GetApprovers(
@@ -1162,34 +876,6 @@ export default class TravelRequest extends React.Component<
       : "";
     this.setState({ reqData });
   }
-
-  // private _onSelectDate(id, date: Date | null | undefined) {
-  //   let reqData = { ...this.state.reqData };
-  //   reqData[id] = date;
-  //   this.setState({ reqData });
-  // }
-
-  // private _onSelectDD(id, event) {
-  //   if (event.type == "click") {
-  //     const { innerText } = event.target;
-  //     let reqData = { ...this.state.reqData };
-  //     reqData[id] = innerText;
-  //     this.setState({ reqData });
-  //   }
-  // }
-
-  // private _onFormatDate = (date: Date): string => {
-  //   return date.toLocaleDateString();
-  // };
-  // private handleCommentChange(event) {
-  //   const { name, value } = event.target;
-  //   var st = { ...this.state };
-  //   st.reqData[name].comment = value;
-  //   this.setState(st);
-  // }
-  // private _closeDialog = (): void => {
-  //   this.setState({ hideDialog: true });
-  // };
 
   private async approvalButton(approvalName) {
     //set approval status on the current approval object
@@ -2075,12 +1761,12 @@ export default class TravelRequest extends React.Component<
                     </h2>
                   </div>
                   <div className="ms-Grid-row">
-                    <div className="ms-Grid-col ms-sm8">
+                    <div className="ms-Grid-col ms-sm9">
                       <label className={styles.sectionCLabel}>
                         Registration Fees:
                       </label>
                     </div>
-                    <div className="ms-Grid-col ms-sm4">
+                    <div className="ms-Grid-col ms-sm3">
                       <Stack horizontal>
                         <label className={styles.sectionCLabel}>$</label>
                         <TextField
@@ -2091,7 +1777,7 @@ export default class TravelRequest extends React.Component<
                           validateOnLoad={false}
                           //onGetErrorMessage={this.genericValidation.bind(this, name, stringIsNullOrEmpty(reqData.mileageEstimation), 'Answer Required')}
                           disabled={false}
-                          onChange={this.handlereqDataNumberChange.bind(
+                          onBlur={this.handlereqDataNumberChange.bind(
                             this,
                             "registrationFees"
                           )}
@@ -2101,12 +1787,12 @@ export default class TravelRequest extends React.Component<
                     </div>
                   </div>
                   <div className="ms-Grid-row">
-                    <div className="ms-Grid-col ms-sm8">
+                    <div className="ms-Grid-col ms-sm9">
                       <label className={styles.sectionCLabel}>
                         Airfare Costs:
                       </label>
                     </div>
-                    <div className="ms-Grid-col ms-sm4">
+                    <div className="ms-Grid-col ms-sm3">
                       <Stack horizontal>
                         <label className={styles.sectionCLabel}>$</label>
                         <TextField
@@ -2117,7 +1803,7 @@ export default class TravelRequest extends React.Component<
                           validateOnLoad={false}
                           //onGetErrorMessage={this.genericValidation.bind(this, name, stringIsNullOrEmpty(reqData.mileageEstimation), 'Answer Required')}
                           disabled={false}
-                          onChange={this.handlereqDataNumberChange.bind(
+                          onBlur={this.handlereqDataNumberChange.bind(
                             this,
                             "airFareCost"
                           )}
@@ -2126,7 +1812,7 @@ export default class TravelRequest extends React.Component<
                     </div>
                   </div>
                   <div className="ms-Grid-row">
-                    <div className="ms-Grid-col ms-sm8">
+                    <div className="ms-Grid-col ms-sm9">
                       <Stack horizontal>
                         <label className={styles.sectionCLabel}>
                           Personal Car Mileage:
@@ -2136,21 +1822,21 @@ export default class TravelRequest extends React.Component<
                           underlined
                           name="mileageEstimation"
                           value={reqData.mileageEstimation}
-                          disabled={!isApprover}
-                          onChange={this.handlereqDataNumberChange.bind(
+                          disabled={false}
+                          onBlur={this.handlereqDataNumberChange.bind(
                             this,
                             "mileageEstimation"
                           )}
                         />
                         &nbsp;
                         <TextField
-                          className={styles.SectionCTextbox}
+                          className={styles.SectionCTextboxHalfWidth}
                           underlined
                           name="mileageRate"
                           value={reqData.mileageRate.toString()}
                           validateOnLoad={false}
                           disabled={true}
-                          onChange={this.handlereqDataNumberChange.bind(
+                          onBlur={this.handlereqDataNumberChange.bind(
                             this,
                             "mileageRate"
                           )}
@@ -2158,7 +1844,7 @@ export default class TravelRequest extends React.Component<
                         <label className={styles.sectionCLabel}>¢/mile:</label>
                       </Stack>
                     </div>
-                    <div className="ms-Grid-col ms-sm4">
+                    <div className="ms-Grid-col ms-sm3">
                       <Stack horizontal>
                         <label className={styles.sectionCLabel}>$</label>
                         <TextField
@@ -2177,7 +1863,7 @@ export default class TravelRequest extends React.Component<
                     </div>
                   </div>
                   <div className="ms-Grid-row">
-                    <div className="ms-Grid-col ms-sm8">
+                    <div className="ms-Grid-col ms-sm9">
                       <Stack horizontal>
                         <label className={styles.sectionCLabel}>
                           Lodging $
@@ -2189,7 +1875,7 @@ export default class TravelRequest extends React.Component<
                           name="lodgingCostPerNight"
                           value={reqData.lodgingCostPerNight}
                           //disabled={!isApprover}
-                          onChange={this.handlereqDataNumberChange.bind(
+                          onBlur={this.handlereqDataNumberChange.bind(
                             this,
                             "lodgingCostPerNight"
                           )}
@@ -2202,15 +1888,15 @@ export default class TravelRequest extends React.Component<
                           name="lodgingNights"
                           value={reqData.lodgingNights}
                           //disabled={!isApprover}
-                          onChange={this.handlereqDataNumberChange.bind(
+                          onBlur={this.handlereqDataWholeNumberChange.bind(
                             this,
                             "lodgingNights"
                           )}
                         />
-                        <label className={styles.sectionCLabel}>Nights=</label>
+                        <label className={styles.sectionCLabel}>Nights:</label>
                       </Stack>
                     </div>
-                    <div className="ms-Grid-col ms-sm4">
+                    <div className="ms-Grid-col ms-sm3">
                       <Stack horizontal>
                         <label className={styles.sectionCLabel}>$</label>
                         <TextField
@@ -2221,7 +1907,7 @@ export default class TravelRequest extends React.Component<
                           validateOnLoad={false}
                           //onGetErrorMessage={this.genericValidation.bind(this, name, stringIsNullOrEmpty(reqData.mileageEstimation), 'Answer Required')}
                           disabled={true}
-                          onChange={this.handlereqDataNumberChange.bind(
+                          onBlur={this.handlereqDataNumberChange.bind(
                             this,
                             "totalLodgingAmount"
                           )}
@@ -2230,7 +1916,7 @@ export default class TravelRequest extends React.Component<
                     </div>
                   </div>
                   <div className="ms-Grid-row">
-                    <div className="ms-Grid-col ms-sm8">
+                    <div className="ms-Grid-col ms-sm9">
                       <Stack horizontal>
                         <label className={styles.sectionCLabel}>Meals $</label>
                         <TextField
@@ -2240,7 +1926,7 @@ export default class TravelRequest extends React.Component<
                           name="mealCostPerNight"
                           value={reqData.mealCostPerNight}
                           //disabled={!isApprover}
-                          onChange={this.handlereqDataNumberChange.bind(
+                          onBlur={this.handlereqDataNumberChange.bind(
                             this,
                             "mealCostPerNight"
                           )}
@@ -2253,15 +1939,15 @@ export default class TravelRequest extends React.Component<
                           name="mealPerNights"
                           value={reqData.mealPerNights}
                           //disabled={!isApprover}
-                          onChange={this.handlereqDataNumberChange.bind(
+                          onBlur={this.handlereqDataWholeNumberChange.bind(
                             this,
                             "mealPerNights"
                           )}
                         />
-                        <label className={styles.sectionCLabel}>Days=</label>
+                        <label className={styles.sectionCLabel}>Days:</label>
                       </Stack>
                     </div>
-                    <div className="ms-Grid-col ms-sm4">
+                    <div className="ms-Grid-col ms-sm3">
                       <Stack horizontal>
                         <label className={styles.sectionCLabel}>$</label>
                         <TextField
@@ -2272,7 +1958,7 @@ export default class TravelRequest extends React.Component<
                           validateOnLoad={false}
                           //onGetErrorMessage={this.genericValidation.bind(this, name, stringIsNullOrEmpty(reqData.mileageEstimation), 'Answer Required')}
                           disabled={true}
-                          onChange={this.handlereqDataNumberChange.bind(
+                          onBlur={this.handlereqDataNumberChange.bind(
                             this,
                             "totalMealAmount"
                           )}
@@ -2281,37 +1967,46 @@ export default class TravelRequest extends React.Component<
                     </div>
                   </div>
                   <div className="ms-Grid-row">
-                    <div className="ms-Grid-col ms-sm8">
+                    <div className="ms-Grid-col ms-sm9">
                       <Stack horizontal>
                         <label className={styles.sectionCLabel}>
                           Car Rental:
                         </label>
                         &nbsp;&nbsp;&nbsp;
                         <Checkbox
-                          name="chbxCarRentalYes"
+                          name="carRentalUsed"
                           label="Yes"
-                          id="Yes"
-                          checked={reqData.chbxCarRentalYes}
+                          id="chbxCarRentalYes"
+                          checked={reqData.carRentalUsed == "true"}
+                          onChange={this._onUniqueCheckboxChange.bind(
+                            this,
+                            "true"
+                          )}
                           //disabled={!isApprover}
-                          onChange={this._onControlledCheckboxChange.bind(this)}
                           styles={checkboxStyles}
                         />
                         &nbsp;
                         <Checkbox
-                          name="chbxCarRentalNo"
+                          name="carRentalUsed"
                           label="No"
-                          id="No"
-                          checked={reqData.chbxCarRentalNo}
+                          id="chbxCarRentalNo"
+                          checked={reqData.carRentalUsed == "false"}
                           //disabled={!isApprover}
-                          onChange={this._onControlledCheckboxChange.bind(this)}
+                          onChange={this._onUniqueCheckboxChange.bind(
+                            this,
+                            "false"
+                          )}
                           styles={checkboxStyles}
                         />
                       </Stack>
                     </div>
-                    <div className="ms-Grid-col ms-sm4">
+                    <div className="ms-Grid-col ms-sm3">
                       <Stack horizontal>
                         <label className={styles.sectionCLabel}>$</label>
                         <TextField
+                          required={
+                            reqData.carRentalUsed == "true" ? true : false
+                          }
                           className={styles.SectionPriceColumn}
                           underlined
                           name="vehicleRentalCost"
@@ -2319,7 +2014,7 @@ export default class TravelRequest extends React.Component<
                           validateOnLoad={false}
                           //onGetErrorMessage={this.genericValidation.bind(this, name, stringIsNullOrEmpty(reqData.mileageEstimation), 'Answer Required')}
                           disabled={false}
-                          onChange={this.handlereqDataNumberChange.bind(
+                          onBlur={this.handlereqDataNumberChange.bind(
                             this,
                             "vehicleRentalCost"
                           )}
@@ -2328,12 +2023,12 @@ export default class TravelRequest extends React.Component<
                     </div>
                   </div>
                   <div className="ms-Grid-row">
-                    <div className="ms-Grid-col ms-sm8">
+                    <div className="ms-Grid-col ms-sm9">
                       <label className={styles.sectionCLabel}>
                         Other Transport Costs (Taxi/Shuttle):
                       </label>
                     </div>
-                    <div className="ms-Grid-col ms-sm4">
+                    <div className="ms-Grid-col ms-sm3">
                       <Stack horizontal>
                         <label className={styles.sectionCLabel}>$</label>
                         <TextField
@@ -2344,7 +2039,7 @@ export default class TravelRequest extends React.Component<
                           validateOnLoad={false}
                           //onGetErrorMessage={this.genericValidation.bind(this, name, stringIsNullOrEmpty(reqData.mileageEstimation), 'Answer Required')}
                           disabled={false}
-                          onChange={this.handlereqDataNumberChange.bind(
+                          onBlur={this.handlereqDataNumberChange.bind(
                             this,
                             "otherTransportCosts"
                           )}
@@ -2353,12 +2048,12 @@ export default class TravelRequest extends React.Component<
                     </div>
                   </div>
                   <div className="ms-Grid-row">
-                    <div className="ms-Grid-col ms-sm8">
+                    <div className="ms-Grid-col ms-sm9">
                       <label className={styles.sectionCLabel}>
                         Cost Per Traveler:
                       </label>
                     </div>
-                    <div className="ms-Grid-col ms-sm4">
+                    <div className="ms-Grid-col ms-sm3">
                       <Stack horizontal>
                         <label className={styles.sectionCLabel}>$</label>
                         <TextField
@@ -2369,7 +2064,7 @@ export default class TravelRequest extends React.Component<
                           validateOnLoad={false}
                           //onGetErrorMessage={this.genericValidation.bind(this, name, stringIsNullOrEmpty(reqData.mileageEstimation), 'Answer Required')}
                           disabled={false}
-                          onChange={this.handlereqDataNumberChange.bind(
+                          onBlur={this.handlereqDataNumberChange.bind(
                             this,
                             "costPerTraveler"
                           )}
@@ -2378,12 +2073,12 @@ export default class TravelRequest extends React.Component<
                     </div>
                   </div>
                   <div className="ms-Grid-row">
-                    <div className="ms-Grid-col ms-sm8">
+                    <div className="ms-Grid-col ms-sm9">
                       <label className={styles.sectionCLabel}>
                         Special Marketing Activity:
                       </label>
                     </div>
-                    <div className="ms-Grid-col ms-sm4">
+                    <div className="ms-Grid-col ms-sm3">
                       <Stack horizontal>
                         <label className={styles.sectionCLabel}>$</label>
                         <TextField
@@ -2394,7 +2089,7 @@ export default class TravelRequest extends React.Component<
                           validateOnLoad={false}
                           //onGetErrorMessage={this.genericValidation.bind(this, name, stringIsNullOrEmpty(reqData.mileageEstimation), 'Answer Required')}
                           disabled={false}
-                          onChange={this.handlereqDataNumberChange.bind(
+                          onBlur={this.handlereqDataNumberChange.bind(
                             this,
                             "specialMarketingActivitiesAmount"
                           )}
@@ -2403,7 +2098,7 @@ export default class TravelRequest extends React.Component<
                     </div>
                   </div>
                   <div className="ms-Grid-row">
-                    <div className="ms-Grid-col ms-sm8">
+                    <div className="ms-Grid-col ms-sm9">
                       <Stack horizontal>
                         <label className={styles.sectionCLabel}>
                           Number of Travelers:
@@ -2411,12 +2106,12 @@ export default class TravelRequest extends React.Component<
                         &nbsp;
                         <TextField
                           //styles={{ root: { height: "20px" } }}
-                          className={styles.SectionCTextbox}
+                          className={styles.SectionCTextboxHalfWidth}
                           underlined
                           name="numberOfTravelers"
                           value={reqData.numberOfTravelers}
                           //disabled={!isApprover}
-                          onChange={this.handlereqDataNumberChange.bind(
+                          onBlur={this.handlereqDataWholeNumberChange.bind(
                             this,
                             "numberOfTravelers"
                           )}
@@ -2425,20 +2120,20 @@ export default class TravelRequest extends React.Component<
                         <label className={styles.sectionCLabel}>Total:</label>
                       </Stack>
                     </div>
-                    <div className="ms-Grid-col ms-sm4">
+                    <div className="ms-Grid-col ms-sm3">
                       <Stack horizontal>
                         <label className={styles.sectionCLabel}>$</label>
                         <TextField
                           className={styles.SectionPriceColumn}
                           underlined
-                          name="totalEstimatedTravelAmount"
-                          value={reqData.totalEstimatedTravelAmount.toString()}
+                          name="totalEstimatedCostOfTrip"
+                          value={reqData.totalEstimatedCostOfTrip.toString()}
                           validateOnLoad={false}
                           //onGetErrorMessage={this.genericValidation.bind(this, name, stringIsNullOrEmpty(reqData.mileageEstimation), 'Answer Required')}
                           disabled={true}
                           onChange={this.handlereqDataNumberChange.bind(
                             this,
-                            "totalEstimatedTravelAmount"
+                            "totalEstimatedCostOfTrip"
                           )}
                         />
                       </Stack>
@@ -2735,7 +2430,7 @@ export default class TravelRequest extends React.Component<
                 />
               </div>
               <div className="ms-Grid-col ms-sm2">
-                <Label>General Ledger</Label>
+                <label className={styles.generalLabel}>General Ledger</label>
                 <TextField
                   underlined
                   name="GeneralLedger"
@@ -2783,7 +2478,7 @@ export default class TravelRequest extends React.Component<
                 />
               </div>
               <div className="ms-Grid-col ms-sm2">
-                <Label>Grant #</Label>
+                <label className={styles.generalLabel}>Grant #</label>
                 <TextField
                   underlined
                   name="Grant"
