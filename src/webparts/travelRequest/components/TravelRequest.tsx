@@ -2463,12 +2463,6 @@ export default class TravelRequest extends React.Component<
                   value={reqData.sectionHeadSig}
                   required={false}
                   validateOnLoad={false}
-                  onGetErrorMessage={this.genericValidation.bind(
-                    this,
-                    name,
-                    stringIsNullOrEmpty(reqData.sectionHeadSig),
-                    "Section Head Signature Required"
-                  )}
                   //disabled={disableControls}
                   onChange={this.handlereqDataTextChange.bind(this)}
                 />
