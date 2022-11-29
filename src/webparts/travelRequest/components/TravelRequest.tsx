@@ -1316,6 +1316,7 @@ export default class TravelRequest extends React.Component<
 
     const isBudgetApprover =
       budget.userLogin == currentUser.loginName.toLowerCase() ? true : false;
+    //Controls Section F fields
     const isApprover =
       sectionHead.userLogin == currentUser.loginName.toLowerCase() ||
       secretary.userLogin.toLowerCase() == currentUser.loginName ||
@@ -1336,6 +1337,7 @@ export default class TravelRequest extends React.Component<
       "admin@laecondev.onmicrosoft.com" == currentUser.loginName
         ? true
         : false;
+    //Controls all fields except Section F
     const disableControls =
       reqData.status == "Draft" || isAcctMgr || isAdmin ? false : true;
     //const empMinusClaims = employeeLogin ? employeeLogin.split('|')[2] : currentUser.loginName;
