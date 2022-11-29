@@ -1386,7 +1386,7 @@ export default class TravelRequest extends React.Component<
                   stringIsNullOrEmpty(reqData.employeeName),
                   "Name Required"
                 )}
-                //disabled={disableControls}
+                disabled={disableControls}
                 onChange={this.handlereqDataTextChange.bind(this)}
               />
               &nbsp;
@@ -1404,7 +1404,7 @@ export default class TravelRequest extends React.Component<
                   stringIsNullOrEmpty(reqData.destination),
                   "Destination Required"
                 )}
-                //disabled={disableControls}
+                disabled={disableControls}
                 onChange={this.handlereqDataTextChange.bind(this)}
               />
             </Stack>
@@ -1426,7 +1426,7 @@ export default class TravelRequest extends React.Component<
                   stringIsNullOrEmpty(reqData.employeeTitle),
                   "Title Required"
                 )}
-                //disabled={disableControls}
+                disabled={disableControls}
                 onChange={this.handlereqDataTextChange.bind(this)}
               />
               &nbsp;
@@ -1437,7 +1437,7 @@ export default class TravelRequest extends React.Component<
                 onChange={this.handleMaskedDateWithValidation.bind(this)}
                 value={reqData.departureDateStr}
                 className={styles.inputMaskControl}
-                //disabled={disableControls}
+                disabled={disableControls}
                 required={true}
               />
               <label className={styles.generalLabel}>End Date:</label>
@@ -1447,7 +1447,7 @@ export default class TravelRequest extends React.Component<
                 onChange={this.handleMaskedDateWithValidation.bind(this)}
                 value={reqData.returnDateStr}
                 className={styles.inputMaskControl}
-                //disabled={disableControls}
+                disabled={disableControls}
                 required={true}
               />
             </Stack>
@@ -1469,7 +1469,7 @@ export default class TravelRequest extends React.Component<
                   stringIsNullOrEmpty(reqData.agency),
                   "Agency Required"
                 )}
-                //disabled={disableControls}
+                disabled={disableControls}
                 onChange={this.handlereqDataTextChange.bind(this)}
               />
               &nbsp;
@@ -1487,7 +1487,7 @@ export default class TravelRequest extends React.Component<
                   stringIsNullOrEmpty(reqData.division),
                   "Division/Section Required"
                 )}
-                //disabled={disableControls}
+                disabled={disableControls}
                 onChange={this.handlereqDataTextChange.bind(this)}
               />
               &nbsp;
@@ -1507,7 +1507,7 @@ export default class TravelRequest extends React.Component<
                   stringIsNullOrEmpty(reqData.modeOfTransportation),
                   "Mode Of Transportation Required"
                 )}
-                //disabled={disableControls}
+                disabled={disableControls}
                 onChange={this.handlereqDataTextChange.bind(this)}
               />
             </Stack>
@@ -1531,7 +1531,7 @@ export default class TravelRequest extends React.Component<
                   stringIsNullOrEmpty(reqData.justficationForTrip),
                   "Justification for trip Required"
                 )}
-                //disabled={disableControls}
+                disabled={disableControls}
                 onChange={this.handlereqDataTextChange.bind(this)}
               />
             </Stack>
@@ -1557,7 +1557,7 @@ export default class TravelRequest extends React.Component<
                         name="chbxConferenceSeminar"
                         id="chbxConferenceSeminar"
                         checked={reqData.chbxConferenceSeminar}
-                        //disabled={!isApprover}
+                        disabled={disableControls}
                         onChange={this._onControlledCheckboxChange.bind(this)}
                         styles={checkboxStyles}
                       />
@@ -1575,7 +1575,7 @@ export default class TravelRequest extends React.Component<
                         name="chbxAnnualAuthForTravel"
                         id="chbxAnnualAuthForTravel"
                         checked={reqData.chbxAnnualAuthForTravel}
-                        //disabled={!isApprover}
+                        disabled={disableControls}
                         onChange={this._onControlledCheckboxChange.bind(this)}
                         styles={checkboxStyles}
                       />
@@ -1593,7 +1593,7 @@ export default class TravelRequest extends React.Component<
                         name="chbxInStateTravel"
                         id="chbxInStateTravel"
                         checked={reqData.chbxInStateTravel}
-                        //disabled={!isApprover}
+                        disabled={disableControls}
                         onChange={this._onControlledCheckboxChange.bind(this)}
                         styles={checkboxStyles}
                       />
@@ -1611,7 +1611,7 @@ export default class TravelRequest extends React.Component<
                         name="chbxOutOfStateTravel"
                         id="chbxOutOfStateTravel"
                         checked={reqData.chbxOutOfStateTravel}
-                        //disabled={!isApprover}
+                        disabled={disableControls}
                         onChange={this._onControlledCheckboxChange.bind(this)}
                         styles={checkboxStyles}
                       />
@@ -1629,7 +1629,7 @@ export default class TravelRequest extends React.Component<
                         name="chbxWeekend"
                         id="chbxWeekend"
                         checked={reqData.chbxWeekend}
-                        //disabled={!isApprover}
+                        disabled={disableControls}
                         onChange={this._onControlledCheckboxChange.bind(this)}
                         styles={checkboxStyles}
                       />
@@ -1647,7 +1647,7 @@ export default class TravelRequest extends React.Component<
                         name="chbxVehicleRental"
                         id="chbxVehicleRental"
                         checked={reqData.chbxVehicleRental}
-                        //disabled={!isApprover}
+                        disabled={disableControls}
                         onChange={this._onControlledCheckboxChange.bind(this)}
                         styles={checkboxStyles}
                       />
@@ -1665,7 +1665,7 @@ export default class TravelRequest extends React.Component<
                         name="chbxUserOfPersonalVehicle"
                         id="chbxUserOfPersonalVehicle"
                         checked={reqData.chbxUserOfPersonalVehicle}
-                        //disabled={!isApprover}
+                        disabled={disableControls}
                         onChange={this._onControlledCheckboxChange.bind(this)}
                         styles={checkboxStyles}
                       />
@@ -1683,7 +1683,7 @@ export default class TravelRequest extends React.Component<
                         name="chbxSpecialMarketingActivities"
                         id="chbxSpecialMarketingActivities"
                         checked={reqData.chbxSpecialMarketingActivities}
-                        //disabled={!isApprover}
+                        disabled={disableControls}
                         onChange={this._onControlledCheckboxChange.bind(this)}
                         styles={checkboxStyles}
                       />
@@ -1701,7 +1701,7 @@ export default class TravelRequest extends React.Component<
                         name="chbxProspectInSameHotelAsEmployee"
                         id="chbxProspectInSameHotelAsEmployee"
                         checked={reqData.chbxProspectInSameHotelAsEmployee}
-                        //disabled={!isApprover}
+                        disabled={disableControls}
                         onChange={this._onControlledCheckboxChange.bind(this)}
                         styles={checkboxStyles}
                       />
@@ -1719,7 +1719,7 @@ export default class TravelRequest extends React.Component<
                         name="chbx50pctLodgingException"
                         id="chbx50pctLodgingException"
                         checked={reqData.chbx50pctLodgingException}
-                        //disabled={!isApprover}
+                        disabled={disableControls}
                         onChange={this._onControlledCheckboxChange.bind(this)}
                         styles={checkboxStyles}
                       />
@@ -1737,7 +1737,7 @@ export default class TravelRequest extends React.Component<
                         name="chbxOther"
                         id="chbxOther"
                         checked={reqData.chbxOther}
-                        //disabled={!isApprover}
+                        disabled={disableControls}
                         onChange={this._onControlledCheckboxChange.bind(this)}
                         styles={checkboxStyles}
                       />
@@ -1749,7 +1749,7 @@ export default class TravelRequest extends React.Component<
                         underlined
                         name="chbxOtherSig"
                         value={reqData.chbxOtherSig}
-                        //disabled={!isApprover}
+                        disabled={disableControls}
                         onChange={this.handlereqDataTextChange.bind(this)}
                       />
                     </Stack>
@@ -1787,7 +1787,7 @@ export default class TravelRequest extends React.Component<
                           value={reqData.registrationFees.toString()}
                           validateOnLoad={false}
                           //onGetErrorMessage={this.genericValidation.bind(this, name, stringIsNullOrEmpty(reqData.mileageEstimation), 'Answer Required')}
-                          disabled={false}
+                          disabled={disableControls}
                           onBlur={this.handlereqDataNumberChange.bind(
                             this,
                             "registrationFees"
@@ -1813,7 +1813,7 @@ export default class TravelRequest extends React.Component<
                           value={reqData.airFareCost.toString()}
                           validateOnLoad={false}
                           //onGetErrorMessage={this.genericValidation.bind(this, name, stringIsNullOrEmpty(reqData.mileageEstimation), 'Answer Required')}
-                          disabled={false}
+                          disabled={disableControls}
                           onBlur={this.handlereqDataNumberChange.bind(
                             this,
                             "airFareCost"
@@ -1833,7 +1833,7 @@ export default class TravelRequest extends React.Component<
                           underlined
                           name="mileageEstimation"
                           value={reqData.mileageEstimation}
-                          disabled={false}
+                          disabled={disableControls}
                           onBlur={this.handlereqDataNumberChange.bind(
                             this,
                             "mileageEstimation"
@@ -1885,7 +1885,7 @@ export default class TravelRequest extends React.Component<
                           underlined
                           name="lodgingCostPerNight"
                           value={reqData.lodgingCostPerNight}
-                          //disabled={!isApprover}
+                          disabled={disableControls}
                           onBlur={this.handlereqDataNumberChange.bind(
                             this,
                             "lodgingCostPerNight"
@@ -1898,7 +1898,7 @@ export default class TravelRequest extends React.Component<
                           underlined
                           name="lodgingNights"
                           value={reqData.lodgingNights}
-                          //disabled={!isApprover}
+                          disabled={disableControls}
                           onBlur={this.handlereqDataWholeNumberChange.bind(
                             this,
                             "lodgingNights"
@@ -1936,7 +1936,7 @@ export default class TravelRequest extends React.Component<
                           underlined
                           name="mealCostPerNight"
                           value={reqData.mealCostPerNight}
-                          //disabled={!isApprover}
+                          disabled={disableControls}
                           onBlur={this.handlereqDataNumberChange.bind(
                             this,
                             "mealCostPerNight"
@@ -1949,7 +1949,7 @@ export default class TravelRequest extends React.Component<
                           underlined
                           name="mealPerNights"
                           value={reqData.mealPerNights}
-                          //disabled={!isApprover}
+                          disabled={disableControls}
                           onBlur={this.handlereqDataWholeNumberChange.bind(
                             this,
                             "mealPerNights"
@@ -1993,7 +1993,7 @@ export default class TravelRequest extends React.Component<
                             this,
                             "true"
                           )}
-                          //disabled={!isApprover}
+                          disabled={disableControls}
                           styles={checkboxStyles}
                         />
                         &nbsp;
@@ -2002,7 +2002,7 @@ export default class TravelRequest extends React.Component<
                           label="No"
                           id="chbxCarRentalNo"
                           checked={reqData.carRentalUsed == "false"}
-                          //disabled={!isApprover}
+                          disabled={disableControls}
                           onChange={this._onUniqueCheckboxChange.bind(
                             this,
                             "false"
@@ -2024,7 +2024,7 @@ export default class TravelRequest extends React.Component<
                           value={reqData.vehicleRentalCost.toString()}
                           validateOnLoad={false}
                           //onGetErrorMessage={this.genericValidation.bind(this, name, stringIsNullOrEmpty(reqData.mileageEstimation), 'Answer Required')}
-                          disabled={false}
+                          disabled={disableControls}
                           onBlur={this.handlereqDataNumberChange.bind(
                             this,
                             "vehicleRentalCost"
@@ -2049,7 +2049,7 @@ export default class TravelRequest extends React.Component<
                           value={reqData.otherTransportCosts.toString()}
                           validateOnLoad={false}
                           //onGetErrorMessage={this.genericValidation.bind(this, name, stringIsNullOrEmpty(reqData.mileageEstimation), 'Answer Required')}
-                          disabled={false}
+                          disabled={disableControls}
                           onBlur={this.handlereqDataNumberChange.bind(
                             this,
                             "otherTransportCosts"
@@ -2074,7 +2074,7 @@ export default class TravelRequest extends React.Component<
                           value={reqData.costPerTraveler.toString()}
                           validateOnLoad={false}
                           //onGetErrorMessage={this.genericValidation.bind(this, name, stringIsNullOrEmpty(reqData.mileageEstimation), 'Answer Required')}
-                          disabled={false}
+                          disabled={disableControls}
                           onBlur={this.handlereqDataNumberChange.bind(
                             this,
                             "costPerTraveler"
@@ -2099,7 +2099,7 @@ export default class TravelRequest extends React.Component<
                           value={reqData.specialMarketingActivitiesAmount.toString()}
                           validateOnLoad={false}
                           //onGetErrorMessage={this.genericValidation.bind(this, name, stringIsNullOrEmpty(reqData.mileageEstimation), 'Answer Required')}
-                          disabled={false}
+                          disabled={disableControls}
                           onBlur={this.handlereqDataNumberChange.bind(
                             this,
                             "specialMarketingActivitiesAmount"
@@ -2121,7 +2121,7 @@ export default class TravelRequest extends React.Component<
                           underlined
                           name="numberOfTravelers"
                           value={reqData.numberOfTravelers}
-                          //disabled={!isApprover}
+                          disabled={disableControls}
                           onBlur={this.handlereqDataWholeNumberChange.bind(
                             this,
                             "numberOfTravelers"
@@ -2171,7 +2171,7 @@ export default class TravelRequest extends React.Component<
                   value={reqData.TravelerName1}
                   required={false}
                   validateOnLoad={false}
-                  //disabled={disableControls}
+                  disabled={disableControls}
                   onChange={this.handlereqDataTextChange.bind(this)}
                 />
                 <TextField
@@ -2180,7 +2180,7 @@ export default class TravelRequest extends React.Component<
                   value={reqData.TravelerName2}
                   required={false}
                   validateOnLoad={false}
-                  //disabled={disableControls}
+                  disabled={disableControls}
                   onChange={this.handlereqDataTextChange.bind(this)}
                 />
                 <TextField
@@ -2189,7 +2189,7 @@ export default class TravelRequest extends React.Component<
                   value={reqData.TravelerName3}
                   required={false}
                   validateOnLoad={false}
-                  //disabled={disableControls}
+                  disabled={disableControls}
                   onChange={this.handlereqDataTextChange.bind(this)}
                 />
               </div>
@@ -2203,7 +2203,7 @@ export default class TravelRequest extends React.Component<
                   value={reqData.TravelerjobTitle1}
                   required={false}
                   validateOnLoad={false}
-                  //disabled={disableControls}
+                  disabled={disableControls}
                   onChange={this.handlereqDataTextChange.bind(this)}
                 />
                 <TextField
@@ -2212,7 +2212,7 @@ export default class TravelRequest extends React.Component<
                   value={reqData.TravelerjobTitle2}
                   required={false}
                   validateOnLoad={false}
-                  //disabled={disableControls}
+                  disabled={disableControls}
                   onChange={this.handlereqDataTextChange.bind(this)}
                 />
                 <TextField
@@ -2221,7 +2221,7 @@ export default class TravelRequest extends React.Component<
                   value={reqData.TravelerjobTitle3}
                   required={false}
                   validateOnLoad={false}
-                  //disabled={disableControls}
+                  disabled={disableControls}
                   onChange={this.handlereqDataTextChange.bind(this)}
                 />
               </div>
@@ -2243,7 +2243,7 @@ export default class TravelRequest extends React.Component<
                   underlined
                   name="agencyAccounting"
                   value={reqData.agencyAccounting}
-                  //disabled={!isApprover}
+                  disabled={disableControls}
                   onChange={this.handlereqDataTextChange.bind(this)}
                 />
                 &nbsp;
@@ -2252,7 +2252,7 @@ export default class TravelRequest extends React.Component<
                   underlined
                   name="deputySecretary"
                   value={reqData.deputySecretary}
-                  //disabled={!isApprover}
+                  disabled={disableControls}
                   onChange={this.handlereqDataTextChange.bind(this)}
                 />
                 <h2 className={styles.sectionHeader}>Deputy Undersecretary</h2>
@@ -2268,7 +2268,7 @@ export default class TravelRequest extends React.Component<
                   value={reqData.Agency1}
                   required={false}
                   validateOnLoad={false}
-                  //disabled={disableControls}
+                  disabled={disableControls}
                   onChange={this.handlereqDataTextChange.bind(this)}
                 />
                 <TextField
@@ -2277,7 +2277,7 @@ export default class TravelRequest extends React.Component<
                   value={reqData.Agency2}
                   required={false}
                   validateOnLoad={false}
-                  //disabled={disableControls}
+                  disabled={disableControls}
                   onChange={this.handlereqDataTextChange.bind(this)}
                 />
                 <TextField
@@ -2286,7 +2286,7 @@ export default class TravelRequest extends React.Component<
                   value={reqData.Agency3}
                   required={false}
                   validateOnLoad={false}
-                  //disabled={disableControls}
+                  disabled={disableControls}
                   onChange={this.handlereqDataTextChange.bind(this)}
                 />
               </div>
@@ -2298,7 +2298,7 @@ export default class TravelRequest extends React.Component<
                   value={reqData.CostCenter1}
                   required={false}
                   validateOnLoad={false}
-                  //disabled={disableControls}
+                  disabled={disableControls}
                   onChange={this.handlereqDataTextChange.bind(this)}
                 />
                 <TextField
@@ -2307,7 +2307,7 @@ export default class TravelRequest extends React.Component<
                   value={reqData.CostCenter2}
                   required={false}
                   validateOnLoad={false}
-                  //disabled={disableControls}
+                  disabled={disableControls}
                   onChange={this.handlereqDataTextChange.bind(this)}
                 />
                 <TextField
@@ -2316,7 +2316,7 @@ export default class TravelRequest extends React.Component<
                   value={reqData.CostCenter3}
                   required={false}
                   validateOnLoad={false}
-                  //disabled={disableControls}
+                  disabled={disableControls}
                   onChange={this.handlereqDataTextChange.bind(this)}
                 />
               </div>
@@ -2328,7 +2328,7 @@ export default class TravelRequest extends React.Component<
                   value={reqData.Fund1}
                   required={false}
                   validateOnLoad={false}
-                  //disabled={disableControls}
+                  disabled={disableControls}
                   onChange={this.handlereqDataTextChange.bind(this)}
                 />
                 <TextField
@@ -2337,7 +2337,7 @@ export default class TravelRequest extends React.Component<
                   value={reqData.Fund2}
                   required={false}
                   validateOnLoad={false}
-                  //disabled={disableControls}
+                  disabled={disableControls}
                   onChange={this.handlereqDataTextChange.bind(this)}
                 />
                 <TextField
@@ -2346,7 +2346,7 @@ export default class TravelRequest extends React.Component<
                   value={reqData.Fund3}
                   required={false}
                   validateOnLoad={false}
-                  //disabled={disableControls}
+                  disabled={disableControls}
                   onChange={this.handlereqDataTextChange.bind(this)}
                 />
               </div>
@@ -2358,7 +2358,7 @@ export default class TravelRequest extends React.Component<
                   value={reqData.GeneralLedger1}
                   required={false}
                   validateOnLoad={false}
-                  //disabled={disableControls}
+                  disabled={disableControls}
                   onChange={this.handlereqDataTextChange.bind(this)}
                 />
                 <TextField
@@ -2367,7 +2367,7 @@ export default class TravelRequest extends React.Component<
                   value={reqData.GeneralLedger2}
                   required={false}
                   validateOnLoad={false}
-                  //disabled={disableControls}
+                  disabled={disableControls}
                   onChange={this.handlereqDataTextChange.bind(this)}
                 />
                 <TextField
@@ -2376,7 +2376,7 @@ export default class TravelRequest extends React.Component<
                   value={reqData.GeneralLedger3}
                   required={false}
                   validateOnLoad={false}
-                  //disabled={disableControls}
+                  disabled={disableControls}
                   onChange={this.handlereqDataTextChange.bind(this)}
                 />
               </div>
@@ -2388,7 +2388,7 @@ export default class TravelRequest extends React.Component<
                   value={reqData.Grant1}
                   required={false}
                   validateOnLoad={false}
-                  //disabled={disableControls}
+                  disabled={disableControls}
                   onChange={this.handlereqDataTextChange.bind(this)}
                 />
                 <TextField
@@ -2397,7 +2397,7 @@ export default class TravelRequest extends React.Component<
                   value={reqData.Grant2}
                   required={false}
                   validateOnLoad={false}
-                  //disabled={disableControls}
+                  disabled={disableControls}
                   onChange={this.handlereqDataTextChange.bind(this)}
                 />
                 <TextField
@@ -2406,7 +2406,7 @@ export default class TravelRequest extends React.Component<
                   value={reqData.Grant3}
                   required={false}
                   validateOnLoad={false}
-                  //disabled={disableControls}
+                  disabled={disableControls}
                   onChange={this.handlereqDataTextChange.bind(this)}
                 />
               </div>
@@ -2418,7 +2418,7 @@ export default class TravelRequest extends React.Component<
                   value={reqData.WBSElemenet1}
                   required={false}
                   validateOnLoad={false}
-                  //disabled={disableControls}
+                  disabled={disableControls}
                   onChange={this.handlereqDataTextChange.bind(this)}
                 />
                 <TextField
@@ -2427,7 +2427,7 @@ export default class TravelRequest extends React.Component<
                   value={reqData.WBSElemenet2}
                   required={false}
                   validateOnLoad={false}
-                  //disabled={disableControls}
+                  disabled={disableControls}
                   onChange={this.handlereqDataTextChange.bind(this)}
                 />
                 <TextField
@@ -2436,7 +2436,7 @@ export default class TravelRequest extends React.Component<
                   value={reqData.WBSElemenet3}
                   required={false}
                   validateOnLoad={false}
-                  //disabled={disableControls}
+                  disabled={disableControls}
                   onChange={this.handlereqDataTextChange.bind(this)}
                 />
               </div>
@@ -2463,7 +2463,7 @@ export default class TravelRequest extends React.Component<
                   value={reqData.sectionHeadSig}
                   required={false}
                   validateOnLoad={false}
-                  //disabled={disableControls}
+                  disabled={!isApprover}
                   onChange={this.handlereqDataTextChange.bind(this)}
                 />
               </div>
@@ -2481,7 +2481,7 @@ export default class TravelRequest extends React.Component<
                     stringIsNullOrEmpty(reqData.sectionHeadSigDate),
                     "Date Required"
                   )}
-                  //disabled={disableControls}
+                  disabled={!isApprover}
                   onChange={this.handlereqDataTextChange.bind(this)}
                 />
               </div>
@@ -2501,7 +2501,7 @@ export default class TravelRequest extends React.Component<
                     stringIsNullOrEmpty(reqData.departmentHeadSig),
                     "Department Head Signature Required"
                   )}
-                  //disabled={disableControls}
+                  disabled={!isApprover}
                   onChange={this.handlereqDataTextChange.bind(this)}
                 />
               </div>
@@ -2519,7 +2519,7 @@ export default class TravelRequest extends React.Component<
                     stringIsNullOrEmpty(reqData.departmentHeadSigDate),
                     "Date Required"
                   )}
-                  //disabled={disableControls}
+                  disabled={!isApprover}
                   onChange={this.handlereqDataTextChange.bind(this)}
                 />
               </div>
@@ -2538,7 +2538,7 @@ export default class TravelRequest extends React.Component<
             value={reqData.extraNotes}
             required={false}
             validateOnLoad={false}
-            //disabled={disableControls}
+            disabled={disableControls}
             onChange={this.handlereqDataTextChange.bind(this)}
           />
         </div>
