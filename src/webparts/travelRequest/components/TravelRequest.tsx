@@ -887,7 +887,7 @@ export default class TravelRequest extends React.Component<
       : "";
     this.setState({ reqData });
   }
-
+  //When someone click button, fires off
   private async approvalButton(approvalName) {
     //set approval status on the current approval object
 
@@ -2153,6 +2153,19 @@ export default class TravelRequest extends React.Component<
                     </div>
                   </div>
                 </div>
+                {budget.approvalStatus !==
+                  "Approved" /*&& budget.userLogin == currentUser.loginName*/ && (
+                  <div>
+                    <PrimaryButton
+                      className={styles.buttonSpacing}
+                      data-automation-id="BudgetApprove"
+                      text="Budget Amounts Added"
+                      title="budget"
+                      disabled={!isBudgetApprover}
+                      onClick={this.approvalButton.bind(this, "budget")}
+                    />
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -2455,75 +2468,83 @@ export default class TravelRequest extends React.Component<
             </div>
 
             <div className="ms-Grid-row">
-              <div className="ms-Grid-col ms-sm4">
-                <label className={styles.generalLabel}>
-                  Section Head Signature
-                </label>
-                <TextField
-                  underlined
-                  name="sectionHeadSig"
-                  value={reqData.sectionHeadSig}
-                  required={false}
-                  validateOnLoad={false}
-                  disabled={!isApprover}
-                  onChange={this.handlereqDataTextChange.bind(this)}
-                />
-              </div>
-              <div className="ms-Grid-col ms-sm2">
-                <label className={styles.generalLabel}>Date</label>
-                <TextField
-                  underlined
-                  name="sectionHeadSigDate"
-                  value={reqData.sectionHeadSigDate}
-                  required={false}
-                  validateOnLoad={false}
-                  onGetErrorMessage={this.genericValidation.bind(
-                    this,
-                    name,
-                    stringIsNullOrEmpty(reqData.sectionHeadSigDate),
-                    "Date Required"
+              <div className="ms-Grid-col ms-sm6">
+                <div className={styles.approvalBox}>
+                  {sectionHead.approvalStatus !== "Approved" &&
+                    sectionHead.userLogin !== currentUser.loginName && (
+                      <div className={styles.smallWhenPrinting}>
+                        {sectionHead.approvalString}
+                      </div>
+                    )}
+                  {sectionHead.approvalStatus !== "Approved" &&
+                    sectionHead.userLogin == currentUser.loginName && (
+                      <div>
+                        <PrimaryButton
+                          className={styles.buttonSpacing}
+                          data-automation-id="SectionHeadApprove"
+                          text="Approve"
+                          title="sectionHead"
+                          onClick={this.approvalButton.bind(
+                            this,
+                            "sectionHead"
+                          )}
+                        />
+                      </div>
+                    )}
+                  {sectionHead.approvalStatus == "Approved" && (
+                    <div>
+                      <div className={styles.smallWhenPrinting}>
+                        {sectionHead.approvalString}
+                      </div>
+                      {sectionHead.comment && (
+                        <div>Comment: {sectionHead.comment}</div>
+                      )}
+                    </div>
                   )}
-                  disabled={!isApprover}
-                  onChange={this.handlereqDataTextChange.bind(this)}
-                />
+                </div>
+                <span className={styles.approvalTitle}>Section Head</span>
               </div>
-              <div className="ms-Grid-col ms-sm4">
-                <label className={styles.generalLabel}>
+              <div className="ms-Grid-col ms-sm6">
+                <div className={styles.approvalBox}>
+                  {secretary.approvalStatus !== "Approved" &&
+                    secretary.userLogin !== currentUser.loginName && (
+                      <div className={styles.smallWhenPrinting}>
+                        {" "}
+                        {secretary.approvalString}
+                      </div>
+                    )}
+                  {secretary.approvalStatus !== "Approved" &&
+                    secretary.userLogin == currentUser.loginName && (
+                      <div>
+                        <PrimaryButton
+                          className={styles.buttonSpacing}
+                          data-automation-id="secretaryApprove"
+                          text="Approve"
+                          title="secretary"
+                          disabled={disableSubmitForSpecialSigs}
+                          onClick={this.approvalButton.bind(this, "secretary")}
+                        />
+                        {disableSubmitForSpecialSigs && (
+                          <div>
+                            Please ensure all Special Approvals are signed.
+                          </div>
+                        )}
+                      </div>
+                    )}
+                  {secretary.approvalStatus == "Approved" && (
+                    <div>
+                      <div className={styles.smallWhenPrinting}>
+                        {secretary.approvalString}
+                      </div>
+                      {secretary.comment && (
+                        <div>Comment: {secretary.comment}</div>
+                      )}
+                    </div>
+                  )}
+                </div>
+                <span className={styles.approvalTitle}>
                   Department Head/Designee Signature
-                </label>
-                <TextField
-                  underlined
-                  name="departmentHeadSig"
-                  value={reqData.departmentHeadSig}
-                  required={false}
-                  validateOnLoad={false}
-                  onGetErrorMessage={this.genericValidation.bind(
-                    this,
-                    name,
-                    stringIsNullOrEmpty(reqData.departmentHeadSig),
-                    "Department Head Signature Required"
-                  )}
-                  disabled={!isApprover}
-                  onChange={this.handlereqDataTextChange.bind(this)}
-                />
-              </div>
-              <div className="ms-Grid-col ms-sm2">
-                <label className={styles.generalLabel}>Date</label>
-                <TextField
-                  underlined
-                  name="departmentHeadSigDate"
-                  value={reqData.departmentHeadSigDate}
-                  required={false}
-                  validateOnLoad={false}
-                  onGetErrorMessage={this.genericValidation.bind(
-                    this,
-                    name,
-                    stringIsNullOrEmpty(reqData.departmentHeadSigDate),
-                    "Date Required"
-                  )}
-                  disabled={!isApprover}
-                  onChange={this.handlereqDataTextChange.bind(this)}
-                />
+                </span>
               </div>
             </div>
           </div>

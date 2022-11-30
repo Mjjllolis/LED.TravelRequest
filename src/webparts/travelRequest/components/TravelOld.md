@@ -3398,7 +3398,7 @@ disableSubmitForSpecialSigs = true;
                                   "sectionHead"
                                 )}
                               />
-                            </div>
+                            </div> 
                           )}
                         {sectionHead.approvalStatus == "Approved" && (
                           <div>
@@ -3464,7 +3464,7 @@ disableSubmitForSpecialSigs = true;
                       <span className={styles.approvalTitle}>
                         Department/Deputy/Assistant Secretary
                       </span>
-                    </div>
+                    </div>-
                   </div>
                   <h5 className={styles.smallWhenPrinting}>
                     I Certify That This Voucher Has Been Examined, That The
