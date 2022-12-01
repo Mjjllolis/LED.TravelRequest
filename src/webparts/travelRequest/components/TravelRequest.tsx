@@ -170,6 +170,12 @@ export default class TravelRequest extends React.Component<
 
       reqData: {
         formKey: "",
+        employeeLogin: "",
+        personnelNo: "",
+        status: "Draft",
+        stage: "",
+        nextApprover: null,
+        requestLog: "",
 
         //Section A
         employeeId: null,
@@ -182,7 +188,6 @@ export default class TravelRequest extends React.Component<
         division: "",
         justficationForTrip: "",
         modeOfTransportation: "",
-        benefitToState: "",
 
         //Section B
         chbxConferenceSeminar: false,
@@ -195,13 +200,16 @@ export default class TravelRequest extends React.Component<
         chbxSpecialMarketingActivities: false,
         chbxProspectInSameHotelAsEmployee: false,
         chbx50pctLodgingException: false,
+        chbxProspectInSameHotelAsEmployeeSig: "",
+        chbxSpecialMarketingActivitiesSig: "",
+        chbx50pctLodgingExceptionSig: "",
         chbxOther: false,
         chbxOtherSig: "",
 
         //Section C
         registrationFees: "",
         airFareCost: "",
-        mileageEstimation: "", //Currently total miles
+        mileageEstimation: "", //Total miles
         mileageRate: 0.0, //This is defined in form, not sure it's needed
         mileageAmount: "",
         lodgingCostPerNight: "",
@@ -252,99 +260,10 @@ export default class TravelRequest extends React.Component<
         Grant3: "",
         WBSElemenet3: "",
 
-        //Section F
-        sectionHeadSig: "",
-        sectionHeadSigDate: "",
-        departmentHeadSig: "",
-        departmentHeadSigDate: "",
-
         //Section G
         extraNotes: "",
 
-        //Everything below is only here for testing, Goal = Get rid of it
-        employeeLogin: "",
-        personnelNo: "",
-        costCenter: "",
-        domicile: "",
-        taNo: "",
-        departureTime: "",
-        returnTime: "",
-        fund: "",
-        dateOfRequest: new Date(),
-        fYBudget: "0.00",
-        amtRemainBudget: "0.00",
-        amtRemainingAfterThis: "0.00",
-        authBudget: "0.00",
-        gL: "",
-        sMAGL: "",
-        fySpecialMarketing: "0.00",
-        fySpecialMarketingamtRemaining: "0.00",
-        fySpecialMarketingamtRemainingAfterThis: "0.00",
-        fYBudgetFY2: "0.00",
-        amtRemainBudgetFY2: "0.00",
-        amtRemainingAfterThisFY2: "0.00",
-        authBudgetFY2: "0.00",
-        fySpecialMarketingFY2: "0.00",
-        fySpecialMarketingamtRemainingFY2: "0.00",
-        fySpecialMarketingamtRemainingAfterThisFY2: "0.00",
-        status: "Draft",
-        stage: "",
-        nextApprover: null,
-        requestLog: "",
-        airTravelAgencyUsed: null,
-        airTravelAgencyUsedJustification: "",
-        airFare: "",
-        vehicleType: "",
-        vehiclePassengers: "",
-        vehicleRentalTypeIsCompact: "",
-        vehicleRentalJustificationChoice: "",
-        vehicleRentalJustificationText: "",
-        limoTaxi: "",
-        limoTaxiFareAmount: "0.00",
-        tollsAndParking: "",
-        tollsAndParkingAmount: "0.00",
-        totalTransportationExpense: "0.00",
-        lodging: [
-          {
-            total: 0.0,
-            days: 0.0,
-            cost: 0.0,
-          },
-          {
-            total: 0.0,
-            days: 0.0,
-            cost: 0.0,
-          },
-          {
-            total: 0.0,
-            days: 0.0,
-            cost: 0.0,
-          },
-        ],
-        meals: [
-          {
-            total: 0.0,
-            days: 0.0,
-            cost: 0.0,
-          },
-        ],
-        tips: "",
-        tipsAmount: "0.00",
-        otherExpensePayableTo: "",
-        otherExpensePaymentMethod: "",
-        otherExpenseDueDate: "",
-        otherExpenseAmount: "0.00",
-        specialMarketingActivitiesAmountNotes: "",
-        travelAdvanceDate: "",
-        travelAdvanceAmount: "0.00",
-        chbxGPSRentalVehicle: false,
-        chbxProspectInSameHotelAsEmployeeSig: "",
-        chbxSpecialMarketingActivitiesSig: "",
-        chbx50pctLodgingExceptionSig: "",
-        EstimatedCompensatoryTime: "",
-        budgetYear1: 0,
-        budgetYear2: 0,
-
+        //Acct Managers
         employeeApproval: {
           userLogin: "",
           jobTitle: "Employee",
@@ -434,6 +353,82 @@ export default class TravelRequest extends React.Component<
           userId: 0,
           approvalString: "",
         },
+
+        //Everything below is only here for testing, Goal = Get rid of it
+        // benefitToState: "",
+        // costCenter: "",
+        // domicile: "",
+        // taNo: "",
+        // departureTime: "",
+        // returnTime: "",
+        // fund: "",
+        // dateOfRequest: new Date(),
+        // fYBudget: "0.00",
+        // amtRemainBudget: "0.00",
+        // amtRemainingAfterThis: "0.00",
+        // authBudget: "0.00",
+        //gL: "",
+        //sMAGL: "",
+        // fySpecialMarketing: "0.00",
+        // fySpecialMarketingamtRemaining: "0.00",
+        // fySpecialMarketingamtRemainingAfterThis: "0.00",
+        // fYBudgetFY2: "0.00",
+        // amtRemainBudgetFY2: "0.00",
+        // amtRemainingAfterThisFY2: "0.00",
+        // authBudgetFY2: "0.00",
+        // fySpecialMarketingFY2: "0.00",
+        // fySpecialMarketingamtRemainingFY2: "0.00",
+        // fySpecialMarketingamtRemainingAfterThisFY2: "0.00",
+        // airTravelAgencyUsed: null,
+        // airTravelAgencyUsedJustification: "",
+        // airFare: "",
+        // vehicleType: "",
+        // vehiclePassengers: "",
+        // vehicleRentalTypeIsCompact: "",
+        // vehicleRentalJustificationChoice: "",
+        // vehicleRentalJustificationText: "",
+        // limoTaxi: "",
+        // limoTaxiFareAmount: "0.00",
+        // tollsAndParking: "",
+        // tollsAndParkingAmount: "0.00",
+        // totalTransportationExpense: "0.00",
+        // lodging: [
+        //   {
+        //     total: 0.0,
+        //     days: 0.0,
+        //     cost: 0.0,
+        //   },
+        //   {
+        //     total: 0.0,
+        //     days: 0.0,
+        //     cost: 0.0,
+        //   },
+        //   {
+        //     total: 0.0,
+        //     days: 0.0,
+        //     cost: 0.0,
+        //   },
+        // ],
+        // meals: [
+        //   {
+        //     total: 0.0,
+        //     days: 0.0,
+        //     cost: 0.0,
+        //   },
+        // ],
+        // tips: "",
+        // tipsAmount: "0.00",
+        // otherExpensePayableTo: "",
+        // otherExpensePaymentMethod: "",
+        // otherExpenseDueDate: "",
+        // otherExpenseAmount: "0.00",
+        // specialMarketingActivitiesAmountNotes: "",
+        // travelAdvanceDate: "",
+        // travelAdvanceAmount: "0.00",
+        // chbxGPSRentalVehicle: false,
+        // EstimatedCompensatoryTime: "",
+        // budgetYear1: 0,
+        // budgetYear2: 0,
       },
 
       hideDialog: true,
@@ -485,83 +480,83 @@ export default class TravelRequest extends React.Component<
     let valiMessage = "Required";
     let needToValidate = false;
     let testDate = new Date();
-    switch (ctrlName) {
-      case "departureDateStr":
-        combinedDateTime = new Date(
-          reqData[ctrlName] + " " + reqData.departureTime
-        );
-        if (combinedDateTime.getTime() && reqData.departureTime) {
-          reqData.departureDate = combinedDateTime;
-          await this.setState({ DepartureDateError: "" });
-        } else {
-          valiMessage = "Departure Date and Time Required";
-          await this.setState({
-            DepartureDateError: "Valid Departure Date and Time Required",
-          });
-        }
-        testDate = new Date(reqData[ctrlName]);
-        if (!testDate.getTime() || !reqData[ctrlName]) {
-          needToValidate = true;
-        }
-        break;
+    // switch (ctrlName) {
+    //   case "departureDateStr":
+    //     combinedDateTime = new Date(
+    //       reqData[ctrlName] + " " + reqData.departureTime
+    //     );
+    //     if (combinedDateTime.getTime() && reqData.departureTime) {
+    //       reqData.departureDate = combinedDateTime;
+    //       await this.setState({ DepartureDateError: "" });
+    //     } else {
+    //       valiMessage = "Departure Date and Time Required";
+    //       await this.setState({
+    //         DepartureDateError: "Valid Departure Date and Time Required",
+    //       });
+    //     }
+    //     testDate = new Date(reqData[ctrlName]);
+    //     if (!testDate.getTime() || !reqData[ctrlName]) {
+    //       needToValidate = true;
+    //     }
+    //     break;
 
-      case "departureTime":
-        combinedDateTime = new Date(
-          reqData.departureDateStr + " " + reqData[ctrlName]
-        );
-        if (combinedDateTime.getTime() && reqData.departureTime) {
-          reqData.departureDate = combinedDateTime;
-          await this.setState({ DepartureDateError: "" });
-        } else {
-          valiMessage = "Valid Departure Date and Time Required";
-          await this.setState({
-            DepartureDateError: "Valid Departure Date and Time Required",
-          });
-        }
-        testDate = new Date("9/9/2009 " + reqData[ctrlName]);
-        if (!testDate.getTime() || !reqData[ctrlName]) {
-          needToValidate = true;
-        }
-        break;
+    //   case "departureTime":
+    //     combinedDateTime = new Date(
+    //       reqData.departureDateStr + " " + reqData[ctrlName]
+    //     );
+    //     if (combinedDateTime.getTime() && reqData.departureTime) {
+    //       reqData.departureDate = combinedDateTime;
+    //       await this.setState({ DepartureDateError: "" });
+    //     } else {
+    //       valiMessage = "Valid Departure Date and Time Required";
+    //       await this.setState({
+    //         DepartureDateError: "Valid Departure Date and Time Required",
+    //       });
+    //     }
+    //     testDate = new Date("9/9/2009 " + reqData[ctrlName]);
+    //     if (!testDate.getTime() || !reqData[ctrlName]) {
+    //       needToValidate = true;
+    //     }
+    //     break;
 
-      case "returnDateStr":
-        combinedDateTime = new Date(
-          reqData[ctrlName] + " " + reqData.returnTime
-        );
-        if (combinedDateTime.getTime() && reqData.returnTime) {
-          reqData.returnDate = combinedDateTime;
-          await this.setState({ ReturnDateError: "" });
-        } else {
-          valiMessage = "Valid Return Date and Time Required";
-          await this.setState({
-            ReturnDateError: "Valid Return Date and Time Required",
-          });
-        }
-        testDate = new Date(reqData[ctrlName]);
-        if (!testDate.getTime() || !reqData[ctrlName]) {
-          needToValidate = true;
-        }
-        break;
+    //   case "returnDateStr":
+    //     combinedDateTime = new Date(
+    //       reqData[ctrlName] + " " + reqData.returnTime
+    //     );
+    //     if (combinedDateTime.getTime() && reqData.returnTime) {
+    //       reqData.returnDate = combinedDateTime;
+    //       await this.setState({ ReturnDateError: "" });
+    //     } else {
+    //       valiMessage = "Valid Return Date and Time Required";
+    //       await this.setState({
+    //         ReturnDateError: "Valid Return Date and Time Required",
+    //       });
+    //     }
+    //     testDate = new Date(reqData[ctrlName]);
+    //     if (!testDate.getTime() || !reqData[ctrlName]) {
+    //       needToValidate = true;
+    //     }
+    //     break;
 
-      case "returnTime":
-        combinedDateTime = new Date(
-          reqData.returnDateStr + " " + reqData[ctrlName]
-        );
-        if (combinedDateTime.getTime() && reqData.returnTime) {
-          reqData.returnDate = combinedDateTime;
-          await this.setState({ ReturnDateError: "" });
-        } else {
-          valiMessage = "Valid Return Date and Time Required";
-          await this.setState({
-            ReturnDateError: "Valid Return Date and Time Required",
-          });
-        }
-        testDate = new Date("9/9/2009 " + reqData[ctrlName]);
-        if (!testDate.getTime() || !reqData[ctrlName]) {
-          needToValidate = true;
-        }
-        break;
-    }
+    //   case "returnTime":
+    //     combinedDateTime = new Date(
+    //       reqData.returnDateStr + " " + reqData[ctrlName]
+    //     );
+    //     if (combinedDateTime.getTime() && reqData.returnTime) {
+    //       reqData.returnDate = combinedDateTime;
+    //       await this.setState({ ReturnDateError: "" });
+    //     } else {
+    //       valiMessage = "Valid Return Date and Time Required";
+    //       await this.setState({
+    //         ReturnDateError: "Valid Return Date and Time Required",
+    //       });
+    //     }
+    //     testDate = new Date("9/9/2009 " + reqData[ctrlName]);
+    //     if (!testDate.getTime() || !reqData[ctrlName]) {
+    //       needToValidate = true;
+    //     }
+    //     break;
+    // }
     await this.setState({ reqData });
 
     await this.setState((prevState) => {
@@ -640,9 +635,9 @@ export default class TravelRequest extends React.Component<
     let vehicleRentalCost = reqData.vehicleRentalCost
       ? Number(reqData.vehicleRentalCost.replace(/,/g, ""))
       : 0.0;
-    let limoTaxiFareAmount = reqData.limoTaxiFareAmount
-      ? Number(reqData.limoTaxiFareAmount.replace(/,/g, ""))
-      : 0.0;
+    // let limoTaxiFareAmount = reqData.limoTaxiFareAmount
+    //   ? Number(reqData.limoTaxiFareAmount.replace(/,/g, ""))
+    //   : 0.0;
     let mileageRate = reqData.mileageRate ? Number(reqData.mileageRate) : 0.0;
 
     //Updating Mileage Amount
@@ -1247,12 +1242,12 @@ export default class TravelRequest extends React.Component<
       data.mileageRate = this.props.mileageRate
         ? Number(this.props.mileageRate)
         : 0.575;
-      data.budgetYear1 = data.budgetYear1
-        ? data.budgetYear1
-        : Number(this.props.startingFinancialYear.toString().slice(-2));
-      data.budgetYear2 = data.budgetYear2
-        ? data.budgetYear2
-        : Number(this.props.startingFinancialYear.toString().slice(-2)) + 1;
+      // data.budgetYear1 = data.budgetYear1
+      //   ? data.budgetYear1
+      //   : Number(this.props.startingFinancialYear.toString().slice(-2));
+      // data.budgetYear2 = data.budgetYear2
+      //   ? data.budgetYear2
+      //   : Number(this.props.startingFinancialYear.toString().slice(-2)) + 1;
       this.setState({ reqData: data });
       //this._addMultiDay('meals', null);
       //this._addMultiDay('lodging', null);
@@ -1291,9 +1286,9 @@ export default class TravelRequest extends React.Component<
       !reqData.departureDateStr ||
       !reqData.returnDateStr ||
       !reqData.destination ||
-      !reqData.justficationForTrip ||
-      !reqData.benefitToState ||
-      !reqData.domicile
+      !reqData.justficationForTrip
+      // !reqData.benefitToState
+      // !reqData.domicile
     ) {
       disableSubmit = true;
     }
@@ -1301,10 +1296,8 @@ export default class TravelRequest extends React.Component<
       (reqData.stage == "Secretary" ||
         reqData.stage == "Undersecretary" ||
         reqData.stage == "Deputy Undersecretary") &&
-      ((reqData.chbxVehicleRental && !reqData.chbxVehicleRentalSig) ||
-        (reqData.chbxGPSRentalVehicle && !reqData.chbxGPSRentalVehicleSig) ||
-        (reqData.chbx50pctLodgingException &&
-          !reqData.chbx50pctLodgingExceptionSig) ||
+      ((reqData.chbx50pctLodgingException &&
+        !reqData.chbx50pctLodgingExceptionSig) ||
         (reqData.chbxOther && !reqData.chbxOtherSig) ||
         (reqData.chbxProspectInSameHotelAsEmployee &&
           !reqData.chbxProspectInSameHotelAsEmployeeSig) ||
@@ -1334,14 +1327,14 @@ export default class TravelRequest extends React.Component<
       "molly.hendricks@laecondev.onmicrosoft.com" == currentUser.loginName ||
       "kristin.pace@laecondev.onmicrosoft.com" == currentUser.loginName ||
       "nicolaus.james@laecondev.onmicrosoft.com" == currentUser.loginName ||
+      "nicolaus.james@la.gov" == currentUser.loginName ||
       "admin@laecondev.onmicrosoft.com" == currentUser.loginName
         ? true
         : false;
-    //Controls all fields except Section F
     const disableControls =
       reqData.status == "Draft" || isAcctMgr || isAdmin ? false : true;
     //const empMinusClaims = employeeLogin ? employeeLogin.split('|')[2] : currentUser.loginName;
-    const empMinusClaims = employeeLogin ? [employeeLogin.split("|")[2]] : [];
+    //const empMinusClaims = employeeLogin ? [employeeLogin.split("|")[2]] : [];
 
     return (
       <div className={`${styles.travelRequest} printarea`}>

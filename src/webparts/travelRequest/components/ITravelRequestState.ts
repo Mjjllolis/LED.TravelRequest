@@ -9,6 +9,14 @@ import {
 export interface IReqData {
   formKey: string;
 
+  //Status
+  employeeLogin: string;
+  personnelNo: string;
+  status: string;
+  stage: string;
+  nextApprover?: number;
+  requestLog: string;
+
   //Section A
   employeeId: number;
   employeeName: string;
@@ -22,6 +30,7 @@ export interface IReqData {
   division: string;
   modeOfTransportation: string;
   justficationForTrip: string;
+  // benefitToState: string;
 
   //Section B
   chbxConferenceSeminar: boolean;
@@ -94,76 +103,11 @@ export interface IReqData {
   Grant3: string;
   WBSElemenet3: string;
 
-  //Section F
-  sectionHeadSig: string;
-  sectionHeadSigDate: string;
-  departmentHeadSig: string;
-  departmentHeadSigDate: string;
-
+  
   //Section G
   extraNotes: string;
-
-  //Everything Below is useless, it's here to we don't hit errors
-  employeeLogin: string;
-  personnelNo: string;
-  costCenter: string;
-  domicile: string;
-  taNo: string;
-  departureTime: string;
-  returnTime: string;
-  fund: string;
-  dateOfRequest: Date;
-  fYBudget?: string;
-  amtRemainBudget?: string;
-  amtRemainingAfterThis?: string;
-  authBudget?: string;
-  benefitToState: string;
-  gL: string;
-  sMAGL: string;
-  fySpecialMarketing?: string;
-  fySpecialMarketingamtRemaining?: string;
-  fySpecialMarketingamtRemainingAfterThis?: string;
-  fYBudgetFY2?: string;
-  amtRemainBudgetFY2?: string;
-  amtRemainingAfterThisFY2?: string;
-  authBudgetFY2?: string;
-  fySpecialMarketingFY2?: string;
-  fySpecialMarketingamtRemainingFY2?: string;
-  fySpecialMarketingamtRemainingAfterThisFY2?: string;
-
-  status: string;
-  stage: string;
-  nextApprover?: number;
-  requestLog: string;
-
-  airTravelAgencyUsed: string;
-  airTravelAgencyUsedJustification: string;
-  airFare: string;
-  vehicleType: string;
-  vehiclePassengers: string;
-  vehicleRentalTypeIsCompact: string;
-  vehicleRentalJustificationChoice: string;
-  vehicleRentalJustificationText: string;
-  limoTaxi: string;
-  limoTaxiFareAmount?: string;
-  tollsAndParking: string;
-  tollsAndParkingAmount?: string;
-  totalTransportationExpense?: string;
-  lodging: MultidayCost[];
-  meals: MultidayCost[];
-  tips: string;
-  tipsAmount?: string;
-  otherExpensePayableTo: string;
-  otherExpensePaymentMethod: string;
-  otherExpenseDueDate: string;
-  otherExpenseAmount?: string;
-  totalEstimatedTravelAmount?: string;
-  specialMarketingActivitiesAmountNotes: string;
-  travelAdvanceDate: string;
-  travelAdvanceAmount?: string;
-  chbxGPSRentalVehicle: boolean;
-
-  EstimatedCompensatoryTime: string;
+  
+  //Acct Managers
   employeeApproval: Approver;
   sectionHead?: Approver;
   secretary?: Approver;
@@ -173,9 +117,61 @@ export interface IReqData {
   acctmgr1?: Approver;
   acctmgr2?: Approver;
   acctAdmin?: Approver;
-  budgetYear1?: number;
-  budgetYear2?: number;
-  //Everything Above is useless, it's here to we don't hit errors
+
+  //Everything Below is useless
+  // costCenter: string;
+  // domicile: string;
+  // taNo: string;
+  // departureTime: string;
+  // returnTime: string;
+  // fund: string;
+  // dateOfRequest: Date;
+  // fYBudget?: string;
+  // amtRemainBudget?: string;
+  // amtRemainingAfterThis?: string;
+  // authBudget?: string;
+  // gL: string;
+  // sMAGL: string;
+  // fySpecialMarketing?: string;
+  // fySpecialMarketingamtRemaining?: string;
+  // fySpecialMarketingamtRemainingAfterThis?: string;
+  // fYBudgetFY2?: string;
+  // amtRemainBudgetFY2?: string;
+  // amtRemainingAfterThisFY2?: string;
+  // authBudgetFY2?: string;
+  // fySpecialMarketingFY2?: string;
+  // fySpecialMarketingamtRemainingFY2?: string;
+  // fySpecialMarketingamtRemainingAfterThisFY2?: string;
+  // airTravelAgencyUsed: string;
+  // airTravelAgencyUsedJustification: string;
+  // airFare: string;
+  // vehicleType: string;
+  // vehiclePassengers: string;
+  // vehicleRentalTypeIsCompact: string;
+  // vehicleRentalJustificationChoice: string;
+  // vehicleRentalJustificationText: string;
+  // limoTaxi: string;
+  // limoTaxiFareAmount?: string;
+  // tollsAndParking: string;
+  // tollsAndParkingAmount?: string;
+  // totalTransportationExpense?: string;
+  //lodging: MultidayCost[];
+  //meals: MultidayCost[];
+  // tips: string;
+  // tipsAmount?: string;
+  // otherExpensePayableTo: string;
+  // otherExpensePaymentMethod: string;
+  // otherExpenseDueDate: string;
+  // otherExpenseAmount?: string;
+  // totalEstimatedTravelAmount?: string;
+  // specialMarketingActivitiesAmountNotes: string;
+  // travelAdvanceDate: string;
+  // travelAdvanceAmount?: string;
+  // chbxGPSRentalVehicle: boolean;
+  // EstimatedCompensatoryTime: string;
+  // budgetYear1?: number;
+  // budgetYear2?: number;
+  //Everything Above is most likely useless, it's here to we don't hit errors
 }
 export interface ITravelRequestState {
   error: boolean;
