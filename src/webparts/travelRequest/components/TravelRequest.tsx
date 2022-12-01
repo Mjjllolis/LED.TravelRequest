@@ -905,7 +905,6 @@ export default class TravelRequest extends React.Component<
 
     switch (approvalName) {
       case "employeeApproval":
-        //Employee
         if (
           st.reqData.sectionHead.approvalStatus == "" &&
           st.reqData.sectionHead.userId
@@ -937,7 +936,6 @@ export default class TravelRequest extends React.Component<
         break;
 
       case "sectionHead":
-        //Section Head
         if (
           st.reqData.secretary.approvalStatus == "" &&
           st.reqData.secretary.userId
@@ -2148,9 +2146,8 @@ export default class TravelRequest extends React.Component<
                 </div>
                 {budget.approvalStatus !==
                   "Approved" /*&& budget.userLogin == currentUser.loginName*/ && (
-                  <div>
+                  <div className={styles.center}>
                     <PrimaryButton
-                      className={styles.buttonSpacing}
                       data-automation-id="BudgetApprove"
                       text="Budget Amounts Added"
                       title="budget"
@@ -2255,7 +2252,7 @@ export default class TravelRequest extends React.Component<
                   onChange={this.handlereqDataTextChange.bind(this)}
                 />
                 &nbsp;
-                <TextField
+                {/* <TextField
                   className={styles.sectionETextbox}
                   underlined
                   name="deputySecretary"
@@ -2263,7 +2260,7 @@ export default class TravelRequest extends React.Component<
                   disabled={disableControls}
                   onChange={this.handlereqDataTextChange.bind(this)}
                 />
-                <h2 className={styles.sectionHeader}>Deputy Undersecretary</h2>
+                <h2 className={styles.sectionHeader}>Deputy Undersecretary</h2> */}
               </Stack>
             </div>
 
@@ -2459,86 +2456,171 @@ export default class TravelRequest extends React.Component<
                 Section F: Approval Signature
               </h2>
             </div>
-
+            {/* Employee Approval */}
             <div className="ms-Grid-row">
-              <div className="ms-Grid-col ms-sm6">
-                <div className={styles.approvalBox}>
-                  {sectionHead.approvalStatus !== "Approved" &&
-                    sectionHead.userLogin !== currentUser.loginName && (
-                      <div className={styles.smallWhenPrinting}>
-                        {sectionHead.approvalString}
-                      </div>
-                    )}
-                  {sectionHead.approvalStatus !== "Approved" &&
-                    sectionHead.userLogin == currentUser.loginName && (
-                      <div>
-                        <PrimaryButton
-                          className={styles.buttonSpacing}
-                          data-automation-id="SectionHeadApprove"
-                          text="Approve"
-                          title="sectionHead"
-                          onClick={this.approvalButton.bind(
-                            this,
-                            "sectionHead"
-                          )}
-                        />
-                      </div>
-                    )}
-                  {sectionHead.approvalStatus == "Approved" && (
-                    <div>
-                      <div className={styles.smallWhenPrinting}>
-                        {sectionHead.approvalString}
-                      </div>
-                      {sectionHead.comment && (
-                        <div>Comment: {sectionHead.comment}</div>
-                      )}
+              <div className={styles.approvalBox}>
+                {" "}
+                {reqData.employeeApproval.approvalStatus !== "Approved" &&
+                  reqData.employeeApproval.userLogin !==
+                    currentUser.loginName && (
+                    <div className={styles.smallWhenPrinting}>
+                      {" "}
+                      Pending Approval from{" "}
+                      {reqData.employeeApproval.displayName}
                     </div>
                   )}
-                </div>
-                <span className={styles.approvalTitle}>Section Head</span>
-              </div>
-              <div className="ms-Grid-col ms-sm6">
-                <div className={styles.approvalBox}>
-                  {secretary.approvalStatus !== "Approved" &&
-                    secretary.userLogin !== currentUser.loginName && (
-                      <div className={styles.smallWhenPrinting}>
-                        {" "}
-                        {secretary.approvalString}
-                      </div>
-                    )}
-                  {secretary.approvalStatus !== "Approved" &&
-                    secretary.userLogin == currentUser.loginName && (
-                      <div>
-                        <PrimaryButton
-                          className={styles.buttonSpacing}
-                          data-automation-id="secretaryApprove"
-                          text="Approve"
-                          title="secretary"
-                          disabled={disableSubmitForSpecialSigs}
-                          onClick={this.approvalButton.bind(this, "secretary")}
-                        />
-                        {disableSubmitForSpecialSigs && (
-                          <div>
-                            Please ensure all Special Approvals are signed.
-                          </div>
+                {reqData.employeeApproval.approvalStatus !== "Approved" &&
+                  reqData.employeeApproval.userLogin ==
+                    currentUser.loginName && (
+                    <div>
+                      <PrimaryButton
+                        className={styles.buttonSpacing}
+                        data-automation-id="employeeApproval"
+                        disabled={disableSubmit}
+                        text="Approve"
+                        title="employeeApproval"
+                        onClick={this.approvalButton.bind(
+                          this,
+                          "employeeApproval"
                         )}
-                      </div>
+                      />
+                    </div>
+                  )}
+                {reqData.employeeApproval.approvalStatus == "Approved" && (
+                  <div>
+                    <div className={styles.smallWhenPrinting}>
+                      {reqData.employeeApproval.approvalString}
+                    </div>
+                    {undersecretary.comment && (
+                      <div>Comment: {undersecretary.comment}</div>
                     )}
-                  {secretary.approvalStatus == "Approved" && (
+                  </div>
+                )}
+              </div>
+              <span className={styles.approvalTitle}>Employee</span>
+            </div>
+
+            {/* Section Head Approval */}
+            <div className="ms-Grid-row">
+              <div className={styles.approvalBox}>
+                {sectionHead.approvalStatus !== "Approved" &&
+                  sectionHead.userLogin !== currentUser.loginName && (
+                    <div className={styles.smallWhenPrinting}>
+                      {sectionHead.approvalString}
+                    </div>
+                  )}
+                {sectionHead.approvalStatus !== "Approved" &&
+                  sectionHead.userLogin == currentUser.loginName && (
                     <div>
-                      <div className={styles.smallWhenPrinting}>
-                        {secretary.approvalString}
-                      </div>
-                      {secretary.comment && (
-                        <div>Comment: {secretary.comment}</div>
+                      <PrimaryButton
+                        className={styles.buttonSpacing}
+                        data-automation-id="SectionHeadApprove"
+                        text="Approve"
+                        title="sectionHead"
+                        onClick={this.approvalButton.bind(this, "sectionHead")}
+                      />
+                    </div>
+                  )}
+                {sectionHead.approvalStatus == "Approved" && (
+                  <div>
+                    <div className={styles.smallWhenPrinting}>
+                      {sectionHead.approvalString}
+                    </div>
+                    {sectionHead.comment && (
+                      <div>Comment: {sectionHead.comment}</div>
+                    )}
+                  </div>
+                )}
+              </div>
+              <span className={styles.approvalTitle}>Section Head</span>
+            </div>
+
+            {/* Department Head Approval */}
+            <div className="ms-Grid-row">
+              <div className={styles.approvalBox}>
+                {secretary.approvalStatus !== "Approved" &&
+                  secretary.userLogin !== currentUser.loginName && (
+                    <div className={styles.smallWhenPrinting}>
+                      {" "}
+                      {secretary.approvalString}
+                    </div>
+                  )}
+                {secretary.approvalStatus !== "Approved" &&
+                  secretary.userLogin == currentUser.loginName && (
+                    <div>
+                      <PrimaryButton
+                        className={styles.buttonSpacing}
+                        data-automation-id="secretaryApprove"
+                        text="Approve"
+                        title="secretary"
+                        disabled={disableSubmitForSpecialSigs}
+                        onClick={this.approvalButton.bind(this, "secretary")}
+                      />
+                      {disableSubmitForSpecialSigs && (
+                        <div>
+                          Please ensure all Special Approvals are signed.
+                        </div>
                       )}
                     </div>
                   )}
-                </div>
-                <span className={styles.approvalTitle}>
-                  Department Head/Designee Signature
-                </span>
+                {secretary.approvalStatus == "Approved" && (
+                  <div>
+                    <div className={styles.smallWhenPrinting}>
+                      {secretary.approvalString}
+                    </div>
+                    {secretary.comment && (
+                      <div>Comment: {secretary.comment}</div>
+                    )}
+                  </div>
+                )}
               </div>
+              <span className={styles.approvalTitle}>
+                Department Head/Designee Signature
+              </span>
+            </div>
+
+            {/* Deputy Undersecretary Approval */}
+            <div className="ms-Grid-row">
+              <div className={styles.approvalBox}>
+                {deputyUndersecretary.approvalStatus !== "Approved" &&
+                  deputyUndersecretary.userLogin !== currentUser.loginName && (
+                    <div className={styles.smallWhenPrinting}>
+                      {deputyUndersecretary.approvalString}
+                    </div>
+                  )}
+                {deputyUndersecretary.approvalStatus !== "Approved" &&
+                  deputyUndersecretary.userLogin == currentUser.loginName && (
+                    <div>
+                      <PrimaryButton
+                        className={styles.buttonSpacing}
+                        data-automation-id="deputyUndersecretaryApprove"
+                        text="Approve"
+                        title="deputyUndersecretary"
+                        disabled={disableSubmitForSpecialSigs}
+                        onClick={this.approvalButton.bind(
+                          this,
+                          "deputyUndersecretary"
+                        )}
+                      />
+                    </div>
+                  )}
+                {disableSubmitForSpecialSigs && (
+                  <div>Please ensure all Special Approvals are signed.</div>
+                )}
+                {deputyUndersecretary.approvalStatus == "Approved" && (
+                  <div>
+                    <div className={styles.smallWhenPrinting}>
+                      {deputyUndersecretary.approvalString}
+                    </div>
+                    {deputyUndersecretary.comment && (
+                      <div>Comment: {deputyUndersecretary.comment}</div>
+                    )}
+                  </div>
+                )}
+              </div>
+              <span className={styles.approvalTitle}>
+                Deputy Undersecretary
+              </span>
             </div>
           </div>
         </div>

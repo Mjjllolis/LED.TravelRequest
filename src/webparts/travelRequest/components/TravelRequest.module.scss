@@ -31,6 +31,12 @@
     @include ms-fontColor-white;
   }
 
+  .center {
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+  }
+
   .sectionHeader {
     margin-block-end: 0px;
     margin-block-start: 0px;
@@ -219,6 +225,7 @@
     border-bottom-style: solid;
     border-bottom-color: rgb(166, 166, 166);
     padding: 5px;
+    margin-bottom: 10px;
   }
   .approvalTitle {
     background: #f4f4f4;
@@ -228,6 +235,7 @@
   .buttonSpacing {
     margin-right: 10px;
   }
+
   .actionBtn {
     font-size: 14px;
   }

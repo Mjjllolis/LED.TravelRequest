@@ -103,10 +103,9 @@ export interface IReqData {
   Grant3: string;
   WBSElemenet3: string;
 
-  
   //Section G
   extraNotes: string;
-  
+
   //Acct Managers
   employeeApproval: Approver;
   sectionHead?: Approver;
