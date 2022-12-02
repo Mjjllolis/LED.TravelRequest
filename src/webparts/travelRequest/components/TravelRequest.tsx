@@ -462,6 +462,7 @@ export default class TravelRequest extends React.Component<
     reqData[name] = value;
     this.setState({ reqData });
   }
+
   // private handleMaskedreqDataDateChange(event) {
   //   const { name, value } = event.target;
   //   let reqData = { ...this.state.reqData };
@@ -724,6 +725,30 @@ export default class TravelRequest extends React.Component<
 
     //return message to set control validation
     return needToValidate ? valiMessage : "";
+  }
+
+  private async _getPeoplePickerItems(items: any[]) {
+    if (items.length > 0) {
+      let selectedUser = await sp.web.ensureUser(items[0].id);
+      await this.setState((prevState) => ({
+        reqData: {
+          ...prevState.reqData,
+          employeeId: selectedUser.data.Id,
+          employeeName: items[0].text,
+          employeeLogin: items[0].id,
+        },
+      }));
+      this._getAndSetApprovers();
+    } else {
+      this.setState((prevState) => ({
+        reqData: {
+          ...prevState.reqData,
+          employeeId: undefined,
+          employeeName: "",
+          employeeLogin: "",
+        },
+      }));
+    }
   }
 
   private async _getAndSetApprovers() {
@@ -1332,7 +1357,7 @@ export default class TravelRequest extends React.Component<
     const disableControls =
       reqData.status == "Draft" || isAcctMgr || isAdmin ? false : true;
     //const empMinusClaims = employeeLogin ? employeeLogin.split('|')[2] : currentUser.loginName;
-    //const empMinusClaims = employeeLogin ? [employeeLogin.split("|")[2]] : [];
+    const empMinusClaims = employeeLogin ? [employeeLogin.split("|")[2]] : [];
 
     return (
       <div className={`${styles.travelRequest} printarea`}>
@@ -1366,7 +1391,22 @@ export default class TravelRequest extends React.Component<
             {/* Section A Row 2*/}
             <Stack horizontal>
               <label className={styles.generalLabel}>Name:</label>
-              <TextField
+              <div className="ms-Grid-col ms-sm6">
+                <PeoplePicker
+                  context={this.props.context}
+                  personSelectionLimit={1}
+                  peoplePickerCntrlclassName="slimPeoplePicker"
+                  showtooltip={true}
+                  isRequired={true}
+                  defaultSelectedUsers={empMinusClaims}
+                  disabled={disableControls}
+                  selectedItems={this._getPeoplePickerItems.bind(this)}
+                  showHiddenInUI={false}
+                  principalTypes={[PrincipalType.User]}
+                  resolveDelay={400}
+                />
+              </div>
+              {/* <TextField
                 underlined
                 className="ms-Grid-col ms-sm6"
                 name="employeeName"
@@ -1381,7 +1421,7 @@ export default class TravelRequest extends React.Component<
                 )}
                 disabled={disableControls}
                 onChange={this.handlereqDataTextChange.bind(this)}
-              />
+              /> */}
               &nbsp;
               <label className={styles.generalLabel}>Destination:</label>
               <TextField
@@ -1840,7 +1880,7 @@ export default class TravelRequest extends React.Component<
                           value={reqData.mileageRate.toString()}
                           validateOnLoad={false}
                           disabled={true}
-                          onBlur={this.handlereqDataNumberChange.bind(
+                          onBlur={this.handlereqDataWholeNumberChange.bind(
                             this,
                             "mileageRate"
                           )}
@@ -2067,7 +2107,7 @@ export default class TravelRequest extends React.Component<
                           value={reqData.costPerTraveler.toString()}
                           validateOnLoad={false}
                           //onGetErrorMessage={this.genericValidation.bind(this, name, stringIsNullOrEmpty(reqData.mileageEstimation), 'Answer Required')}
-                          disabled={disableControls}
+                          disabled={true}
                           onBlur={this.handlereqDataNumberChange.bind(
                             this,
                             "costPerTraveler"
@@ -2499,6 +2539,7 @@ export default class TravelRequest extends React.Component<
               </div>
               <span className={styles.approvalTitle}>Employee</span>
             </div>
+            <br></br>
 
             {/* Section Head Approval */}
             <div className="ms-Grid-row">
@@ -2534,6 +2575,7 @@ export default class TravelRequest extends React.Component<
               </div>
               <span className={styles.approvalTitle}>Section Head</span>
             </div>
+            <br></br>
 
             {/* Department Head Approval */}
             <div className="ms-Grid-row">
@@ -2578,6 +2620,7 @@ export default class TravelRequest extends React.Component<
                 Department Head/Designee Signature
               </span>
             </div>
+            <br></br>
 
             {/* Deputy Undersecretary Approval */}
             <div className="ms-Grid-row">
