@@ -170,7 +170,6 @@ export default class TravelRequest extends React.Component<
 
       reqData: {
         formKey: "",
-        employeeLogin: "",
         personnelNo: "",
         status: "Draft",
         stage: "",
@@ -181,10 +180,11 @@ export default class TravelRequest extends React.Component<
         employeeId: null,
         employeeName: "",
         employeeTitle: "",
+        employeeLogin: "",
+        agency: "",
         destination: "",
         departureDateStr: "",
         returnDateStr: "",
-        agency: "",
         division: "",
         justficationForTrip: "",
         modeOfTransportation: "",
@@ -755,6 +755,7 @@ export default class TravelRequest extends React.Component<
     let employeesApprovers = await this.service.GetApprovers(
       this.state.reqData.employeeLogin
     );
+    console.log(employeesApprovers);
     let reqData = { ...this.state.reqData };
 
     reqData.employeeApproval.displayName = reqData.employeeName
@@ -766,6 +767,7 @@ export default class TravelRequest extends React.Component<
     reqData.employeeApproval.userId = reqData.employeeId
       ? reqData.employeeId
       : null;
+
     if (reqData.employeeApproval.approvalStatus == "Approved") {
       reqData.employeeApproval.approvalString = `Approved by ${
         reqData.employeeApproval.displayName
@@ -911,12 +913,14 @@ export default class TravelRequest extends React.Component<
   private async approvalButton(approvalName) {
     //set approval status on the current approval object
 
-    // if(st.reqData.employeeApproval.approvalString = ""){
-    //   st.reqData.employeeApproval.approvalStatus = "Approved";
-    //   st.reqData.employeeApproval.approvalDate = new Date();
-    //   st.reqData.employeeApproval.approvalString = `Approved by ${st.reqData.employeeApproval.displayName} at ${new Date().toDateString()} ${new Date().toLocaleTimeString()}`
-    //   await this.setState(st);
-    // }
+    if ((st.reqData.employeeApproval.approvalString = "")) {
+      st.reqData.employeeApproval.approvalStatus = "Approved";
+      st.reqData.employeeApproval.approvalDate = new Date();
+      st.reqData.employeeApproval.approvalString = `Approved by ${
+        st.reqData.employeeApproval.displayName
+      } at ${new Date().toDateString()} ${new Date().toLocaleTimeString()}`;
+      await this.setState(st);
+    }
     var st = { ...this.state };
     var skipApprovalVerbiage = "N/A";
     st.reqData.status = "In Progress";
@@ -1279,7 +1283,17 @@ export default class TravelRequest extends React.Component<
     this._getAndSetApprovers();
 
     let reqData = { ...this.state.reqData };
-    //sectionHead.userLogin = "admin@laecondev.onmicrosoft.com";
+
+    // reqData.employeeApproval.userLogin = "admin@laecondev.onmicrosoft.com";
+    // reqData.sectionHead.userLogin = "admin@laecondev.onmicrosoft.com";
+    // reqData.secretary.userLogin = "admin@laecondev.onmicrosoft.com";
+    // reqData.undersecretary.userLogin = "admin@laecondev.onmicrosoft.com";
+    // reqData.deputyUndersecretary.userLogin = "admin@laecondev.onmicrosoft.com";
+    // reqData.budget.userLogin = "admin@laecondev.onmicrosoft.com";
+    // reqData.acctmgr1.userLogin = "admin@laecondev.onmicrosoft.com";
+    // reqData.acctmgr2.userLogin = "admin@laecondev.onmicrosoft.com";
+    // reqData.acctAdmin.userLogin = "admin@laecondev.onmicrosoft.com";
+
     this.setState({ reqData });
 
     //end Init
@@ -1305,30 +1319,30 @@ export default class TravelRequest extends React.Component<
     let disableSubmitForSpecialSigs = false;
     if (
       !reqData.agency ||
-      !reqData.personnelNo ||
       !reqData.departureDateStr ||
       !reqData.returnDateStr ||
       !reqData.destination ||
       !reqData.justficationForTrip
+      //!reqData.personnelNo ||
       // !reqData.benefitToState
       // !reqData.domicile
     ) {
       disableSubmit = true;
     }
-    if (
-      (reqData.stage == "Secretary" ||
-        reqData.stage == "Undersecretary" ||
-        reqData.stage == "Deputy Undersecretary") &&
-      ((reqData.chbx50pctLodgingException &&
-        !reqData.chbx50pctLodgingExceptionSig) ||
-        (reqData.chbxOther && !reqData.chbxOtherSig) ||
-        (reqData.chbxProspectInSameHotelAsEmployee &&
-          !reqData.chbxProspectInSameHotelAsEmployeeSig) ||
-        (reqData.chbxSpecialMarketingActivities &&
-          !reqData.chbxSpecialMarketingActivitiesSig))
-    ) {
-      disableSubmitForSpecialSigs = true;
-    }
+    // if (
+    //   (reqData.stage == "Secretary" ||
+    //     reqData.stage == "Undersecretary" ||
+    //     reqData.stage == "Deputy Undersecretary") &&
+    //   ((reqData.chbx50pctLodgingException &&
+    //     !reqData.chbx50pctLodgingExceptionSig) ||
+    //     (reqData.chbxOther && !reqData.chbxOtherSig) ||
+    //     (reqData.chbxProspectInSameHotelAsEmployee &&
+    //       !reqData.chbxProspectInSameHotelAsEmployeeSig) ||
+    //     (reqData.chbxSpecialMarketingActivities &&
+    //       !reqData.chbxSpecialMarketingActivitiesSig))
+    // ) {
+    //   disableSubmitForSpecialSigs = true;
+    // }
 
     const isBudgetApprover =
       budget.userLogin == currentUser.loginName.toLowerCase() ? true : false;
@@ -2667,7 +2681,6 @@ export default class TravelRequest extends React.Component<
             </div>
           </div>
         </div>
-
         {/* Section G */}
         <br></br>
         <div>
@@ -2684,6 +2697,32 @@ export default class TravelRequest extends React.Component<
           />
         </div>
         <br></br>
+
+        {/*Section Test */}
+        {/* <TextField
+          underlined
+          className="ms-Grid-col ms-sm6"
+          name="employeeName"
+          value={reqData.employeeApproval.displayName}
+          validateOnLoad={false}
+          onChange={this.handlereqDataTextChange.bind(this)}
+        />
+        <TextField
+          underlined
+          className="ms-Grid-col ms-sm6"
+          name="employeeTitle"
+          value={reqData.employeeApproval.jobTitle}
+          validateOnLoad={false}
+          onChange={this.handlereqDataTextChange.bind(this)}
+        />
+        <TextField
+          underlined
+          className="ms-Grid-col ms-sm6"
+          name="employeeLogin"
+          value={reqData.employeeApproval.userLogin}
+          validateOnLoad={false}
+          onChange={this.handlereqDataTextChange.bind(this)}
+        />{" "} */}
 
         {/* Tool Options */}
         <br></br>
