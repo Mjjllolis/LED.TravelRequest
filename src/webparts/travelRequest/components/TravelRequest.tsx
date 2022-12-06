@@ -270,7 +270,7 @@ export default class TravelRequest extends React.Component<
           userLogin: "",
           jobTitle: "Employee",
           displayName: "",
-          approvalStatus: "",
+          approvalStatus: "Approved",
           approvalDate: new Date(),
           comment: "",
           userId: null,
@@ -2227,18 +2227,6 @@ export default class TravelRequest extends React.Component<
                     </div>
                   </div>
                 </div>
-                {budget.approvalStatus !==
-                  "Approved" /*&& budget.userLogin == currentUser.loginName*/ && (
-                  <div className={styles.center}>
-                    <PrimaryButton
-                      data-automation-id="BudgetApprove"
-                      text="Budget Amounts Added"
-                      title="budget"
-                      disabled={!isBudgetApprover}
-                      onClick={this.approvalButton.bind(this, "budget")}
-                    />
-                  </div>
-                )}
               </div>
             </div>
           </div>
@@ -2344,6 +2332,19 @@ export default class TravelRequest extends React.Component<
                   onChange={this.handlereqDataTextChange.bind(this)}
                 />
                 <h2 className={styles.sectionHeader}>Deputy Undersecretary</h2> */}
+                {budget.approvalStatus !==
+                  "Approved" /*&& budget.userLogin == currentUser.loginName*/ && (
+                  <div>
+                    <PrimaryButton
+                      className="budgetButton"
+                      data-automation-id="BudgetApprove"
+                      text="Budget Approval"
+                      title="budget"
+                      disabled={!isBudgetApprover}
+                      onClick={this.approvalButton.bind(this, "budget")}
+                    />
+                  </div>
+                )}
               </Stack>
             </div>
 
@@ -2539,7 +2540,7 @@ export default class TravelRequest extends React.Component<
                 Section F: Approval Signature
               </h2>
             </div>
-            {/* Employee Approval */}
+            {/* Employee Approval 
             <div className="ms-Grid-row">
               <div className={styles.approvalBox}>
                 {" "}
@@ -2583,6 +2584,7 @@ export default class TravelRequest extends React.Component<
               <span className={styles.approvalTitle}>Employee</span>
             </div>
             <br></br>
+            */}
 
             {/* Section Head Approval */}
             <div className="ms-Grid-row">
@@ -2775,11 +2777,11 @@ export default class TravelRequest extends React.Component<
             text="Close"
             className={`${styles.buttonSpacing} ${styles.printHide}`}
           />
-          <DefaultButton
+          {/* <DefaultButton
             onClick={this.printPage.bind(this)}
             text="Print"
             className={`${styles.buttonSpacing} ${styles.printHide}`}
-          />
+          /> */}
           <DefaultButton
             onClick={this.emailPDF.bind(this)}
             disabled={disableSubmit}
