@@ -30,6 +30,7 @@ export interface IReqData {
   division: string;
   modeOfTransportation: string;
   justficationForTrip: string;
+  dateOfRequest: Date;
   // benefitToState: string;
 
   //Section B
@@ -124,7 +125,7 @@ export interface IReqData {
   // departureTime: string;
   // returnTime: string;
   // fund: string;
-  // dateOfRequest: Date;
+  //
   // fYBudget?: string;
   // amtRemainBudget?: string;
   // amtRemainingAfterThis?: string;

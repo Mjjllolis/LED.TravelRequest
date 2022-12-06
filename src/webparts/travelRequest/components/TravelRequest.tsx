@@ -156,6 +156,7 @@ export default class TravelRequest extends React.Component<
   ITravelRequestState
 > {
   private service: DataService;
+
   constructor(props) {
     super(props);
 
@@ -175,6 +176,7 @@ export default class TravelRequest extends React.Component<
         stage: "",
         nextApprover: null,
         requestLog: "",
+        dateOfRequest: new Date(),
 
         //Section A
         employeeId: null,
@@ -362,7 +364,7 @@ export default class TravelRequest extends React.Component<
         // departureTime: "",
         // returnTime: "",
         // fund: "",
-        // dateOfRequest: new Date(),
+        //
         // fYBudget: "0.00",
         // amtRemainBudget: "0.00",
         // amtRemainingAfterThis: "0.00",
@@ -460,6 +462,16 @@ export default class TravelRequest extends React.Component<
     const { name, value } = event.target;
     let reqData = { ...this.state.reqData };
     reqData[name] = value;
+    this.setState({ reqData });
+  }
+
+  private _onFormatDate = (date: Date): string => {
+    return date.toLocaleDateString();
+  };
+
+  private _onSelectDate(id, date: Date | null | undefined) {
+    let reqData = { ...this.state.reqData };
+    reqData[id] = date;
     this.setState({ reqData });
   }
 
@@ -913,14 +925,12 @@ export default class TravelRequest extends React.Component<
   private async approvalButton(approvalName) {
     //set approval status on the current approval object
 
-    if ((st.reqData.employeeApproval.approvalString = "")) {
-      st.reqData.employeeApproval.approvalStatus = "Approved";
-      st.reqData.employeeApproval.approvalDate = new Date();
-      st.reqData.employeeApproval.approvalString = `Approved by ${
-        st.reqData.employeeApproval.displayName
-      } at ${new Date().toDateString()} ${new Date().toLocaleTimeString()}`;
-      await this.setState(st);
-    }
+    // if(st.reqData.employeeApproval.approvalString = ""){
+    //   st.reqData.employeeApproval.approvalStatus = "Approved";
+    //   st.reqData.employeeApproval.approvalDate = new Date();
+    //   st.reqData.employeeApproval.approvalString = `Approved by ${st.reqData.employeeApproval.displayName} at ${new Date().toDateString()} ${new Date().toLocaleTimeString()}`
+    //   await this.setState(st);
+    // }
     var st = { ...this.state };
     var skipApprovalVerbiage = "N/A";
     st.reqData.status = "In Progress";
@@ -1087,53 +1097,56 @@ export default class TravelRequest extends React.Component<
     await this.setState(st);
     await this.SaveAndCloseButton("Yes");
 
-    let specApprArray = [
-      "chbxVehicleRental",
-      "chbxGPSRentalVehicle",
-      "chbxProspectInSameHotelAsEmployee",
-      "chbxSpecialMarketingActivities",
-      "chbx50pctLodgingException",
-      "chbxOther",
-    ];
-    let unapprovedSpecs = false;
-    specApprArray.forEach((e) => {
-      if (
-        st.reqData[e] == true &&
-        st.reqData[e + "Sig"] == "" &&
-        (approvalName == "deputyUndersecretary" ||
-          approvalName == "undersecretary")
-      ) {
-        unapprovedSpecs = true;
-      }
-    });
-    if (unapprovedSpecs) {
-      //toast.success("One or more special approvals still need approval! Please Approve and Save Form");
-      toast.warn(
-        "One or items in the Special Approvals Section still need approval! Please Approve and Save Form"
-      );
-    } else {
-      toast.success("Form approved!");
-    }
+    //Lets user know if unapproved specs are not approved
+    // let specApprArray = [
+    //   "chbxVehicleRental",
+    //   "chbxGPSRentalVehicle",
+    //   "chbxProspectInSameHotelAsEmployee",
+    //   "chbxSpecialMarketingActivities",
+    //   "chbx50pctLodgingException",
+    //   "chbxOther",
+    // ];
+    // let unapprovedSpecs = false;
+    // specApprArray.forEach((e) => {
+    //   if (
+    //     st.reqData[e] == true &&
+    //     st.reqData[e + "Sig"] == "" &&
+    //     (approvalName == "deputyUndersecretary" ||
+    //       approvalName == "undersecretary")
+    //   ) {
+    //     unapprovedSpecs = true;
+    //   }
+    // });
+    // if (unapprovedSpecs) {
+    //   //toast.success("One or more special approvals still need approval! Please Approve and Save Form");
+    //   toast.warn(
+    //     "One or items in the Special Approvals Section still need approval! Please Approve and Save Form"
+    //   );
+    // } else {
+    //   toast.success("Form approved!");
+    // }
   }
 
-  // private rejectButton(approval: Approver, event) {
-  //   //check and only continue if comment is added
+  //private rejectButton(approval: Approver, event) {
+  //check and only continue if comment is added
 
-  //   //prompt to ensure that user wants to cancel existing approvals and restart process
+  //prompt to ensure that user wants to cancel existing approvals and restart process
 
-  //   //remove approval status on all other approvals and set stage
+  //remove approval status on all other approvals and set stage
 
-  //   //set rejection info with user name, date and comments to be used in emails and logs
+  //set rejection info with user name, date and comments to be used in emails and logs
 
-  //   //append rejection info to request log
+  //append rejection info to request log
 
-  //   //save form
-  //   this.SaveButton();
-  // }
+  //save form
+  //this.SaveButton();
+  //}
 
   private async SaveButton() {
     this.setState({ saving: true });
+    //toast.success("Saving Item to Service Database!");
     let itemId = await this.service.SaveRequest(this.state);
+    //toast.success("Form not saved yet 2!");
     this.setState({ saving: false, requestID: itemId });
     toast.success("Form saved!");
   }
@@ -1316,7 +1329,7 @@ export default class TravelRequest extends React.Component<
     const addIcon: IIconProps = { iconName: "Add" };
     const removeIcon: IIconProps = { iconName: "Cancel" };
     let disableSubmit = validations.length > 0 ? true : false;
-    let disableSubmitForSpecialSigs = false;
+    let disableSubmitForSpecialSigs = false; //Change to false if you want to use this function
     if (
       !reqData.agency ||
       !reqData.departureDateStr ||
@@ -1405,7 +1418,7 @@ export default class TravelRequest extends React.Component<
             {/* Section A Row 2*/}
             <Stack horizontal>
               <label className={styles.generalLabel}>Name:</label>
-              <div className="ms-Grid-col ms-sm6">
+              <div className="ms-Grid-col ms-sm4">
                 <PeoplePicker
                   context={this.props.context}
                   personSelectionLimit={1}
@@ -1436,11 +1449,27 @@ export default class TravelRequest extends React.Component<
                 disabled={disableControls}
                 onChange={this.handlereqDataTextChange.bind(this)}
               /> */}
+              <div className="ms-Grid-col ms-sm4">
+                <DatePicker
+                  className={styles.DatepickerComboBox}
+                  label="Date of Request: "
+                  id="dateOfRequest"
+                  isRequired={true}
+                  strings={DatePickerStrings}
+                  //dateConvention={DateConvention.Date}
+                  underlined
+                  formatDate={this._onFormatDate}
+                  value={reqData.dateOfRequest}
+                  //disabled={ disableControls }
+                  disabled={true}
+                  onSelectDate={this._onSelectDate.bind(this, "dateOfRequest")}
+                />
+              </div>
               &nbsp;
               <label className={styles.generalLabel}>Destination:</label>
               <TextField
                 underlined
-                className="ms-Grid-col ms-sm6"
+                className="ms-Grid-col ms-sm4"
                 name="destination"
                 value={reqData.destination}
                 required={true}
@@ -2726,52 +2755,44 @@ export default class TravelRequest extends React.Component<
 
         {/* Tool Options */}
         <br></br>
-        <div className="ms-Grid">
-          <div className="ms-Grid-row">
-            {reqData.status == "Draft" && (
-              <PrimaryButton
-                data-automation-id="test"
-                disabled={disableSubmit}
-                text="Submit"
-                className={`${styles.buttonSpacing} ${styles.printHide}`}
-                onClick={this.Submit.bind(this)}
-              />
-            )}
+        <div>
+          {reqData.status == "Draft" && (
             <PrimaryButton
-              onClick={this.SaveButton.bind(this)}
-              text="Save"
-              className={`${styles.buttonSpacing} ${styles.printHide}`}
-            />
-            <DefaultButton
-              onClick={this.CloseForm.bind(this)}
-              text="Close"
-              className={`${styles.buttonSpacing} ${styles.printHide}`}
-            />
-            <DefaultButton
-              onClick={this.printPage.bind(this)}
-              text="Print"
-              className={`${styles.buttonSpacing} ${styles.printHide}`}
-            />
-            <DefaultButton
-              onClick={this.emailPDF.bind(this)}
+              data-automation-id="test"
               disabled={disableSubmit}
-              text="Email PDF"
+              text="Submit"
               className={`${styles.buttonSpacing} ${styles.printHide}`}
+              onClick={this.Submit.bind(this)}
             />
-            {this.state.saving == true && (
-              <Spinner
-                label="Saving Request..."
-                ariaLive="assertive"
-                labelPosition="right"
-              />
-            )}
-          </div>
-          <AddAttachment
-            isOpen={AddingAttachment}
-            context={this.props.context}
-            onClose={this._onClose.bind(this)}
-            formKey={reqData.formKey}
+          )}
+          <PrimaryButton
+            onClick={this.SaveButton.bind(this)}
+            text="Save"
+            className={`${styles.buttonSpacing} ${styles.printHide}`}
           />
+          <DefaultButton
+            onClick={this.CloseForm.bind(this)}
+            text="Close"
+            className={`${styles.buttonSpacing} ${styles.printHide}`}
+          />
+          <DefaultButton
+            onClick={this.printPage.bind(this)}
+            text="Print"
+            className={`${styles.buttonSpacing} ${styles.printHide}`}
+          />
+          <DefaultButton
+            onClick={this.emailPDF.bind(this)}
+            disabled={disableSubmit}
+            text="Email PDF"
+            className={`${styles.buttonSpacing} ${styles.printHide}`}
+          />
+          {this.state.saving == true && (
+            <Spinner
+              label="Saving Request..."
+              ariaLive="assertive"
+              labelPosition="right"
+            />
+          )}
         </div>
       </div>
     );
