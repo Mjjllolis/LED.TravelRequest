@@ -270,7 +270,7 @@ export default class TravelRequest extends React.Component<
           userLogin: "",
           jobTitle: "Employee",
           displayName: "",
-          approvalStatus: "Approved",
+          approvalStatus: "",
           approvalDate: new Date(),
           comment: "",
           userId: null,
@@ -1169,11 +1169,14 @@ export default class TravelRequest extends React.Component<
   }
 
   private async Submit() {
+    this.approvalButton("employeeApproval");
+
     if (this.state.reqData.status == "Draft") {
       let reqData = { ...this.state.reqData };
       reqData.status = "In Progress";
       let kickoffFlowValue = "Yes";
       this.setState({ kickoffFLOW: "Yes" });
+
       if (
         reqData.employeeApproval.userLogin ==
           this.props.context.pageContext.user.loginName.toLowerCase() &&
