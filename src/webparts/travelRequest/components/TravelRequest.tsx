@@ -954,7 +954,7 @@ export default class TravelRequest extends React.Component<
           st.reqData.secretary.approvalStatus == "" &&
           st.reqData.secretary.userId
         ) {
-          st.reqData.stage = "Secretary";
+          st.reqData.stage = "Department Head";
           st.reqData.nextApprover = st.reqData.secretary.userId;
           st.reqData.sectionHead.approvalStatus = skipApprovalVerbiage;
           st.reqData.sectionHead.approvalString = skipApprovalVerbiage;
@@ -979,7 +979,7 @@ export default class TravelRequest extends React.Component<
           st.reqData.secretary.approvalStatus == "" &&
           st.reqData.secretary.userId
         ) {
-          st.reqData.stage = "Secretary";
+          st.reqData.stage = "Department Head";
           st.reqData.nextApprover = st.reqData.secretary.userId;
         } else if (
           st.reqData.undersecretary.approvalStatus == "" &&
@@ -1170,6 +1170,10 @@ export default class TravelRequest extends React.Component<
 
   private async Submit() {
     this.approvalButton("employeeApproval");
+
+    this.setState({ saving: true });
+    let itemId = await this.service.SaveRequest(this.state);
+    this.setState({ saving: false, requestID: itemId });
 
     if (this.state.reqData.status == "Draft") {
       let reqData = { ...this.state.reqData };
