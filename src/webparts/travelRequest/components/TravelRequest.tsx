@@ -1171,10 +1171,6 @@ export default class TravelRequest extends React.Component<
   private async Submit() {
     this.approvalButton("employeeApproval");
 
-    this.setState({ saving: true });
-    let itemId = await this.service.SaveRequest(this.state);
-    this.setState({ saving: false, requestID: itemId });
-
     if (this.state.reqData.status == "Draft") {
       let reqData = { ...this.state.reqData };
       reqData.status = "In Progress";
