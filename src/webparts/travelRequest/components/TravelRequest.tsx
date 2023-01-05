@@ -1171,28 +1171,32 @@ export default class TravelRequest extends React.Component<
   private async Submit() {
     this.approvalButton("employeeApproval");
 
-    if (this.state.reqData.status == "Draft") {
-      let reqData = { ...this.state.reqData };
-      reqData.status = "In Progress";
-      let kickoffFlowValue = "Yes";
-      this.setState({ kickoffFLOW: "Yes" });
+    this.setState({ saving: true });
+    let itemId = await this.service.SaveRequest(this.state);
+    this.setState({ saving: false, requestID: itemId });
 
-      if (
-        reqData.employeeApproval.userLogin ==
-          this.props.context.pageContext.user.loginName.toLowerCase() &&
-        reqData.employeeApproval.approvalStatus == ""
-      ) {
-        this.approvalButton("employeeApproval");
-      } else if (reqData.employeeApproval.approvalStatus == "") {
-        reqData.stage = "Employee Approval";
-        reqData.nextApprover = reqData.employeeApproval.userId;
-        await this.setState({ reqData });
-        await this.service.SaveRequest(this.state, kickoffFlowValue);
-      }
-    } else {
-      await this.service.SaveRequest(this.state);
-    }
     this.CloseForm();
+    // if (this.state.reqData.status == "Draft") {
+    //   let reqData = { ...this.state.reqData };
+    //   reqData.status = "In Progress";
+    //   let kickoffFlowValue = "Yes";
+    //   this.setState({ kickoffFLOW: "Yes" });
+
+    //   if (
+    //     reqData.employeeApproval.userLogin ==
+    //       this.props.context.pageContext.user.loginName.toLowerCase() &&
+    //     reqData.employeeApproval.approvalStatus == ""
+    //   ) {
+    //     this.approvalButton("employeeApproval");
+    //   } else if (reqData.employeeApproval.approvalStatus == "") {
+    //     reqData.stage = "Employee Approval";
+    //     reqData.nextApprover = reqData.employeeApproval.userId;
+    //     await this.setState({ reqData });
+    //     await this.service.SaveRequest(this.state, kickoffFlowValue);
+    //   }
+    // } else {
+    //   await this.service.SaveRequest(this.state);
+    // }
   }
 
   private CloseForm() {
