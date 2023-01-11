@@ -2364,7 +2364,6 @@ export default class TravelRequest extends React.Component<
                   value={reqData.Agency1}
                   required={false}
                   validateOnLoad={false}
-                  disabled={disableControls}
                   onChange={this.handlereqDataTextChange.bind(this)}
                 />
                 <TextField
@@ -2373,7 +2372,6 @@ export default class TravelRequest extends React.Component<
                   value={reqData.Agency2}
                   required={false}
                   validateOnLoad={false}
-                  disabled={disableControls}
                   onChange={this.handlereqDataTextChange.bind(this)}
                 />
                 <TextField
@@ -2382,7 +2380,6 @@ export default class TravelRequest extends React.Component<
                   value={reqData.Agency3}
                   required={false}
                   validateOnLoad={false}
-                  disabled={disableControls}
                   onChange={this.handlereqDataTextChange.bind(this)}
                 />
               </div>
@@ -2394,7 +2391,6 @@ export default class TravelRequest extends React.Component<
                   value={reqData.CostCenter1}
                   required={false}
                   validateOnLoad={false}
-                  disabled={disableControls}
                   onChange={this.handlereqDataTextChange.bind(this)}
                 />
                 <TextField
@@ -2403,7 +2399,6 @@ export default class TravelRequest extends React.Component<
                   value={reqData.CostCenter2}
                   required={false}
                   validateOnLoad={false}
-                  disabled={disableControls}
                   onChange={this.handlereqDataTextChange.bind(this)}
                 />
                 <TextField
@@ -2412,7 +2407,6 @@ export default class TravelRequest extends React.Component<
                   value={reqData.CostCenter3}
                   required={false}
                   validateOnLoad={false}
-                  disabled={disableControls}
                   onChange={this.handlereqDataTextChange.bind(this)}
                 />
               </div>
@@ -2424,7 +2418,6 @@ export default class TravelRequest extends React.Component<
                   value={reqData.Fund1}
                   required={false}
                   validateOnLoad={false}
-                  disabled={disableControls}
                   onChange={this.handlereqDataTextChange.bind(this)}
                 />
                 <TextField
@@ -2433,7 +2426,6 @@ export default class TravelRequest extends React.Component<
                   value={reqData.Fund2}
                   required={false}
                   validateOnLoad={false}
-                  disabled={disableControls}
                   onChange={this.handlereqDataTextChange.bind(this)}
                 />
                 <TextField
@@ -2442,7 +2434,6 @@ export default class TravelRequest extends React.Component<
                   value={reqData.Fund3}
                   required={false}
                   validateOnLoad={false}
-                  disabled={disableControls}
                   onChange={this.handlereqDataTextChange.bind(this)}
                 />
               </div>
@@ -2454,7 +2445,6 @@ export default class TravelRequest extends React.Component<
                   value={reqData.GeneralLedger1}
                   required={false}
                   validateOnLoad={false}
-                  disabled={disableControls}
                   onChange={this.handlereqDataTextChange.bind(this)}
                 />
                 <TextField
@@ -2463,7 +2453,6 @@ export default class TravelRequest extends React.Component<
                   value={reqData.GeneralLedger2}
                   required={false}
                   validateOnLoad={false}
-                  disabled={disableControls}
                   onChange={this.handlereqDataTextChange.bind(this)}
                 />
                 <TextField
@@ -2472,7 +2461,6 @@ export default class TravelRequest extends React.Component<
                   value={reqData.GeneralLedger3}
                   required={false}
                   validateOnLoad={false}
-                  disabled={disableControls}
                   onChange={this.handlereqDataTextChange.bind(this)}
                 />
               </div>
@@ -2484,7 +2472,6 @@ export default class TravelRequest extends React.Component<
                   value={reqData.Grant1}
                   required={false}
                   validateOnLoad={false}
-                  disabled={disableControls}
                   onChange={this.handlereqDataTextChange.bind(this)}
                 />
                 <TextField
@@ -2493,7 +2480,6 @@ export default class TravelRequest extends React.Component<
                   value={reqData.Grant2}
                   required={false}
                   validateOnLoad={false}
-                  disabled={disableControls}
                   onChange={this.handlereqDataTextChange.bind(this)}
                 />
                 <TextField
@@ -2502,7 +2488,6 @@ export default class TravelRequest extends React.Component<
                   value={reqData.Grant3}
                   required={false}
                   validateOnLoad={false}
-                  disabled={disableControls}
                   onChange={this.handlereqDataTextChange.bind(this)}
                 />
               </div>
@@ -2514,7 +2499,6 @@ export default class TravelRequest extends React.Component<
                   value={reqData.WBSElemenet1}
                   required={false}
                   validateOnLoad={false}
-                  disabled={disableControls}
                   onChange={this.handlereqDataTextChange.bind(this)}
                 />
                 <TextField
@@ -2523,7 +2507,6 @@ export default class TravelRequest extends React.Component<
                   value={reqData.WBSElemenet2}
                   required={false}
                   validateOnLoad={false}
-                  disabled={disableControls}
                   onChange={this.handlereqDataTextChange.bind(this)}
                 />
                 <TextField
@@ -2532,7 +2515,6 @@ export default class TravelRequest extends React.Component<
                   value={reqData.WBSElemenet3}
                   required={false}
                   validateOnLoad={false}
-                  disabled={disableControls}
                   onChange={this.handlereqDataTextChange.bind(this)}
                 />
               </div>
